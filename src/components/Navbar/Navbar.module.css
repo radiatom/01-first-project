@@ -1,5 +1,8 @@
-
-.nav{
-      grid-area: n;
-      background-color: rgb(141, 165, 157);
-    }
+.nav {
+  width: 150px;
+  height: 500px;
+  grid-area: n;
+  background-color: rgb(235, 182, 151);
+  text-align: center;
+  border-radius: 5px;
+}

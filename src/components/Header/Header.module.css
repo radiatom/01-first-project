@@ -1,9 +1,9 @@
+.header {
+  height: 40px;
+  grid-area: h;
+  background-color: rgb(39, 40, 39);
+}
 
-
-.header{
-      grid-area: h;
-      background-color: aquamarine;
-    }
-    .header img{
-      width: 40px;
-    }
+.header img {
+  width: 40px;
+}
