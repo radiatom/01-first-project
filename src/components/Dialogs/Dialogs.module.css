@@ -1,5 +1,22 @@
 .dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+
     grid-area: c;
     background-color: brown;
     color: aliceblue;
+}
+.active{
+    color: gold;
+}
+.dialogsItems {
+    padding: 10px;
+}
+
+.dialog {
+    
+}
+
+.massages {
+    padding: 10px;
 }
