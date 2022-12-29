@@ -6,7 +6,7 @@ const MyPosts = (props) => {
       return (
             <div className={s.myPosts}>
                   <h3>My post</h3>
-
+                  <textarea cols="139" rows="3"  ></textarea>
                   <button>New post</button>
 
                   <div >
