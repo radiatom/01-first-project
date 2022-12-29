@@ -2,6 +2,13 @@ import React from 'react';
 import s from './MyPosts.module.css'
 import Post from './Post/Post';
 
+const postData=[
+      {id:1,massage:'Hi, how a you?',likeColum:15},
+      {id:2,massage:'Its my first post',likeColum:999}
+
+
+]
+
 const MyPosts = (props) => {
       return (
             <div className={s.myPosts}>
@@ -10,9 +17,9 @@ const MyPosts = (props) => {
                   <button>New post</button>
 
                   <div >
-                        <Post massage='Hi, how a you?' likeColum='15'/>
+                        <Post massage={postData[0].massage} likeColum={postData[0].likeColum}/>
 
-                        <Post massage='It`s my first post' likeColum='20'/>
+                        <Post massage={postData[1].massage} likeColum={postData[1].likeColum}/>
 
                         
                   </div>
