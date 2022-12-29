@@ -2,12 +2,13 @@ import React from 'react';
 import s from './MyPosts.module.css'
 import Post from './Post/Post';
 
-const postData=[
-      {id:1,massage:'Hi, how a you?',likeColum:15},
-      {id:2,massage:'Its my first post',likeColum:999}
-
-
+const postData = [
+      { id: 1, massage: 'Hi, how a you?', likeColum: 15 },
+      { id: 2, massage: 'Its my first post', likeColum: 999 }
 ]
+const posts = postData.map(el => {
+      return (<Post massage={el.massage} likeColum={el.likeColum} />)
+})
 
 const MyPosts = (props) => {
       return (
@@ -17,11 +18,7 @@ const MyPosts = (props) => {
                   <button>New post</button>
 
                   <div >
-                        <Post massage={postData[0].massage} likeColum={postData[0].likeColum}/>
-
-                        <Post massage={postData[1].massage} likeColum={postData[1].likeColum}/>
-
-                        
+                        {posts}
                   </div>
             </div>
       );
