@@ -2,16 +2,18 @@
   width: 150px;
   height: 500px;
   grid-area: n;
-  background-color: rgb(235, 182, 151);
+  background-color: rgb(228, 140, 247);
   padding: 20px;
   border-radius: 5px;
+  
   
 }
 .navLink{
   color:rgb(15, 0, 0);
   text-decoration: none;
+  font-size: 25px;
 }
 .active{
-  color:rgb(234, 4, 255);
+  color:rgb(224, 11, 25);
   text-decoration: none;
 }

@@ -4,7 +4,7 @@ const ProfileInfo = (props) => {
     return (
         <div className={s.profileInfo}>
             <div>
-                <img src="https://sputnik.kg/img/101808/12/1018081237_1488:0:4629:3455_1920x0_80_0_0_36b9c41458690f8543f8ce86421ba380.jpg" alt="" />
+                <img src="https://as2.ftcdn.net/v2/jpg/02/99/73/07/1000_F_299730781_D2CZYaxecEerqAAlRZZushSUml5Tm5Kq.jpg" alt="img" />
             </div>
             <div>Distription</div>
         </div>
