@@ -1,11 +1,8 @@
-.massage img{
-   
 
-}
 .styleHis{
 
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     background-color: rgb(48, 93, 93);
     margin: 5px;
     padding: 5px;
@@ -16,7 +13,7 @@
 
 .styleMy{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     background-color: rgb(48, 93, 93);
     margin: 5px;
     padding: 5px;
