@@ -5,6 +5,7 @@ const Massage = (props) => {
     return (
         <div className={s.dialog}>
             {props.massage}
+            <img src={props.avatar} alt="" />
         </div>
     );
 }

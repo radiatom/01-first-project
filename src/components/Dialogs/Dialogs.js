@@ -4,23 +4,18 @@ import Massage from './Massage/Massage';
 import Dialog from './Dialog/Dialog';
 
 const Dialogs = (props) => {
-
-    const massagesData = props.massagesData
-    
-    const massages = massagesData.map(el => {
-        return (<Massage massage={el.massage} />)
-    })
-
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                {props.dialogData.map(el => {
-                    return (<Dialog name={el.name} id={el.id} />)
+                {props.dialogsData.dialogData.map(el => {
+                    return (<Dialog name={el.name} id={el.id} avatar={el.avatar} />)
                 })}
             </div>
 
             <div className={s.massages}>
-                {massages}
+                {props.dialogsData.massagesData.map(el => {
+                    return (<Massage massage={el.massage} avatar={el.avatar} />)
+                })}
             </div>
         </div >
     );

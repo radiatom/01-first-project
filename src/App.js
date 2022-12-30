@@ -7,7 +7,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Setting from "./components/Setting/Setting";
-
+import Friends from "./components/Friends/Friends";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = (props) => {
@@ -15,13 +15,14 @@ const App = (props) => {
             <BrowserRouter>
                   <div className="app-wrapper">
                         <Header />
-                        <Navbar />
+                        <Navbar navbarData={props.state.navbarData}/>
                         <Routes>
+                              <Route path="/friends/*" element={<Friends />} />
                               <Route path="/music/*" element={<Music />} />
                               <Route path="/news/*" element={<News />} />
                               <Route path="/setting/*" element={<Setting />} />
-                              <Route path="/dialogs/*" element={<Dialogs dialogData={props.dialogData} massagesData={props.massagesData} />} />
-                              <Route path="/profile/*" element={<Profile postData={props.postData} />} />
+                              <Route path="/dialogs/*" element={<Dialogs dialogsData={props.state.dialogsData} />} />
+                              <Route path="/profile/*" element={<Profile postData={props.state.postData} />} />
                         </Routes>
 
                   </div>

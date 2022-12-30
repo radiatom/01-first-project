@@ -1,5 +1,14 @@
-.dialog{
+.dialog {
+    display: flex; 
+    justify-content:flex-start;
+    background-color: darkgray;
+    margin: 5px;
+   
     
+}
+.dialog img{
+    padding: 5px;
+    border-radius: 50%;
 }
 .active {
     color: gold;

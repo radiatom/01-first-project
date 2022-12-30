@@ -7,6 +7,9 @@
     background-color: brown;
     color: aliceblue;
 }
+.dialogs img{
+    width: 50px;
+}
 
 .active {
     color: gold;

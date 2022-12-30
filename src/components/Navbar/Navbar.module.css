@@ -17,3 +17,6 @@
   color:rgb(224, 11, 25);
   text-decoration: none;
 }
+.topFriends{
+  display: flex;
+}
