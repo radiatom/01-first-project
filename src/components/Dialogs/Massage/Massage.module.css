@@ -1,7 +1,26 @@
-.dialog{
+.massage img{
+   
+
+}
+.styleHis{
+
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     background-color: rgb(48, 93, 93);
     margin: 5px;
     padding: 5px;
+}
+.styleHis img{
+    border-radius: 50%;
+}
+
+.styleMy{
+    display: flex;
+    justify-content: start;
+    background-color: rgb(48, 93, 93);
+    margin: 5px;
+    padding: 5px;
+}
+.styleMy img{
+    border-radius: 50%;
 }

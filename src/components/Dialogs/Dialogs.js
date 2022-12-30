@@ -8,13 +8,13 @@ const Dialogs = (props) => {
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
                 {props.dialogsData.dialogData.map(el => {
-                    return (<Dialog name={el.name} id={el.id} avatar={el.avatar} />)
+                    return (<Dialog name={el.name} id={el.id} avatar={el.avatar}  />)
                 })}
             </div>
 
             <div className={s.massages}>
                 {props.dialogsData.massagesData.map(el => {
-                    return (<Massage massage={el.massage} avatar={el.avatar} />)
+                    return (<Massage massage={el.massage} avatar={el.avatar} idUser={el.idUser}/>)
                 })}
             </div>
         </div >
