@@ -8,25 +8,22 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Setting from "./components/Setting/Setting";
 import Friends from "./components/Friends/Friends";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 const App = (props) => {
       return (
-            <BrowserRouter>
-                  <div className="app-wrapper">
-                        <Header />
-                        <Navbar navbarData={props.state.navbarData}/>
-                        <Routes>
-                              <Route path="/friends/*" element={<Friends />} />
-                              <Route path="/music/*" element={<Music />} />
-                              <Route path="/news/*" element={<News />} />
-                              <Route path="/setting/*" element={<Setting />} />
-                              <Route path="/dialogs/*" element={<Dialogs dialogsData={props.state.dialogsData} />} />
-                              <Route path="/profile/*" element={<Profile postData={props.state.postData} />} />
-                        </Routes>
-
-                  </div>
-            </BrowserRouter>
+            <div className="app-wrapper">
+                  <Header />
+                  <Navbar navbarData={props.state.navbarData} />
+                  <Routes>
+                        <Route path="/friends/*" element={<Friends />} />
+                        <Route path="/music/*" element={<Music />} />
+                        <Route path="/news/*" element={<News />} />
+                        <Route path="/setting/*" element={<Setting />} />
+                        <Route path="/dialogs/*" element={<Dialogs dialogsData={props.state.dialogsData} />} />
+                        <Route path="/profile/*" element={<Profile postData={props.state.postData} />} />
+                  </Routes>
+            </div>
       );
 };
 
