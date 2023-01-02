@@ -7,16 +7,19 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
       const newPostElement=React.createRef()
       const addPost=()=>{
-            const text=newPostElement.current.value
-            alert(text)
+            
+            const textPost=newPostElement.current.value
+            props.addPost(textPost)
+            
       }
 
       const postData = props.postData
 
       const posts = postData.map(el => {
-            return (<Post massage={el.massage} likeColum={el.likeColum} />)
+            return (<Post massage={el.massage} likeColum={el.likeColum} id={el.id}/>)
       })
 
+      
       return (
             <div className={s.myPosts}>
                   <h3>My post</h3>

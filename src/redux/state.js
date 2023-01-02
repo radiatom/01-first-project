@@ -103,4 +103,12 @@ const state = {
         },
     ],
 }
+
+export const addPost=(textPost)=>{
+    const newPost={
+        id: state.postData.length+1 , massage: textPost, likeColum: 0
+    }
+    state.postData.push(newPost)
+}
+
 export default state

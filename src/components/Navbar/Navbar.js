@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import TopFriend from "./TopFriend/TopFriend";
 
 const Navbar = (props) => {
-      
+
       return (
             <nav className={s.nav}>
                   <div className={s.navLink}>
@@ -26,19 +26,19 @@ const Navbar = (props) => {
                   <div className={s.navLink}>
                         <NavLink className={linkActive => linkActive.isActive ? s.active : s.navLink} to="/setting">Setting</NavLink>
                   </div>
-                  <p>
-                        <div className={s.navLink}>
-                              <NavLink className={linkActive => linkActive.isActive ? s.active : s.navLink} to='/friends'>Friends</NavLink>
-                        </div>
 
-                        <div>
-                              <div className={s.topFriends}>
-                                    {props.navbarData.map(el=>{
-                                          return(<TopFriend name={el.name} avatar={el.avatar}/>)
-                                    })}
-                              </div>
+                  <div className={s.navLink}>
+                        <NavLink className={linkActive => linkActive.isActive ? s.active : s.navLink} to='/friends'>Friends</NavLink>
+                  </div>
+
+                  <div>
+                        <div className={s.topFriends}>
+                              {props.navbarData.map(el => {
+                                    return (<TopFriend name={el.name} avatar={el.avatar} />)
+                              })}
                         </div>
-                  </p>
+                  </div>
+
             </nav>
       );
 };

@@ -11,6 +11,7 @@ const Post = (props) => {
                   </div>
 
                   <div>
+                        <div>{props.id}</div>
                         <button>Like</button>
                         <span>{props.likeColum}</span>
                   </div>
