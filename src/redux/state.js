@@ -1,3 +1,6 @@
+import renderEntireTree from "../render"
+
+
 const state = {
     dialogsData: {
         dialogData: [
@@ -109,6 +112,7 @@ export const addPost=(textPost)=>{
         id: state.postData.length+1 , massage: textPost, likeColum: 0
     }
     state.postData.push(newPost)
+    renderEntireTree(state)
 }
 
 export default state
