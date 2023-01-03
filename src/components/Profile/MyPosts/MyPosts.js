@@ -5,28 +5,31 @@ import Post from './Post/Post';
 
 
 const MyPosts = (props) => {
+      
       const newPostElement=React.createRef()
-      const addPost=()=>{
-            
-            const textPost=newPostElement.current.value
-            props.addPost(textPost)
-            
+      
+
+      const onPostChange=()=>{
+            const newTextPost=newPostElement.current.value
+            props.updateNewPostText(newTextPost)
       }
 
-      const postData = props.postData
-
-      const posts = postData.map(el => {
+      const myPostsData = props.myPostsData
+      const posts = myPostsData.map(el => {
             return (<Post massage={el.massage} likeColum={el.likeColum} id={el.id}/>)
       })
 
-      
+     
       return (
             <div className={s.myPosts}>
                   <h3>My post</h3>
                   
-                  <textarea ref={newPostElement} cols="139" rows="3"  ></textarea>
+                  <textarea 
+                  onChange={onPostChange} 
+                  value={props.newPostTextData} 
+                  ref={newPostElement} cols="139" rows="3" />
 
-                  <button onClick={addPost}>Add post</button>
+                  <button onClick={props.addPost}>Add post</button>
 
                   <div >
                         {posts}

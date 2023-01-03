@@ -50,43 +50,45 @@ const state = {
         massagesData: [
             {
                 id: 1,
-                idUser:1,
+                idUser: 1,
                 massage: 'Hi',
-                avatar:'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10274377-stock-photo-business-man-suit-avatar.jpg'
+                avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10274377-stock-photo-business-man-suit-avatar.jpg'
             },
             {
                 id: 2,
-                idUser:2,
+                idUser: 2,
                 massage: 'Hi',
-                avatar:'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
+                avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
             },
             {
                 id: 3,
-                idUser:1,
+                idUser: 1,
                 massage: 'Its you admin?',
-                avatar:'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10274377-stock-photo-business-man-suit-avatar.jpg'
+                avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10274377-stock-photo-business-man-suit-avatar.jpg'
             },
             {
                 id: 4,
-                idUser:2,
+                idUser: 2,
                 massage: 'Yes',
-                avatar:'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
+                avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
             },
             {
                 id: 4,
-                idUser:1,
+                idUser: 1,
                 massage: 'Cool!',
-                avatar:'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10274377-stock-photo-business-man-suit-avatar.jpg'
+                avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10274377-stock-photo-business-man-suit-avatar.jpg'
             }
         ],
-        
-        
+        newMassageTextData:''
     },
 
-    postData: [
-        { id: 1, massage: 'Hi, how a you?', likeColum: 15 },
-        { id: 2, massage: 'Its my first post', likeColum: 999 }
-    ],
+    profileData: {
+        myPostsData: [
+            { id: 1, massage: 'Hi, how a you?', likeColum: 15 },
+            { id: 2, massage: 'Its my first post', likeColum: 999 }
+        ],
+        newPostTextData:''
+    },
 
     navbarData: [
         {
@@ -107,12 +109,35 @@ const state = {
     ],
 }
 
-export const addPost=(textPost)=>{
-    const newPost={
-        id: state.postData.length+1 , massage: textPost, likeColum: 0
+export const addPost = (textPost) => {
+    const newPost = {
+        id: state.profileData.myPostsData.length + 1, massage: state.profileData.newPostTextData , likeColum: 0
     }
-    state.postData.push(newPost)
+    state.profileData.myPostsData.push(newPost)
+    renderEntireTree(state)
+    state.profileData.newPostTextData=''
+}
+
+export const updateNewPostText = (newTextPost) => {
+    state.profileData.newPostTextData=newTextPost
     renderEntireTree(state)
 }
+
+export const sendMassage=()=>{
+    const newMassage={
+        id: 2,
+        idUser: 2,
+        massage: state.dialogsData.newMassageTextData,
+        avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
+    } 
+    state.dialogsData.massagesData.push(newMassage)
+    renderEntireTree(state)
+}
+
+export const updateNewMassageText = (newText) => {
+    state.dialogsData.newMassageTextData=newText
+    renderEntireTree(state)
+}
+
 
 export default state
