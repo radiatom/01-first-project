@@ -16,7 +16,7 @@ const renderEntireTree = () => {
         <BrowserRouter>
             <React.StrictMode>
                 <App
-                    state={store.state}
+                    state={store.getState()}
                     addPost={store.addPost.bind(store)}
                     updateNewPostText={store.updateNewPostText.bind(store)}
                     sendMassage={store.sendMassage.bind(store)}

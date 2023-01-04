@@ -1,5 +1,5 @@
 const store = {
-    state: {
+    _state: {
         dialogsData: {
             dialogData: [
                 {
@@ -85,7 +85,7 @@ const store = {
                 { id: 1, massage: 'Hi, how a you?', likeColum: 15 },
                 { id: 2, massage: 'Its my first post', likeColum: 999 }
             ],
-            newPostTextData: '1111'
+            newPostTextData: ''
         },
 
         navbarData: [
@@ -106,47 +106,49 @@ const store = {
             },
         ],
     },
+    getState(){
+       return this._state
+    },
 
-
-    renderEntireTree() {
+    _renderEntireTree() {
 
         console.log('i need rendered')
     },
     subscribe(observer) {
 
-        this.renderEntireTree = observer
+        this._renderEntireTree = observer
     },
 
 
     addPost() {
         const newPost = {
-            id: this.state.profileData.myPostsData.length + 1, massage: this.state.profileData.newPostTextData, likeColum: 0
+            id: this._state.profileData.myPostsData.length + 1, massage: this._state.profileData.newPostTextData, likeColum: 0
         }
-        this.state.profileData.myPostsData.push(newPost)
-        this.renderEntireTree()
-        this.state.profileData.newPostTextData = ''
+        this._state.profileData.myPostsData.push(newPost)
+        this._renderEntireTree()
+        this._state.profileData.newPostTextData = ''
     },
 
     updateNewPostText(newTextPost) {
-        this.state.profileData.newPostTextData = newTextPost
-        this.renderEntireTree()
+        this._state.profileData.newPostTextData = newTextPost
+        this._renderEntireTree()
     },
 
     sendMassage() {
         const newMassage = {
             id: 2,
             idUser: 2,
-            massage: this.state.dialogsData.newMassageTextData,
+            massage: this._state.dialogsData.newMassageTextData,
             avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
         }
-        this.state.dialogsData.massagesData.push(newMassage)
-        this.renderEntireTree()
-        this.state.dialogsData.newMassageTextData = ''
+        this._state.dialogsData.massagesData.push(newMassage)
+        this._renderEntireTree()
+        this._state.dialogsData.newMassageTextData = ''
     },
 
     updateNewMassageText(newText) {
-        this.state.dialogsData.newMassageTextData = newText
-        this.renderEntireTree()
+        this._state.dialogsData.newMassageTextData = newText
+        this._renderEntireTree()
     },
 }
 
