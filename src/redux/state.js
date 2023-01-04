@@ -1,6 +1,3 @@
-import renderEntireTree from "../render"
-
-
 const state = {
     dialogsData: {
         dialogData: [
@@ -109,18 +106,27 @@ const state = {
     ],
 }
 
+
+let renderEntireTree=()=>{
+    console.log('i need rendered')
+}
+export const subscribe=(observer)=>{
+    renderEntireTree=observer
+}
+
+
 export const addPost = (textPost) => {
     const newPost = {
         id: state.profileData.myPostsData.length + 1, massage: state.profileData.newPostTextData , likeColum: 0
     }
     state.profileData.myPostsData.push(newPost)
-    renderEntireTree(state)
+    renderEntireTree()
     state.profileData.newPostTextData=''
 }
 
 export const updateNewPostText = (newTextPost) => {
     state.profileData.newPostTextData=newTextPost
-    renderEntireTree(state)
+    renderEntireTree()
 }
 
 export const sendMassage=()=>{
@@ -131,12 +137,13 @@ export const sendMassage=()=>{
         avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
     } 
     state.dialogsData.massagesData.push(newMassage)
-    renderEntireTree(state)
+    renderEntireTree()
+    state.dialogsData.newMassageTextData=''
 }
 
 export const updateNewMassageText = (newText) => {
     state.dialogsData.newMassageTextData=newText
-    renderEntireTree(state)
+    renderEntireTree()
 }
 
 
