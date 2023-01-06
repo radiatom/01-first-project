@@ -10,14 +10,23 @@ const MyPosts = (props) => {
 
       const onPostChange=()=>{
             const newTextPost=newPostElement.current.value
-            props.updateNewPostText(newTextPost)
+            let action={
+                  type:'UPDATE-NEW-POST-TEXT',
+                  newTextPost:newTextPost
+            }
+            props.dispatch(action)
       }
 
       const myPostsData = props.myPostsData
       const posts = myPostsData.map(el => {
             return (<Post massage={el.massage} likeColum={el.likeColum} id={el.id}/>)
       })
-
+      const click=()=>{
+            let action={
+                  type:'ADD-POST'
+            }
+            props.dispatch(action)
+      }
      
       return (
             <div className={s.myPosts}>
@@ -28,7 +37,7 @@ const MyPosts = (props) => {
                   value={props.newPostTextData} 
                   ref={newPostElement} cols="139" rows="3" />
 
-                  <button onClick={props.addPost}>Add post</button>
+                  <button onClick={click}>Add post</button>
 
                   <div >
                         {posts}

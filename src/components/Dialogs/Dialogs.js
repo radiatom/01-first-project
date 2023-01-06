@@ -5,10 +5,16 @@ import Dialog from './Dialog/Dialog';
 
 const Dialogs = (props) => {
     const onMassageChange = () => {
+    
         const newText = sendElement.current.value
-        props.updateNewMassageText(newText)
+        let action={type:'UPDATE-NEW-MASSAGE-TEXT',newText:newText}
+        props.dispatch(action)
+        
     }
-
+    const click=()=>{
+        let action={type:'SEND-MASSAGE'}
+        props.dispatch(action)
+    }
     const sendElement = React.createRef()
     return (
         <div className={s.dialogs}>
@@ -24,7 +30,7 @@ const Dialogs = (props) => {
                 })}
 
                 <textarea onChange={onMassageChange} value={props.newPostTextData} ref={sendElement} cols="112" rows="3" ></textarea>
-                <button onClick={props.sendMassage}>Send</button>
+                <button onClick={click}>Send</button>
             </div>
         </div >
     );

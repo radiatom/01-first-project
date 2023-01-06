@@ -10,18 +10,11 @@ import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const renderEntireTree = () => {
-    debugger
 
     root.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App
-                    state={store.getState()}
-                    addPost={store.addPost.bind(store)}
-                    updateNewPostText={store.updateNewPostText.bind(store)}
-                    sendMassage={store.sendMassage.bind(store)}
-                    updateNewMassageText={store.updateNewMassageText.bind(store)}
-                />
+                <App state={store.getState()}  dispatch={store.dispatch.bind(store)}/>
             </React.StrictMode>
         </BrowserRouter>
     );

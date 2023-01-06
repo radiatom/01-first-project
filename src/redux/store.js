@@ -106,8 +106,8 @@ const store = {
             },
         ],
     },
-    getState(){
-       return this._state
+    getState() {
+        return this._state
     },
 
     _renderEntireTree() {
@@ -119,37 +119,35 @@ const store = {
         this._renderEntireTree = observer
     },
 
-
-    addPost() {
-        const newPost = {
-            id: this._state.profileData.myPostsData.length + 1, massage: this._state.profileData.newPostTextData, likeColum: 0
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            const newPost = {
+                id: this._state.profileData.myPostsData.length + 1, massage: this._state.profileData.newPostTextData, likeColum: 0
+            }
+            this._state.profileData.myPostsData.push(newPost)
+            this._renderEntireTree()
+            this._state.profileData.newPostTextData = ''
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profileData.newPostTextData = action.newTextPost
+            this._renderEntireTree()
+        } else if (action.type === 'SEND-MASSAGE') {
+            
+            const newMassage = {
+                id: 2,
+                idUser: 2,
+                massage: this._state.dialogsData.newMassageTextData,
+                avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
+            }
+            this._state.dialogsData.massagesData.push(newMassage)
+            this._renderEntireTree()
+            this._state.dialogsData.newMassageTextData = ''
+        } else if (action.type === 'UPDATE-NEW-MASSAGE-TEXT') {
+            
+            this._state.dialogsData.newMassageTextData = action.newText
+            this._renderEntireTree()
         }
-        this._state.profileData.myPostsData.push(newPost)
-        this._renderEntireTree()
-        this._state.profileData.newPostTextData = ''
     },
 
-    updateNewPostText(newTextPost) {
-        this._state.profileData.newPostTextData = newTextPost
-        this._renderEntireTree()
-    },
-
-    sendMassage() {
-        const newMassage = {
-            id: 2,
-            idUser: 2,
-            massage: this._state.dialogsData.newMassageTextData,
-            avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
-        }
-        this._state.dialogsData.massagesData.push(newMassage)
-        this._renderEntireTree()
-        this._state.dialogsData.newMassageTextData = ''
-    },
-
-    updateNewMassageText(newText) {
-        this._state.dialogsData.newMassageTextData = newText
-        this._renderEntireTree()
-    },
 }
 
 

@@ -11,7 +11,6 @@ import Friends from "./components/Friends/Friends";
 import { Routes, Route, } from "react-router-dom";
 
 const App = (props) => {
-
       return (
             <div className="app-wrapper">
                   <Header />
@@ -24,15 +23,13 @@ const App = (props) => {
                         <Route path="/dialogs/*" element={
                               <Dialogs
                                     dialogsData={props.state.dialogsData}
-                                    sendMassage={props.sendMassage}
                                     newPostTextData={props.state.dialogsData.newMassageTextData}
-                                    updateNewMassageText={props.updateNewMassageText} />} />
+                                    dispatch={props.dispatch}  />} />
                         <Route path="/profile/*" element={
                               <Profile
                                     newPostTextData={props.state.profileData.newPostTextData}
                                     myPostsData={props.state.profileData.myPostsData}
-                                    addPost={props.addPost}
-                                    updateNewPostText={props.updateNewPostText} />} />
+                                    dispatch={props.dispatch}  />} />
                   </Routes>
             </div>
       );
