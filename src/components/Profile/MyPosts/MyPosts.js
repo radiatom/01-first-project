@@ -6,11 +6,10 @@ import { updateNewPostTextActionCreater } from '../../../redux/store';
 
 
 const MyPosts = (props) => {
-      const newPostElement = React.createRef()
 
 
-      const onPostChange = () => {
-            const newTextPost = newPostElement.current.value
+      const onPostChange = (event) => {
+            const newTextPost = event.target.value
             props.dispatch(updateNewPostTextActionCreater(newTextPost))
       }
 
@@ -27,9 +26,11 @@ const MyPosts = (props) => {
                   <h3>My post</h3>
 
                   <textarea
+                        placeholder='Text'
                         onChange={onPostChange}
                         value={props.newPostTextData}
-                        ref={newPostElement} cols="139" rows="3" />
+                        cols="139" rows="3" 
+                        />
 
                   <button onClick={click}>Add post</button>
 

@@ -6,15 +6,14 @@ import { updateNewMassageTextActionCreater } from '../../redux/store';
 import { sendMassageActionCreater } from '../../redux/store';
 
 const Dialogs = (props) => {
-    const onMassageChange = () => {
-        const newText = sendElement.current.value
+    const onMassageChange = (event) => {
+        const newText = event.target.value
         props.dispatch(updateNewMassageTextActionCreater(newText))
-        
+
     }
-    const click=()=>{
+    const click = () => {
         props.dispatch(sendMassageActionCreater())
     }
-    const sendElement = React.createRef()
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
@@ -28,7 +27,12 @@ const Dialogs = (props) => {
                     return (<Massage massage={el.massage} avatar={el.avatar} idUser={el.idUser} />)
                 })}
 
-                <textarea onChange={onMassageChange} value={props.newPostTextData} ref={sendElement} cols="112" rows="3" ></textarea>
+                <textarea
+                    placeholder='Text'
+                    onChange={onMassageChange}
+                    value={props.newPostTextData} 
+                    cols="112" rows="3"
+                ></textarea>
                 <button onClick={click}>Send</button>
             </div>
         </div >
