@@ -2,18 +2,17 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import Massage from './Massage/Massage';
 import Dialog from './Dialog/Dialog';
+import { updateNewMassageTextActionCreater } from '../../redux/store';
+import { sendMassageActionCreater } from '../../redux/store';
 
 const Dialogs = (props) => {
     const onMassageChange = () => {
-    
         const newText = sendElement.current.value
-        let action={type:'UPDATE-NEW-MASSAGE-TEXT',newText:newText}
-        props.dispatch(action)
+        props.dispatch(updateNewMassageTextActionCreater(newText))
         
     }
     const click=()=>{
-        let action={type:'SEND-MASSAGE'}
-        props.dispatch(action)
+        props.dispatch(sendMassageActionCreater())
     }
     const sendElement = React.createRef()
     return (

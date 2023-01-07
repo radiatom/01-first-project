@@ -1,3 +1,8 @@
+const UPDATE_NEW_MASSAGE_TEXT='UPDATE-NEW-MASSAGE-TEXT'
+const SEND_MASSAGE='SEND-MASSAGE'
+const UPDATE_NEW_POST_TEXT='UPDATE-NEW-POST-TEXT'
+const ADD_POST='ADD-POST'
+
 const store = {
     _state: {
         dialogsData: {
@@ -120,17 +125,17 @@ const store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             const newPost = {
                 id: this._state.profileData.myPostsData.length + 1, massage: this._state.profileData.newPostTextData, likeColum: 0
             }
             this._state.profileData.myPostsData.push(newPost)
             this._renderEntireTree()
             this._state.profileData.newPostTextData = ''
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profileData.newPostTextData = action.newTextPost
             this._renderEntireTree()
-        } else if (action.type === 'SEND-MASSAGE') {
+        } else if (action.type === SEND_MASSAGE) {
             
             const newMassage = {
                 id: 2,
@@ -141,7 +146,7 @@ const store = {
             this._state.dialogsData.massagesData.push(newMassage)
             this._renderEntireTree()
             this._state.dialogsData.newMassageTextData = ''
-        } else if (action.type === 'UPDATE-NEW-MASSAGE-TEXT') {
+        } else if (action.type === UPDATE_NEW_MASSAGE_TEXT) {
             
             this._state.dialogsData.newMassageTextData = action.newText
             this._renderEntireTree()
@@ -150,6 +155,27 @@ const store = {
 
 }
 
+export const updateNewMassageTextActionCreater=(newText)=>{
+    return{
+        type:UPDATE_NEW_MASSAGE_TEXT,newText:newText
+    }
+}
+export const sendMassageActionCreater=()=>{
+    return{
+        type:SEND_MASSAGE
+    }
+}
 
+
+export const updateNewPostTextActionCreater = (newTextPost) => {
+    return {
+          type: UPDATE_NEW_POST_TEXT, newTextPost: newTextPost
+    }
+}
+export const addPosstActionCreater = () => {
+    return {
+          type: ADD_POST
+    }
+}
 
 export default store
