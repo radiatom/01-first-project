@@ -1,7 +1,6 @@
-const UPDATE_NEW_MASSAGE_TEXT='UPDATE-NEW-MASSAGE-TEXT'
-const SEND_MASSAGE='SEND-MASSAGE'
-const UPDATE_NEW_POST_TEXT='UPDATE-NEW-POST-TEXT'
-const ADD_POST='ADD-POST'
+import profileReducer from "./profileReducer"
+import dialogReducer from "./dialogReducer"
+import navbarReducer from "./navbarReducer"
 
 const store = {
     _state: {
@@ -125,57 +124,13 @@ const store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            const newPost = {
-                id: this._state.profileData.myPostsData.length + 1, massage: this._state.profileData.newPostTextData, likeColum: 0
-            }
-            this._state.profileData.myPostsData.push(newPost)
-            this._renderEntireTree()
-            this._state.profileData.newPostTextData = ''
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profileData.newPostTextData = action.newTextPost
-            this._renderEntireTree()
-        } else if (action.type === SEND_MASSAGE) {
-            
-            const newMassage = {
-                id: 2,
-                idUser: 2,
-                massage: this._state.dialogsData.newMassageTextData,
-                avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
-            }
-            this._state.dialogsData.massagesData.push(newMassage)
-            this._renderEntireTree()
-            this._state.dialogsData.newMassageTextData = ''
-        } else if (action.type === UPDATE_NEW_MASSAGE_TEXT) {
-            
-            this._state.dialogsData.newMassageTextData = action.newText
-            this._renderEntireTree()
-        }
+        this._state.profileData = profileReducer(this._state.profileData, action)
+        this._state.dialogsData = dialogReducer(this._state.dialogsData, action)
+        this._state.navbarData = navbarReducer(this._state.navbarData, action)
+
+        this._renderEntireTree()
+
     },
 
 }
-
-export const updateNewMassageTextActionCreater=(newText)=>{
-    return{
-        type:UPDATE_NEW_MASSAGE_TEXT,newText:newText
-    }
-}
-export const sendMassageActionCreater=()=>{
-    return{
-        type:SEND_MASSAGE
-    }
-}
-
-
-export const updateNewPostTextActionCreater = (newTextPost) => {
-    return {
-          type: UPDATE_NEW_POST_TEXT, newTextPost: newTextPost
-    }
-}
-export const addPosstActionCreater = () => {
-    return {
-          type: ADD_POST
-    }
-}
-
 export default store
