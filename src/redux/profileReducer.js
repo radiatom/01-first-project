@@ -10,7 +10,14 @@ export const addPosstActionCreater = () => {
         type: ADD_POST
     }
 }
-const profileReducer = (state, action) => {
+const standartStateProfileData = {
+    myPostsData: [
+        { id: 1, massage: 'Hi, how a you?', likeColum: 15 },
+        { id: 2, massage: 'Its my first post', likeColum: 999 }
+    ],
+    newPostTextData: ''
+}
+const profileReducer = (state = standartStateProfileData, action) => {
     switch (action.type) {
         case ADD_POST:
             const newPost = {
