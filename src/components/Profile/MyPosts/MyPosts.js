@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './MyPosts.module.css'
 import Post from './Post/Post';
-import { addPosstActionCreater } from '../../../redux/store';
-import { updateNewPostTextActionCreater } from '../../../redux/store';
+import { addPosstActionCreater } from '../../../redux/profileReducer';
+import { updateNewPostTextActionCreater } from '../../../redux/profileReducer';
 
 
 const MyPosts = (props) => {
@@ -29,8 +29,8 @@ const MyPosts = (props) => {
                         placeholder='Text'
                         onChange={onPostChange}
                         value={props.newPostTextData}
-                        cols="139" rows="3" 
-                        />
+                        cols="139" rows="3"
+                  />
 
                   <button onClick={click}>Add post</button>
 

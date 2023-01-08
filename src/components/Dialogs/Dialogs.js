@@ -1,9 +1,9 @@
 import React from 'react';
-import s from './Dialogs.module.css'
-import Massage from './Massage/Massage';
+import { sendMassageActionCreater } from '../../redux/dialogReducer';
+import { updateNewMassageTextActionCreater } from '../../redux/dialogReducer';
 import Dialog from './Dialog/Dialog';
-import { updateNewMassageTextActionCreater } from '../../redux/store';
-import { sendMassageActionCreater } from '../../redux/store';
+import s from './Dialogs.module.css';
+import Massage from './Massage/Massage';
 
 const Dialogs = (props) => {
     const onMassageChange = (event) => {
@@ -30,7 +30,7 @@ const Dialogs = (props) => {
                 <textarea
                     placeholder='Text'
                     onChange={onMassageChange}
-                    value={props.newPostTextData} 
+                    value={props.newPostTextData}
                     cols="112" rows="3"
                 ></textarea>
                 <button onClick={click}>Send</button>
