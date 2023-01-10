@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
-import Dialogs from "./components/Dialogs/Dialogs";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Setting from "./components/Setting/Setting";
@@ -21,15 +21,14 @@ const App = (props) => {
                         <Route path="/news/*" element={<News />} />
                         <Route path="/setting/*" element={<Setting />} />
                         <Route path="/dialogs/*" element={
-                              <Dialogs
-                                    dialogsData={props.state.dialogsData}
-                                    newPostTextData={props.state.dialogsData.newMassageTextData}
-                                    dispatch={props.dispatch}  />} />
+                              <DialogsContainer
+                                    store={props.store}
+                              />} />
                         <Route path="/profile/*" element={
                               <Profile
-                                    newPostTextData={props.state.profileData.newPostTextData}
-                                    myPostsData={props.state.profileData.myPostsData}
-                                    dispatch={props.dispatch}  />} />
+                                    store={props.store}
+                              />} />
+
                   </Routes>
             </div>
       );

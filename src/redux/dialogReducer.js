@@ -10,7 +10,7 @@ export const sendMassageActionCreater = () => {
         type: SEND_MASSAGE
     }
 }
-const standrtStateDialogsData = {
+const standartStateDialogsData = {
     dialogData: [
         {
             id: 1,
@@ -89,7 +89,7 @@ const standrtStateDialogsData = {
     ],
     newMassageTextData: ''
 }
-const dialogReducer = (state = standrtStateDialogsData, action) => {
+const dialogReducer = (state = standartStateDialogsData, action) => {
     switch (action.type) {
         case SEND_MASSAGE:
             const newMassage = {
