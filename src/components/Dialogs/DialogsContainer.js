@@ -1,42 +1,33 @@
 import React from 'react';
-import { sendMassageActionCreater } from '../../redux/dialogReducer';
-import { updateNewMassageTextActionCreater } from '../../redux/dialogReducer';
+import { sendMassageActionCreater, updateNewMassageTextActionCreater } from '../../redux/dialogReducer';
 import Dialog from './Dialog/Dialog';
 import Massage from './Massage/Massage';
 import Dialogs from './Dialogs';
+import { connect } from 'react-redux';
 
-const DialogsContainer = (props) => {
-    const state=props.store.getState()
 
-    const value=state.dialogsData.newMassageTextData
-
-    const onMassageChange = (event) => {
-        const newText = event.target.value
-        props.store.dispatch(updateNewMassageTextActionCreater(newText))
+const mapStateToProps = (state) => {
+    return {
+        value: state.dialogsData.newMassageTextData,
+        dialog: state.dialogsData.dialogData.map(el => {
+            return (<Dialog name={el.name} id={el.id} key={el.id} avatar={el.avatar} />)
+        }),
+        massage: state.dialogsData.massagesData.map(el => {
+            return (<Massage massage={el.massage} avatar={el.avatar} idUser={el.idUser} key={el.id}/>)
+        })
     }
-
-    const click = () => {
-        props.store.dispatch(sendMassageActionCreater())
-    }
-
-    const dialog=state.dialogsData.dialogData.map(el => {
-        return (<Dialog name={el.name} id={el.id} avatar={el.avatar} />)
-    })
-
-    const massage=state.dialogsData.massagesData.map(el => {
-        return (<Massage massage={el.massage} avatar={el.avatar} idUser={el.idUser} />)
-    })
-
-    return (
-        <div >
-            <Dialogs 
-            onMassageChange={onMassageChange}
-            click={click}
-            dialog={dialog}
-            massage={massage}
-            value={value} />
-        </div >
-    );
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onMassageChange: (event) => {
+            const newText = event.target.value
+            dispatch(updateNewMassageTextActionCreater(newText))
+        },
+        click: () => {
+            dispatch(sendMassageActionCreater())
+        },
+    }
+}
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default DialogsContainer;

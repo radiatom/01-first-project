@@ -16,8 +16,6 @@ const standartStateNavbarData = [
     },
 ]
 const navbarReducer = (state = standartStateNavbarData, action) => {
-
-
-    return state
+    return JSON.parse(JSON.stringify(state))
 }
 export default navbarReducer

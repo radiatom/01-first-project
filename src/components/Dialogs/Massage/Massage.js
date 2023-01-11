@@ -2,6 +2,8 @@ import React from 'react';
 import s from './Massage.module.css'
 import MyMassage from './MyMassage/MyMassage';
 import HisMassage from './HisMassage/HisMassage';
+
+
 const Massage = (props) => {
     
     return (

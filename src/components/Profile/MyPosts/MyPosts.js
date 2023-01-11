@@ -14,7 +14,7 @@ const MyPosts = (props) => {
                         cols="139" rows="3"
                   />
 
-                  <button onClick={props.click}>Add post</button>
+                  <button onClick={props.addPost}>Add post</button>
 
                   <div >
                         {props.posts}

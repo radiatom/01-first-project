@@ -1,10 +1,10 @@
 import React from "react";
 import s from './Navbar.module.css'
 import { NavLink } from "react-router-dom";
-import TopFriend from "./TopFriend/TopFriend";
+import TopFriendsContainer from "./TopFriends/TopFriendsContainer";
+
 
 const Navbar = (props) => {
-
       return (
             <nav className={s.nav}>
                   <div className={s.navLink}>
@@ -32,11 +32,7 @@ const Navbar = (props) => {
                   </div>
 
                   <div>
-                        <div className={s.topFriends}>
-                              {props.navbarData.map(el => {
-                                    return (<TopFriend name={el.name} avatar={el.avatar} />)
-                              })}
-                        </div>
+                        <TopFriendsContainer />
                   </div>
 
             </nav>

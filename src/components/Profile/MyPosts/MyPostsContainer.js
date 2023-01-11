@@ -1,34 +1,30 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addPosstActionCreater, updateNewPostTextActionCreater } from '../../../redux/profileReducer';
 import MyPosts from './MyPosts';
 import Post from './Post/Post';
-import { addPosstActionCreater } from '../../../redux/profileReducer';
-import { updateNewPostTextActionCreater } from '../../../redux/profileReducer';
 
-const MyPostsContainer = (props) => {
-    const state=props.store.getState()
 
-    const posts = state.profileData.myPostsData.map(el => {
-        return (<Post massage={el.massage} likeColum={el.likeColum} id={el.id} />)
-    })
-
-    const onPostChange = (event) => {
-        const newTextPost = event.target.value
-        props.store.dispatch(updateNewPostTextActionCreater(newTextPost))
+const mapStateToProps = (state) => {
+    return {
+        value: state.profileData.newPostTextData,
+        posts: state.profileData.myPostsData.map(el => {
+            return (<Post massage={el.massage} likeColum={el.likeColum} id={el.id} key={el.id} />)
+        }),
     }
-
-    const click = () => {
-        props.store.dispatch(addPosstActionCreater())
-    }
-
-    return (
-        <div>
-            <MyPosts
-                onPostChange={onPostChange}
-                click={click}
-                posts={posts}
-                value={state.profileData.newPostTextData} />
-        </div>
-    );
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onPostChange: (event) => {
+            const newTextPost = event.target.value
+            dispatch(updateNewPostTextActionCreater(newTextPost))
+        },
+        addPost: () => {
+            dispatch(addPosstActionCreater())
+        },
+    }
+}
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
+
 
 export default MyPostsContainer;
