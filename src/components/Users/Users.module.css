@@ -1,0 +1,11 @@
+.users{
+    background-color: aquamarine;
+    
+}
+.user{
+    background-color: rgb(129, 129, 212);
+    margin: 10px;
+}
+.users img{
+    width: 70px;
+}

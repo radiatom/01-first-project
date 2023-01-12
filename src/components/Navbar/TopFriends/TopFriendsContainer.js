@@ -6,7 +6,7 @@ import Friend from './Friend/Friend';
 
 const mapStateToProps = (state) => {
     return {
-        friends: state.navbarData.map(el => {
+        friends: state.navbarPage.map(el => {
             return (<Friend name={el.name} avatar={el.avatar} key={el.id} />)
         })
     }

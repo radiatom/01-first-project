@@ -92,19 +92,16 @@ const standartStateDialogsData = {
     ],
     newMassageTextData: ''
 }
+
 const dialogReducer = (state = standartStateDialogsData, action) => {
-    // let stateCopy
     switch (action.type) {
         case UPDATE_NEW_MASSAGE_TEXT:
-            // stateCopy = {
-            //     ...state,
-            // }
-            // stateCopy.newMassageTextData = action.newText
-            // return stateCopy
-            return{
+
+            return {
                 ...state,
-                newMassageTextData : action.newText
+                newMassageTextData: action.newText
             }
+
         case SEND_MASSAGE:
             const newMassage = {
                 id: 2,
@@ -112,14 +109,11 @@ const dialogReducer = (state = standartStateDialogsData, action) => {
                 massage: state.newMassageTextData,
                 avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
             }
-            return  {
+            return {
                 ...state,
                 massagesData: [...state.massagesData, newMassage],
-                newMassageTextData : ''
+                newMassageTextData: ''
             }
-            // stateCopy.massagesData.push(newMassage)
-            // stateCopy.newMassageTextData = ''
-            // return stateCopy
 
         default:
             return state

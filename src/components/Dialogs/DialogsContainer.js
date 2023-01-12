@@ -8,12 +8,12 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
     return {
-        value: state.dialogsData.newMassageTextData,
-        dialog: state.dialogsData.dialogData.map(el => {
+        value: state.dialogsPage.newMassageTextData,
+        dialog: state.dialogsPage.dialogData.map(el => {
             return (<Dialog name={el.name} id={el.id} key={el.id} avatar={el.avatar} />)
         }),
-        massage: state.dialogsData.massagesData.map(el => {
-            return (<Massage massage={el.massage} avatar={el.avatar} idUser={el.idUser} key={el.id}/>)
+        massage: state.dialogsPage.massagesData.map(el => {
+            return (<Massage massage={el.massage} avatar={el.avatar} idUser={el.idUser} key={el.id} />)
         })
     }
 }

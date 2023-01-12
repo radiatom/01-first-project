@@ -7,8 +7,8 @@ import Post from './Post/Post';
 
 const mapStateToProps = (state) => {
     return {
-        value: state.profileData.newPostTextData,
-        posts: state.profileData.myPostsData.map(el => {
+        value: state.profilePage.newPostTextData,
+        posts: state.profilePage.myPostsData.map(el => {
             return (<Post massage={el.massage} likeColum={el.likeColum} id={el.id} key={el.id} />)
         }),
     }
