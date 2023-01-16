@@ -45,3 +45,14 @@
 // }
 
 // console.log(usersReducer(standartStateUsersData, action))
+
+
+
+// const pages = () => {
+//     for (let a = 1; a <= 500; a++) {
+//         let obj=[]
+//         obj.push(a)
+//         console.log(obj)
+//     }
+// }
+// pages()
