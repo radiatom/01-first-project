@@ -24,7 +24,7 @@ const Users = (props) => {
                 props.users.map(el =>
                     <div key={el.id} className={s.user}>
                         <div>
-                            <img src={el.avatar} alt="avatar" />
+                            <img src={el.photos.small===null?'https://avatars.mds.yandex.net/i?id=64b9cebcb670fa8e85d37fcd6a16b87a19b5d346-6932444-images-thumbs&n=13':el.photos.small} alt="avatar" />
                         </div>
 
                         <div>
