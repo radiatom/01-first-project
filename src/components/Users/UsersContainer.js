@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Users from './Users';
-import { addUsersActionCreater, unfollowActionCreater, followActionCreater, setPageActionCreater, setTotalCountActionCreater, isFetchingActionCreater } from '../../redux/usersReducer';
+import { addUsers, unfollow, follow, setPage, setTotalCount, toggleIsFetching } from '../../redux/usersReducer';
 import axios from 'axios';
 
 class UsersApiContainer extends Component {
@@ -10,22 +10,22 @@ class UsersApiContainer extends Component {
     // }
 
     componentDidMount() {
-        this.props.toogleIsFetching(true)
+        this.props.toggleIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.pageNumber}&count=${this.props.countUsersOnPage}`)
             .then(response => {
                 this.props.addUsers([...response.data.items])
                 this.props.setTotalCount(response.data.totalCount)
-                this.props.toogleIsFetching(false)
+                this.props.toggleIsFetching(false)
             })
     }
 
     openPage = (el) => {
-        this.props.toogleIsFetching(true)
+        this.props.toggleIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${el}&count=${this.props.countUsersOnPage}`)
             .then(response => {
                 let users = [...response.data.items]
                 this.props.addUsers(users)
-                this.props.toogleIsFetching(false)
+                this.props.toggleIsFetching(false)
             })
         this.props.setPage(el)
     }
@@ -57,31 +57,33 @@ const mapStateToProps = (state) => {
         countUsersOnPage: state.usersPage.countUsersOnPage,
     }
 }
+export default connect(mapStateToProps, {
+    toggleIsFetching,
+    addUsers,
+    follow,
+    unfollow,
+    setTotalCount
+})(UsersApiContainer)
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        toogleIsFetching: (isFetching) => {
-            dispatch(isFetchingActionCreater(isFetching))
-        },
-        addUsers: (users) => {
-            dispatch(addUsersActionCreater(users))
-        },
-        follow: (userId) => {
-            dispatch(followActionCreater(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowActionCreater(userId))
-        },
-        setPage: (number) => {
-            dispatch(setPageActionCreater(number))
-        },
-        setTotalCount: (num) => {
-            dispatch(setTotalCountActionCreater(num))
-        },
-    }
-}
-
-
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersApiContainer)
-
-export default UsersContainer;
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         toogleIsFetching: (isFetching) => {
+//             dispatch(isFetchingActionCreater(isFetching))
+//         },
+//         addUsers: (users) => {
+//             dispatch(addUsersActionCreater(users))
+//         },
+//         follow: (userId) => {
+//             dispatch(followActionCreater(userId))
+//         },
+//         unfollow: (userId) => {
+//             dispatch(unfollowActionCreater(userId))
+//         },
+//         setPage: (number) => {
+//             dispatch(setPageActionCreater(number))
+//         },
+//         setTotalCount: (num) => {
+//             dispatch(setTotalCountActionCreater(num))
+//         },
+//     }
+// }

@@ -1,5 +1,5 @@
 const SET_PAGE = 'SET_PAGE'
-export const setPageActionCreater = (number) => {
+export const setPage = (number) => {
     return {
         type: SET_PAGE,
         number: number
@@ -7,7 +7,7 @@ export const setPageActionCreater = (number) => {
 }
 
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT'
-export const setTotalCountActionCreater = (num) => {
+export const setTotalCount = (num) => {
     return {
         type: SET_TOTAL_COUNT,
         num: num
@@ -15,7 +15,7 @@ export const setTotalCountActionCreater = (num) => {
 }
 
 const ADD_USERS = 'ADD_USERS'
-export const addUsersActionCreater = (users) => {
+export const addUsers = (users) => {
     return {
         type: ADD_USERS,
         users: users
@@ -23,7 +23,7 @@ export const addUsersActionCreater = (users) => {
 }
 
 const FOLLOW = 'FOLLOW'
-export const followActionCreater = (userId) => {
+export const follow = (userId) => {
     return {
         type: FOLLOW,
         userId: userId
@@ -31,7 +31,7 @@ export const followActionCreater = (userId) => {
 }
 
 const UNFOLLOW = 'UNFOLLOW'
-export const unfollowActionCreater = (userId) => {
+export const unfollow = (userId) => {
     return {
         type: UNFOLLOW,
         userId: userId
@@ -39,7 +39,7 @@ export const unfollowActionCreater = (userId) => {
 }
 
 const IS_FETCHING = 'IS_FETCHING'
-export const isFetchingActionCreater = (isFetching) => {
+export const toggleIsFetching = (isFetching) => {
     return {
         type: IS_FETCHING,
         isFetching: isFetching,
