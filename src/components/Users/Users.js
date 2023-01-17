@@ -1,4 +1,5 @@
 import s from './Users.module.css'
+import Preloader from '../Preloader/Preloader';
 
 
 
@@ -19,37 +20,41 @@ const Users = (props) => {
                     })}
                 </span>
             </div>
+            
+            {props.isFetching===true?<Preloader />:
+                <div className={s.users}>{
+                    props.users.map(el =>
+                        <div key={el.id} className={s.user}>
+                            <div>
+                                <img src={el.photos.small===null?'https://avatars.mds.yandex.net/i?id=64b9cebcb670fa8e85d37fcd6a16b87a19b5d346-6932444-images-thumbs&n=13':el.photos.small} alt="avatar" />
+                            </div>
 
-            <div className={s.users}>{
-                props.users.map(el =>
-                    <div key={el.id} className={s.user}>
-                        <div>
-                            <img src={el.photos.small===null?'https://avatars.mds.yandex.net/i?id=64b9cebcb670fa8e85d37fcd6a16b87a19b5d346-6932444-images-thumbs&n=13':el.photos.small} alt="avatar" />
-                        </div>
+                            <div>
+                                {
+                                    el.followed ?
+                                        <button onClick={() => { props.unfollow(el.id) }}>Follow</button> :
+                                        <button onClick={() => { props.follow(el.id) }}>Unfollow</button>
+                                }
+                            </div>
 
-                        <div>
-                            {
-                                el.followed ?
-                                    <button onClick={() => { props.unfollow(el.id) }}>Follow</button> :
-                                    <button onClick={() => { props.follow(el.id) }}>Unfollow</button>
-                            }
-                        </div>
+                            <div>
+                                {el.name} {el.last_name}
+                            </div>
 
-                        <div>
-                            {el.name} {el.last_name}
-                        </div>
+                            <div>
+                                {el.st}
+                            </div>
 
-                        <div>
-                            {el.st}
+                            <div>
+                                {el.cityName}, {el.countryName}
+                            </div>
                         </div>
+                        )
+                    }
+                </div>
+            }
 
-                        <div>
-                            {el.cityName}, {el.countryName}
-                        </div>
-                    </div>
-                    )
-                }
-            </div>
+            
         </div>
     );
 }
