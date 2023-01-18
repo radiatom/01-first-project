@@ -1,10 +1,10 @@
 import React from 'react';
-import s from './Post.module.css'
+import s from './UserPost.module.css'
 
-const Post = (props) => {
+const UserPost = (props) => {
       return (
-            <div className={s.post}>
-                  
+            <div className={s.userPost}>
+
                   <img src={props.profileData.photos.small===null?
                         "https://sputnik.kg/img/101808/12/1018081237_1488:0:4629:3455_1920x0_80_0_0_36b9c41458690f8543f8ce86421ba380.jpg"
                         :props.profileData.photos.small} alt="avatar" 
@@ -23,4 +23,4 @@ const Post = (props) => {
       );
 }
 
-export default Post;
+export default UserPost;

@@ -1,8 +1,8 @@
 import React from 'react';
-import s from './ProfileInfo.module.css'
+import s from './UserProfileInfo.module.css'
 import img from './../../../Img/profileInfo.jpg'
 
-const ProfileInfo = (props) => {
+const UserProfileInfo = (props) => {
     return (
         <div className={s.profileInfo}>
             <div className={s.wallpaper}>
@@ -28,4 +28,4 @@ const ProfileInfo = (props) => {
     );
 }
 
-export default ProfileInfo;
+export default UserProfileInfo;

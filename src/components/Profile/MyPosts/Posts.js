@@ -1,11 +1,11 @@
 import React from 'react';
-import s from './MyPosts.module.css'
+import s from './Posts.module.css'
 
-const MyPosts = (props) => {
+const Posts = (props) => {
 
       return (
-            <div className={s.myPosts}>
-                  <h3>My post</h3>
+            <div className={s.posts}>
+                  <h3>Post</h3>
 
                   <textarea
                         placeholder='Text'
@@ -23,5 +23,5 @@ const MyPosts = (props) => {
       );
 }
 
-export default MyPosts;
+export default Posts;
 

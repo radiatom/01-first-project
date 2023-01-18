@@ -10,6 +10,7 @@ import Setting from "./components/Setting/Setting";
 import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import UserProfileContainer from "./components/UserProfile/UserProfileContainer";
 const App = (props) => {
       return (
             <div className="app-wrapper">
@@ -23,6 +24,7 @@ const App = (props) => {
                         <Route path="/dialogs/*" element={<DialogsContainer />} />
                         <Route path="/profile/*" element={<Profile />} />
                         <Route path="/users/*" element={<UsersContainer />} />
+                        <Route path="/userProfile/*" element={<UserProfileContainer />} />
                   </Routes>
             </div>
       );

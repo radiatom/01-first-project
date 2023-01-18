@@ -1,5 +1,6 @@
 import s from './Users.module.css'
 import Preloader from '../Preloader/Preloader';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -16,7 +17,7 @@ const Users = (props) => {
             <div className={s.pages}>
                 <span className={s.page} >
                     {obj.map(el => {
-                         return (<span key={props.id} onClick={() => { props.openPage(el) }} className={el === props.pageNumber ? s.active : s.page}>{el}</span>)
+                         return (<span key={el.id} onClick={() => { props.openPage(el) }} className={el === props.pageNumber ? s.active : s.page}>{el}</span>)
                     })}
                 </span>
             </div>
@@ -26,7 +27,9 @@ const Users = (props) => {
                     props.users.map(el =>
                         <div key={el.id} className={s.user}>
                             <div>
-                                <img src={el.photos.small===null?'https://avatars.mds.yandex.net/i?id=64b9cebcb670fa8e85d37fcd6a16b87a19b5d346-6932444-images-thumbs&n=13':el.photos.small} alt="avatar" />
+                                <NavLink to={'/userProfile/'+el.id}>
+                                    <img src={el.photos.small===null?'https://avatars.mds.yandex.net/i?id=64b9cebcb670fa8e85d37fcd6a16b87a19b5d346-6932444-images-thumbs&n=13':el.photos.small} alt="avatar" />
+                                </NavLink>
                             </div>
 
                             <div>

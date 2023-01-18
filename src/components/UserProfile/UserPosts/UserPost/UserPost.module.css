@@ -1,0 +1,14 @@
+
+.userPost {
+    color: beige;
+    background-color: black;
+    margin-top: 5px;
+    padding: 10px;
+
+}
+
+.userPost img {
+    width: 80px;
+    height: 80px;
+    border-radius: 30px;
+}
