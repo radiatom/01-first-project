@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './UserProfileInfo.module.css'
 import img from './../../../Img/profileInfo.jpg'
-import Preloader from '../../Preloader/Preloader';
+// import Preloader from '../../Preloader/Preloader';
 
 
 const UserProfileInfo = (props) => {
@@ -12,15 +12,15 @@ const UserProfileInfo = (props) => {
             </div>
             <div className={s.avatar}>
 
-                <img src={props.profileData.photos === undefined || props.profileData.photos.large === null ? 
-                <Preloader /> 
-                : props.profileData.photos.small} alt="avatar" 
-                />
-                
-                {/* <img src={props.profileData.photos.large === null ?
+                <img src={props.profileData.photos === undefined || props.profileData.photos.large === null ?
                     "https://sputnik.kg/img/101808/12/1018081237_1488:0:4629:3455_1920x0_80_0_0_36b9c41458690f8543f8ce86421ba380.jpg"
-                    : props.profileData.photos.large} alt="avatar"
-                /> */}
+                    : props.profileData.photos.small} alt="avatar"
+                />
+
+                {/* <img src={props.profileData.photos.large === null ? */}
+                {/* "https://sputnik.kg/img/101808/12/1018081237_1488:0:4629:3455_1920x0_80_0_0_36b9c41458690f8543f8ce86421ba380.jpg" */}
+                {/* : props.profileData.photos.large} alt="avatar" */}
+                {/* /> */}
             </div>
             <div>
                 <h2>

@@ -5,12 +5,13 @@ import UserPost from './UserPosts/UserPost/UserPost';
 import { setProfile } from '../../redux/userProfileReducer';
 import axios from 'axios';
 import UserProfileInfo from './UserProfileInfo/UserProfileInfo';
-import { withRouter } from "react-router-dom";
+import { useLocation, useNavigate, useParams, } from "react-router-dom";
 
 
 class UserProfileContainer extends Component {
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        const userId = this.props.router.params.userId
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId)
             .then(response => {
                 this.props.setProfile(response.data)
             })
@@ -19,15 +20,13 @@ class UserProfileContainer extends Component {
         return (
             <div>
                 <UserProfileInfo profileData={this.props.userProfile.profileData} />
-                <UserPosts  posts={this.props.userProfile.PostsData.map(el => {
-                    return (<UserPost profileData={this.props.userProfile.profileData}  massage={el.massage} likeColum={el.likeColum} id={el.id} key={el.id} />)
+                <UserPosts posts={this.props.userProfile.PostsData.map(el => {
+                    return (<UserPost profileData={this.props.userProfile.profileData} massage={el.massage} likeColum={el.likeColum} id={el.id} key={el.id} />)
                 })} />
             </div>
         );
     }
 }
-
-const WithUrlDataContainerComponent= withRouter(UserProfileContainer)
 
 const mapStateToProps = (state) => {
     return {
@@ -42,4 +41,22 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WithUrlDataContainerComponent);
+function withRouter(Component) {
+    function ComponentWithRouterProp(props) {
+        let location = useLocation();
+        let navigate = useNavigate();
+        let params = useParams();
+        return (
+            <Component
+            {...props}
+            router={{ location, navigate, params }}
+            />
+            );
+        }
+        
+        return ComponentWithRouterProp;
+    }
+    //№60 withRouter це заглушка, цієї фукції не треба коли ми в фукціональному компоненті, в функціональній використовують хуки, але 
+    // оскільки ми в класовій тому треба написати цю заглушку.
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(UserProfileContainer));
