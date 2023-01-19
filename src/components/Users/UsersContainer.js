@@ -11,7 +11,7 @@ class UsersApiContainer extends Component {
 
     componentDidMount() {
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.pageNumber}&count=${this.props.countUsersOnPage}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.pageNumber}&count=${this.props.countUsersOnPage}`,{withCredentials:true})
             .then(response => {
                 this.props.addUsers([...response.data.items])
                 this.props.setTotalCount(response.data.totalCount)
@@ -21,7 +21,7 @@ class UsersApiContainer extends Component {
 
     openPage = (el) => {
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${el}&count=${this.props.countUsersOnPage}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${el}&count=${this.props.countUsersOnPage}`,{withCredentials:true})
             .then(response => {
                 let users = [...response.data.items]
                 this.props.addUsers(users)
@@ -34,6 +34,7 @@ class UsersApiContainer extends Component {
         return (
             <div>
                 <Users
+                    addUsers={this.props.addUsers}
                     isFetching={this.props.isFetching}
                     countUsers={this.props.countUsers}
                     countUsersOnPage={this.props.countUsersOnPage}

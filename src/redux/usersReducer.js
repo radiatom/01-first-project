@@ -32,6 +32,7 @@ export const follow = (userId) => {
 
 const UNFOLLOW = 'UNFOLLOW'
 export const unfollow = (userId) => {
+    
     return {
         type: UNFOLLOW,
         userId: userId
