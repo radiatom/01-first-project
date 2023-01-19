@@ -13,6 +13,7 @@ export const addPost = () => {
 }
 
 const standartStateProfileData = {
+    // 27556
     profileData: {
         aboutMe: "я крута багата людина",
         contacts: {

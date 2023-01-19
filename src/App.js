@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header/Header";
+import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Music from "./components/Music/Music";
@@ -14,7 +14,7 @@ import UserProfileContainer from "./components/UserProfile/UserProfileContainer"
 const App = (props) => {
       return (
             <div className="app-wrapper">
-                  <Header />
+                  <HeaderContainer />
                   <Navbar />
                   <Routes>
                         <Route path="/friends/*" element={<Friends />} />
