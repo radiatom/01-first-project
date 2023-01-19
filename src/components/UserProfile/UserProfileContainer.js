@@ -5,6 +5,7 @@ import UserPost from './UserPosts/UserPost/UserPost';
 import { setProfile } from '../../redux/userProfileReducer';
 import axios from 'axios';
 import UserProfileInfo from './UserProfileInfo/UserProfileInfo';
+import { withRouter } from "react-router-dom";
 
 
 class UserProfileContainer extends Component {
@@ -26,6 +27,8 @@ class UserProfileContainer extends Component {
     }
 }
 
+const WithUrlDataContainerComponent= withRouter(UserProfileContainer)
+
 const mapStateToProps = (state) => {
     return {
         userProfile: state.userProfile
@@ -39,4 +42,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfileContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(WithUrlDataContainerComponent);
