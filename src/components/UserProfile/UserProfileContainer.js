@@ -3,18 +3,22 @@ import { connect } from 'react-redux';
 import UserPosts from './UserPosts/UserPosts';
 import UserPost from './UserPosts/UserPost/UserPost';
 import { setProfile } from '../../redux/userProfileReducer';
-import axios from 'axios';
+// import axios from 'axios';
 import UserProfileInfo from './UserProfileInfo/UserProfileInfo';
 import { useLocation, useNavigate, useParams, } from "react-router-dom";
-
+import { userProfileApi } from '../../api/api';
 
 class UserProfileContainer extends Component {
     componentDidMount() {
         const userId = this.props.router.params.userId
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId)
-            .then(response => {
-                this.props.setProfile(response.data)
-            })
+        userProfileApi.getProfile(userId).then(data => {
+                    this.props.setProfile(data)
+                })
+
+        // axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId)
+        //     .then(response => {
+        //         this.props.setProfile(response.data)
+        //     })
     }
     render() {
         return (

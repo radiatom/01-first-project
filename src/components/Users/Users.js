@@ -1,8 +1,8 @@
 import s from './Users.module.css'
 import Preloader from '../Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
-
+// import axios from 'axios';
+import { usersApi } from '../../api/api';
 
 
 const Users = (props) => {
@@ -37,7 +37,8 @@ const Users = (props) => {
                                 {
                                     el.followed ?
                                         <button onClick={() => {
-                                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/` + el.id,{withCredentials:true} )
+                                            usersApi.deleteUnfollow(el.id)
+                                            // axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/` + el.id,{withCredentials:true} )
                                             .then(response => {
                                                 if(response.data.resultCode===0){
                                                     props.unfollow(el.id)
@@ -46,7 +47,8 @@ const Users = (props) => {
                                             )
                                         }}>Unfollow</button> :
                                         <button onClick={() => {
-                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/` + el.id, {},{withCredentials:true} )
+                                            usersApi.postFollow(el.id)
+                                            // axios.post(`https://social-network.samuraijs.com/api/1.0/follow/` + el.id, {},{withCredentials:true} )
                                             .then(response => {
                                                 if(response.data.resultCode===0){
                                                     props.follow(el.id)

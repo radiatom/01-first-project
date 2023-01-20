@@ -3,7 +3,7 @@ import { Routes, Route, } from "react-router-dom";
 import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
+import MyProfile from "./components/MyProfile/MyProfile";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Setting from "./components/Setting/Setting";
@@ -22,7 +22,7 @@ const App = (props) => {
                         <Route path="/news/*" element={<News />} />
                         <Route path="/setting/*" element={<Setting />} />
                         <Route path="/dialogs/*" element={<DialogsContainer />} />
-                        <Route path="/profile/*" element={<Profile />} />
+                        <Route path="/myProfile/*" element={<MyProfile />} />
                         <Route path="/users/*" element={<UsersContainer />} />
                         <Route path="/userProfile/:userId" element={<UserProfileContainer />} />
                   </Routes>

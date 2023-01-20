@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Users from './Users';
 import { addUsers, unfollow, follow, setPage, setTotalCount, toggleIsFetching } from '../../redux/usersReducer';
-import axios from 'axios';
-
+// import axios from 'axios';
+import { usersApi } from '../../api/api';
 class UsersApiContainer extends Component {
     // constructor(props) {
     //     super(props)
@@ -11,19 +11,20 @@ class UsersApiContainer extends Component {
 
     componentDidMount() {
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.pageNumber}&count=${this.props.countUsersOnPage}`,{withCredentials:true})
-            .then(response => {
-                this.props.addUsers([...response.data.items])
-                this.props.setTotalCount(response.data.totalCount)
+        usersApi.getAddUsers(this.props.pageNumber, this.props.countUsersOnPage)
+            .then(data => {
+                this.props.addUsers([...data.items])
+                this.props.setTotalCount(data.totalCount)
                 this.props.toggleIsFetching(false)
             })
     }
 
     openPage = (el) => {
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${el}&count=${this.props.countUsersOnPage}`,{withCredentials:true})
-            .then(response => {
-                let users = [...response.data.items]
+        usersApi.getAddUsers2(el, this.props.countUsersOnPage)
+            // axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${el}&count=${this.props.countUsersOnPage}`,{withCredentials:true})
+            .then(data => {
+                let users = [...data.items]
                 this.props.addUsers(users)
                 this.props.toggleIsFetching(false)
             })
