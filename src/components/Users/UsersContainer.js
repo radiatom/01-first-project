@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Users from './Users';
-import { addUsers, unfollow, follow, setPage, setTotalCount, toggleIsFetching } from '../../redux/usersReducer';
+import { addUsers, unfollow, follow, setPage, setTotalCount, toggleIsFetching, progressFollowing } from '../../redux/usersReducer';
 // import axios from 'axios';
 import { usersApi } from '../../api/api';
 class UsersApiContainer extends Component {
@@ -35,6 +35,8 @@ class UsersApiContainer extends Component {
         return (
             <div>
                 <Users
+                    inProgressFollowing={this.props.inProgressFollowing}
+                    progressFollowing={this.props.progressFollowing}
                     addUsers={this.props.addUsers}
                     isFetching={this.props.isFetching}
                     countUsers={this.props.countUsers}
@@ -52,6 +54,7 @@ class UsersApiContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        inProgressFollowing: state.usersPage.inProgressFollowing,
         isFetching: state.usersPage.isFetching,
         users: state.usersPage.users,
         pageNumber: state.usersPage.pageNumber,
@@ -60,6 +63,7 @@ const mapStateToProps = (state) => {
     }
 }
 export default connect(mapStateToProps, {
+    progressFollowing,
     setPage,
     toggleIsFetching,
     addUsers,

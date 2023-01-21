@@ -1,7 +1,7 @@
 import s from './Users.module.css'
 import Preloader from '../Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 import { usersApi } from '../../api/api';
 
 
@@ -36,23 +36,27 @@ const Users = (props) => {
                             <div>
                                 {
                                     el.followed ?
-                                        <button onClick={() => {
+                                        <button disabled={props.inProgressFollowing} onClick={() => {
+                                            props.progressFollowing(true)
                                             usersApi.deleteUnfollow(el.id)
                                             // axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/` + el.id,{withCredentials:true} )
                                             .then(response => {
                                                 if(response.data.resultCode===0){
                                                     props.unfollow(el.id)
                                                 }
+                                                props.progressFollowing(false)
                                             }
                                             )
                                         }}>Unfollow</button> :
-                                        <button onClick={() => {
-                                            usersApi.postFollow(el.id)
-                                            // axios.post(`https://social-network.samuraijs.com/api/1.0/follow/` + el.id, {},{withCredentials:true} )
+                                        <button disabled={props.inProgressFollowing} onClick={() => {
+                                            props.progressFollowing(true)
+                                            // usersApi.postFollow(el.id)
+                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/` + el.id, {},{withCredentials:true} )
                                             .then(response => {
                                                 if(response.data.resultCode===0){
                                                     props.follow(el.id)
                                                 }
+                                                props.progressFollowing(false)
                                             }
                                             )
                                         }}>Follow</button>
@@ -68,9 +72,9 @@ const Users = (props) => {
                                 {el.st}
                             </div>
 
-                            <div>
+                            {/* <div>
                                 {el.cityName}, {el.countryName}
-                            </div>
+                            </div> */}
                         </div>
                         )
                     }

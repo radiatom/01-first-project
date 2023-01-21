@@ -47,6 +47,14 @@ export const toggleIsFetching = (isFetching) => {
     }
 }
 
+const PROGRESS_FOLLOWING='PROGRESS_FOLLOWING'
+export const progressFollowing = (progress) => {
+    return {
+        type: PROGRESS_FOLLOWING,
+        progress:progress
+    }
+}
+
 const standartStateUsersData = {
     users: [
         // { id: 1, userId: 1, firstName: 'Arsen', lastName: 'Mozol', st: 'deweloper', cityName: 'Lutsk', countryName: 'Ukraine', subscribe: false, img: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80' },
@@ -58,6 +66,7 @@ const standartStateUsersData = {
     countUsers: 100,
     countUsersOnPage: 100,
     isFetching: false,
+    inProgressFollowing:false,
 
 }
 
@@ -107,6 +116,12 @@ const usersReducer = (state = standartStateUsersData, action) => {
             return{
                 ...state,
                 isFetching:action.isFetching
+            }
+        }
+        case PROGRESS_FOLLOWING:{
+            return{
+                ...state,
+                inProgressFollowing:action.progress
             }
         }
         default: return state
