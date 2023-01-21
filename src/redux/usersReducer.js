@@ -48,10 +48,11 @@ export const toggleIsFetching = (isFetching) => {
 }
 
 const PROGRESS_FOLLOWING='PROGRESS_FOLLOWING'
-export const progressFollowing = (progress) => {
+export const progressFollowing = (progress,userId) => {
     return {
         type: PROGRESS_FOLLOWING,
-        progress:progress
+        progress:progress,
+        userId:userId
     }
 }
 
@@ -66,7 +67,7 @@ const standartStateUsersData = {
     countUsers: 100,
     countUsersOnPage: 100,
     isFetching: false,
-    inProgressFollowing:false,
+    inProgressFollowing:[],
 
 }
 
@@ -121,7 +122,13 @@ const usersReducer = (state = standartStateUsersData, action) => {
         case PROGRESS_FOLLOWING:{
             return{
                 ...state,
-                inProgressFollowing:action.progress
+                inProgressFollowing:action.progress===true?
+                [...state.inProgressFollowing, action.userId]
+                :state.inProgressFollowing.filter(id=>id!==action.userId)
+
+                // [...state.inProgressFollowing]
+                // action.progress===true?inProgressFollowing.
+                // inProgressFollowing:action.progress
             }
         }
         default: return state
