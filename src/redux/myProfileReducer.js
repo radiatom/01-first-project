@@ -12,9 +12,9 @@ export const addPost = () => {
     }
 }
 
-const standartStateProfileData = {
+const standartStateMyProfileData = {
     // my idUser 27556
-    profileData: {
+    myProfileData: {
         aboutMe: "я крута багата людина",
         contacts: {
             facebook: "facebook.com",
@@ -40,7 +40,7 @@ const standartStateProfileData = {
     ],
     newPostTextData: ''
 }
-const profileReducer = (state = standartStateProfileData, action) => {
+const myProfileReducer = (state = standartStateMyProfileData, action) => {
     switch (action.type) {
         case UPDATE_NEW_POST_TEXT:
             return {
@@ -66,4 +66,4 @@ const profileReducer = (state = standartStateProfileData, action) => {
 
 
 
-export default profileReducer
+export default myProfileReducer

@@ -16,7 +16,7 @@ export const ProfileInfoContainer = (props) => {
 
 const mapStateToProps=(state)=>{
     return{
-        profileData:state.profilePage.profileData
+        myProfileData:state.myProfilePage.myProfileData
     }
 }
 const MapDispatchToProps=(dispatch)=>{

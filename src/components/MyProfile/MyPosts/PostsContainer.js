@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addPost, updateNewPostText } from '../../../redux/profileReducer';
+import { addPost, updateNewPostText } from '../../../redux/myProfileReducer';
 import Posts from './Posts';
 import Post from './Post/Post';
 
 
 const mapStateToProps = (state) => {
     return {
-        value: state.profilePage.newPostTextData,
-        posts: state.profilePage.myPostsData.map(el => {
-            return (<Post profileData={state.profilePage.profileData} massage={el.massage} likeColum={el.likeColum} id={el.id} key={el.id} />)
+        value: state.myProfilePage.newPostTextData,
+        posts: state.myProfilePage.myPostsData.map(el => {
+            return (<Post myProfileData={state.myProfilePage.myProfileData} massage={el.massage} likeColum={el.likeColum} id={el.id} key={el.id} />)
         }),
     }
 }
