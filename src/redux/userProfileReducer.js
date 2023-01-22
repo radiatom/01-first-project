@@ -1,3 +1,5 @@
+import { userProfileApi } from "../api/api"
+
 
 const SET_PROFILE = 'SET_PROFILET'
 export const setProfile = (profile) => {
@@ -27,6 +29,15 @@ const userProfileReducer = (state = standartStateProfileData, action) => {
             return state
     }
 
+}
+
+export const getProfile=(router)=>{
+    return(dispatch)=>{
+        const userId = router.params.userId
+        userProfileApi.getProfile(userId).then(data => {
+                    dispatch(setProfile(data))
+                })
+    }
 }
 
 export default userProfileReducer

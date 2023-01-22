@@ -1,3 +1,7 @@
+import{ usersApi }from './../api/api'
+
+
+
 const SET_PAGE = 'SET_PAGE'
 export const setPage = (number) => {
     return {
@@ -32,7 +36,7 @@ export const follow = (userId) => {
 
 const UNFOLLOW = 'UNFOLLOW'
 export const unfollow = (userId) => {
-    
+
     return {
         type: UNFOLLOW,
         userId: userId
@@ -47,12 +51,12 @@ export const toggleIsFetching = (isFetching) => {
     }
 }
 
-const PROGRESS_FOLLOWING='PROGRESS_FOLLOWING'
-export const progressFollowing = (progress,userId) => {
+const PROGRESS_FOLLOWING = 'PROGRESS_FOLLOWING'
+export const progressFollowing = (progress, userId) => {
     return {
         type: PROGRESS_FOLLOWING,
-        progress:progress,
-        userId:userId
+        progress: progress,
+        userId: userId
     }
 }
 
@@ -67,7 +71,7 @@ const standartStateUsersData = {
     countUsers: 100,
     countUsersOnPage: 100,
     isFetching: false,
-    inProgressFollowing:[],
+    inProgressFollowing: [],
 
 }
 
@@ -113,26 +117,78 @@ const usersReducer = (state = standartStateUsersData, action) => {
                 })]
             }
         }
-        case IS_FETCHING:{
-            return{
+        case IS_FETCHING: {
+            return {
                 ...state,
-                isFetching:action.isFetching
+                isFetching: action.isFetching
             }
         }
-        case PROGRESS_FOLLOWING:{
-            return{
+        case PROGRESS_FOLLOWING: {
+            return {
                 ...state,
-                inProgressFollowing:action.progress===true?
-                [...state.inProgressFollowing, action.userId]
-                :state.inProgressFollowing.filter(id=>id!==action.userId)
-
-                // [...state.inProgressFollowing]
-                // action.progress===true?inProgressFollowing.
-                // inProgressFollowing:action.progress
+                inProgressFollowing: action.progress === true ?
+                    [...state.inProgressFollowing, action.userId]
+                    : state.inProgressFollowing.filter(id => id !== action.userId)
             }
         }
         default: return state
     }
 }
+
+export const deleteUnfollowThunkCreator = (userId) => {
+    return (dispatch) => {
+        dispatch(progressFollowing(true, userId))
+        usersApi.deleteUnfollow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(unfollow(userId))
+                }
+                dispatch(progressFollowing(false, userId))
+            }
+            )
+    }
+}
+
+export const deleteАollowThunkCreator = (userId) => {
+    return (dispatch) => {
+        dispatch(progressFollowing(true,userId))
+        usersApi.postFollow(userId)
+        .then(response => {
+            if(response.data.resultCode===0){
+                dispatch(follow(userId))
+            }
+            dispatch(progressFollowing(false,userId))
+        }
+        )
+    }
+}
+
+export const openNumberPage=(number,countUsersOnPage)=>{
+    return (dispatch)=>{
+        dispatch(toggleIsFetching(true))
+        usersApi.getAddUsers2(number, countUsersOnPage)
+            .then(data => {
+                let users = [...data.items]
+                dispatch(addUsers(users))
+                dispatch(toggleIsFetching(false))
+            })
+            dispatch(setPage(number))
+    }
+}
+export const addUsersOnPage=(pageNumber,countUsersOnPage)=>{
+    return (dispatch)=>{
+        dispatch(toggleIsFetching(true))
+        usersApi.getAddUsers(pageNumber, countUsersOnPage)
+            .then(data => {
+                dispatch(addUsers([...data.items]))
+                dispatch(setTotalCount(data.totalCount))
+                dispatch(toggleIsFetching(false))
+            })
+    }
+}
+
+
+
+
 
 export default usersReducer

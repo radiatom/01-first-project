@@ -1,51 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Users from './Users';
-import { addUsers, unfollow, follow, setPage, setTotalCount, toggleIsFetching, progressFollowing } from '../../redux/usersReducer';
-// import axios from 'axios';
-import { usersApi } from '../../api/api';
+import { addUsers, setPage, setTotalCount, toggleIsFetching, progressFollowing, deleteUnfollowThunkCreator, deleteАollowThunkCreator, openNumberPage,addUsersOnPage } from '../../redux/usersReducer';
+
+
 class UsersApiContainer extends Component {
-    // constructor(props) {
-    //     super(props)
-    // }
+
 
     componentDidMount() {
-        this.props.toggleIsFetching(true)
-        usersApi.getAddUsers(this.props.pageNumber, this.props.countUsersOnPage)
-            .then(data => {
-                this.props.addUsers([...data.items])
-                this.props.setTotalCount(data.totalCount)
-                this.props.toggleIsFetching(false)
-            })
-    }
-
-    openPage = (el) => {
-        this.props.toggleIsFetching(true)
-        usersApi.getAddUsers2(el, this.props.countUsersOnPage)
-            // axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${el}&count=${this.props.countUsersOnPage}`,{withCredentials:true})
-            .then(data => {
-                let users = [...data.items]
-                this.props.addUsers(users)
-                this.props.toggleIsFetching(false)
-            })
-        this.props.setPage(el)
+        this.props.addUsersOnPage(this.props.pageNumber, this.props.countUsersOnPage)
     }
 
     render() {
         return (
             <div>
                 <Users
+                    countPages={this.countPages}
+                    openNumberPage={this.props.openNumberPage}
+                    deleteАollowThunkCreator={this.props.deleteАollowThunkCreator}
+                    deleteUnfollowThunkCreator={this.props.deleteUnfollowThunkCreator}
                     inProgressFollowing={this.props.inProgressFollowing}
-                    progressFollowing={this.props.progressFollowing}
-                    addUsers={this.props.addUsers}
                     isFetching={this.props.isFetching}
                     countUsers={this.props.countUsers}
                     countUsersOnPage={this.props.countUsersOnPage}
                     openPage={this.openPage}
                     pageNumber={this.props.pageNumber}
                     users={this.props.users}
-                    unfollow={this.props.unfollow}
-                    follow={this.props.follow} />
+                />
             </div>
         )
     }
@@ -63,12 +44,14 @@ const mapStateToProps = (state) => {
     }
 }
 export default connect(mapStateToProps, {
+    addUsersOnPage,
+    openNumberPage,
+    deleteАollowThunkCreator,
+    deleteUnfollowThunkCreator,
     progressFollowing,
     setPage,
     toggleIsFetching,
     addUsers,
-    follow,
-    unfollow,
     setTotalCount
 })(UsersApiContainer)
 

@@ -13,7 +13,7 @@ export const addPost = () => {
 }
 
 const standartStateProfileData = {
-    // 27556
+    // my idUser 27556
     profileData: {
         aboutMe: "я крута багата людина",
         contacts: {
@@ -47,8 +47,7 @@ const profileReducer = (state = standartStateProfileData, action) => {
                 ...state,
                 newPostTextData: action.newTextPost
             }
-        // state.newPostTextData = action.newTextPost
-        // return state
+        
         case ADD_POST:
             const newPost = {
                 id: state.myPostsData.length + 1, massage: state.newPostTextData, likeColum: 0
@@ -58,15 +57,13 @@ const profileReducer = (state = standartStateProfileData, action) => {
                 myPostsData: [newPost, ...state.myPostsData],
                 newPostTextData: ''
             }
-        // newPost добавляється на початку масива щоб відображався на сторінці зверху а не знизу
-
-        // state.myPostsData.push(newPost)
-        // state.newPostTextData = ''
-        // return state
+        
         default:
             return state
     }
 
 }
+
+
 
 export default profileReducer

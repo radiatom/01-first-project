@@ -22,7 +22,7 @@ export const usersApi = {
         return instance.delete(`follow/` + id)
     },
     postFollow: (id) => {
-        return instance.delete(`follow/` + id)
+        return instance.post(`follow/` + id)
     },
 
 }

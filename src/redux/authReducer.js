@@ -10,7 +10,7 @@ export const setAuth = (data) => {
 const standartStateAuthData = {
     authData: {
         data:{
-            login:'null'
+            login:'No logins'
         }
     }
 }

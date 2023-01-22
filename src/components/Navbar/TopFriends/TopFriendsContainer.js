@@ -11,11 +11,7 @@ const mapStateToProps = (state) => {
         })
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
 
-    }
-}
-const TopFriendsContainer = connect(mapStateToProps, mapDispatchToProps)(TopFriends)
+const TopFriendsContainer = connect(mapStateToProps,{})(TopFriends)
 
 export default TopFriendsContainer;

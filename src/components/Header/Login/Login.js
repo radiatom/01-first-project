@@ -5,7 +5,7 @@ const Login = (props) => {
     return (
         <div className={s.register}>
             {props.login === null ?
-                <NavLink to="/registeredForm"> Login </NavLink> :
+                <NavLink to="/registeredForm"> button  Login </NavLink> :
                  props.login 
             }
 
