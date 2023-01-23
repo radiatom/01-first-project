@@ -11,12 +11,16 @@ import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import UserProfileContainer from "./components/UserProfile/UserProfileContainer";
+import SingInFormContainer from "./components/SingInForm/SingInFormContainer";
+
+
 const App = (props) => {
       return (
             <div className="app-wrapper">
                   <HeaderContainer />
                   <Navbar />
                   <Routes>
+                        <Route path="/singIn/*" element={<SingInFormContainer />} />
                         <Route path="/friends/*" element={<Friends />} />
                         <Route path="/music/*" element={<Music />} />
                         <Route path="/news/*" element={<News />} />

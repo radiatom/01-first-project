@@ -26,7 +26,7 @@ const standartStateMyProfileData = {
             mainLink: null
         },
         lookingForAJob: true,
-        lookingForAJobDescription: "грошей стільки б що нема куди подіти",
+        lookingForAJobDescription: "грошей стільки , що нема куди подіти",
         fullName: "Arsen Mozol",
         userId: 1,
         photos: {

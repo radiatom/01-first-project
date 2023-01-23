@@ -1,3 +1,5 @@
+import { authApi } from "../api/api"
+
 
 const SET_AUTH = 'SET_AUTH'
 export const setAuth = (data) => {
@@ -27,6 +29,15 @@ const authReducer = (state = standartStateAuthData, action) => {
             return state
     }
 
+}
+
+export const getMyProfile=()=>{
+    return(dispatch)=>{
+        authApi.getMeProfile()
+            .then(data => {
+                dispatch(setAuth(data))
+            })
+    }
 }
 
 export default authReducer

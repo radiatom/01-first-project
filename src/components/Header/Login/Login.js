@@ -4,10 +4,12 @@ import s from './Register.module.css'
 const Login = (props) => {
     return (
         <div className={s.register}>
-            {props.login === null ?
-                <NavLink to="/registeredForm"> button  Login </NavLink> :
-                 props.login 
-            }
+            <div>
+                <NavLink to="/singIn"> <button>singIn</button>  </NavLink>
+            </div>
+            <div>
+                <NavLink to="/singUp"> <button>singUp</button>  </NavLink>
+            </div>
 
         </div>
     );

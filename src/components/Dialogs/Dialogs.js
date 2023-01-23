@@ -1,7 +1,9 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import s from './Dialogs.module.css';
 
 const Dialogs = (props) => {
+    if(props.resultCode===1){return (<Navigate to='/singIn/'/>)}
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>

@@ -84,7 +84,7 @@ const standartStateDialogsData = {
             avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10275824-stock-photo-business-man-avatar-in-suit.jpg'
         },
         {
-            id: 4,
+            id: 5,
             idUser: 1,
             massage: 'Cool!',
             avatar: 'https://static8.depositphotos.com/1207999/1027/i/600/depositphotos_10274377-stock-photo-business-man-suit-avatar.jpg'

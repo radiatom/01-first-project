@@ -14,7 +14,8 @@ const mapStateToProps = (state) => {
         }),
         massage: state.dialogsPage.massagesData.map(el => {
             return (<Massage massage={el.massage} avatar={el.avatar} idUser={el.idUser} key={el.id} />)
-        })
+        }),
+        resultCode: state.auth.authData.resultCode
     }
 }
 const mapDispatchToProps = (dispatch) => {

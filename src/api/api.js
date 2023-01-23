@@ -34,6 +34,15 @@ export const userProfileApi = {
             })
     }
 }
+
+export const authApi={
+    getMeProfile:()=>{
+        return instance.get('auth/me')
+            .then(response => {
+                return response.data
+            })
+    }
+}
 // export const usersApi={
 //     getUsers:(pageNumber,countUsersOnPage)=>{
 //         return axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${countUsersOnPage}`,{withCredentials:true})
