@@ -11,17 +11,10 @@ export const ProfileInfoContainer = (props) => {
     );
 }
 
-
-
-
 const mapStateToProps=(state)=>{
     return{
         myProfileData:state.myProfilePage.myProfileData
     }
 }
-const MapDispatchToProps=(dispatch)=>{
-    return{
 
-    }
-}
-export default connect(mapStateToProps,MapDispatchToProps) (ProfileInfo);
+export default connect(mapStateToProps,{}) (ProfileInfo);

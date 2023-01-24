@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserPosts from './UserPosts/UserPosts';
 import UserPost from './UserPosts/UserPost/UserPost';
-import {  getProfile } from '../../redux/userProfileReducer';
+import { getProfile } from '../../redux/userProfileReducer';
 import UserProfileInfo from './UserProfileInfo/UserProfileInfo';
-import { useLocation, useNavigate, useParams, } from "react-router-dom";
+// import { useLocation, useNavigate, useParams, } from "react-router-dom";
+import { withRouter } from '../hoc/withRouter';
+import { compose } from 'redux';
 
 
 class UserProfileContainer extends Component {
@@ -24,29 +26,19 @@ class UserProfileContainer extends Component {
     }
 }
 
+
 const mapStateToProps = (state) => {
     return {
         userProfile: state.userProfile
     }
 }
 
+// const routerComponent=withRouter(UserProfileContainer)
 
-function withRouter(Component) {
-    function ComponentWithRouterProp(props) {
-        let location = useLocation();
-        let navigate = useNavigate();
-        let params = useParams();
-        return (
-            <Component
-                {...props}
-                router={{ location, navigate, params }}
-            />
-        );
-    }
+// export default connect(mapStateToProps, { getProfile })(routerComponent);
 
-    return ComponentWithRouterProp;
-}
-//№60 withRouter це заглушка, цієї фукції не треба коли ми в фукціональному компоненті, в функціональній використовують хуки, але 
-// оскільки ми в класовій тому треба написати цю заглушку.
+export default compose(
+    connect(mapStateToProps, { getProfile }),
+    withRouter
+)(UserProfileContainer)
 
-export default connect(mapStateToProps, {getProfile})(withRouter(UserProfileContainer));

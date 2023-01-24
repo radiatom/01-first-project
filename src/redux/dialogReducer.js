@@ -1,13 +1,13 @@
 
 const UPDATE_NEW_MASSAGE_TEXT = 'UPDATE-NEW-MASSAGE-TEXT'
-export const updateNewMassageTextActionCreater = (newText) => {
+export const updateNewMassageText = (newText) => {
     return {
         type: UPDATE_NEW_MASSAGE_TEXT, newText: newText
     }
 }
 
 const SEND_MASSAGE = 'SEND-MASSAGE'
-export const sendMassageActionCreater = () => {
+export const sendMassage = () => {
     return {
         type: SEND_MASSAGE
     }

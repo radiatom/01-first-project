@@ -13,18 +13,8 @@ const mapStateToProps = (state) => {
         }),
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onPostChange: (event) => {
-            const newTextPost = event.target.value
-            dispatch(updateNewPostText(newTextPost))
-        },
-        addPost: () => {
-            dispatch(addPost())
-        },
-    }
-}
-const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts)
+
+const PostsContainer = connect(mapStateToProps, {updateNewPostText,addPost})(Posts)
 
 
 export default PostsContainer;

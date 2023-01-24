@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Users from './Users';
-import { addUsers, setPage, setTotalCount, toggleIsFetching, progressFollowing, deleteUnfollowThunkCreator, deleteАollowThunkCreator, openNumberPage,addUsersOnPage } from '../../redux/usersReducer';
+import {
+    addUsers, setPage, setTotalCount,
+    toggleIsFetching, progressFollowing, deleteUnfollowThunkCreator,
+    deleteАollowThunkCreator, openNumberPage, addUsersOnPage
+} from '../../redux/usersReducer';
 
 
 class UsersApiContainer extends Component {
@@ -55,25 +59,3 @@ export default connect(mapStateToProps, {
     setTotalCount
 })(UsersApiContainer)
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         toogleIsFetching: (isFetching) => {
-//             dispatch(isFetchingActionCreater(isFetching))
-//         },
-//         addUsers: (users) => {
-//             dispatch(addUsersActionCreater(users))
-//         },
-//         follow: (userId) => {
-//             dispatch(followActionCreater(userId))
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unfollowActionCreater(userId))
-//         },
-//         setPage: (number) => {
-//             dispatch(setPageActionCreater(number))
-//         },
-//         setTotalCount: (num) => {
-//             dispatch(setTotalCountActionCreater(num))
-//         },
-//     }
-// }

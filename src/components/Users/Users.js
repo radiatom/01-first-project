@@ -14,7 +14,6 @@ const Users = (props) => {
             <div className={s.pages}>
                 <span className={s.page} >
                     {pagesCounts.map(el => {
-                        // key={'page-' + el}
                         return (<span key={el} onClick={() => { props.openNumberPage(el, props.countUsersOnPage) }} className={el === props.pageNumber ? s.active : s.page}>{el}</span>)
                     })}
                 </span>
@@ -47,13 +46,6 @@ const Users = (props) => {
                                 {el.name} {el.last_name}
                             </div>
 
-                            <div>
-                                {el.st}
-                            </div>
-
-                            {/* <div>
-                                {el.cityName}, {el.countryName}
-                            </div> */}
                         </div>
                     )
                 }

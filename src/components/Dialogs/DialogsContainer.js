@@ -1,12 +1,12 @@
 import React from 'react';
-import { sendMassageActionCreater, updateNewMassageTextActionCreater } from '../../redux/dialogReducer';
+import { sendMassage, updateNewMassageText } from '../../redux/dialogReducer';
 import Dialog from './Dialog/Dialog';
 import Massage from './Massage/Massage';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
 import { withAuthNavigate } from '../hoc/withAuthNavigate';
+import { compose } from 'redux';
 
-const AuthNavigateComponent=withAuthNavigate(Dialogs)
 
 const mapStateToProps = (state) => {
     return {
@@ -17,24 +17,11 @@ const mapStateToProps = (state) => {
         massage: state.dialogsPage.massagesData.map(el => {
             return (<Massage massage={el.massage} avatar={el.avatar} idUser={el.idUser} key={el.id} />)
         }),
-        // resultCode: state.auth.authData.resultCode
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onMassageChange: (event) => {
-            const newText = event.target.value
-            dispatch(updateNewMassageTextActionCreater(newText))
-        },
-        click: () => {
-            dispatch(sendMassageActionCreater())
-        },
-    }
-}
-const withUrlDataContainerComponent = connect(mapStateToProps, mapDispatchToProps)(AuthNavigateComponent)
-export default withUrlDataContainerComponent
 
 
-// const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
-// export default DialogsContainer;
-
+export default compose(
+    connect(mapStateToProps, {updateNewMassageText,sendMassage}),
+    withAuthNavigate
+    )(Dialogs)

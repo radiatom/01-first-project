@@ -2,6 +2,7 @@ import React from 'react';
 import s from './ProfileInfo.module.css'
 import img from './../../../Img/profileInfo.jpg'
 
+
 const ProfileInfo = (props) => {
     return (
         <div className={s.profileInfo}>

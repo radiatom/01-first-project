@@ -7,3 +7,9 @@
 .header img {
   width: 40px;
 }
+
+.login{
+  color: aliceblue;
+  float: right;
+  padding: 5px;
+}
