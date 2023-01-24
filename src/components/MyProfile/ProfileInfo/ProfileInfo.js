@@ -1,9 +1,11 @@
 import React from 'react';
 import s from './ProfileInfo.module.css'
 import img from './../../../Img/profileInfo.jpg'
-
+import ProfileStatusContainer from './ProfileStatus/ProfileStatusContainer'
 
 const ProfileInfo = (props) => {
+    debugger
+    props.getMyProfile(props.myUserId)
     return (
         <div className={s.profileInfo}>
             <div className={s.wallpaper}>
@@ -20,6 +22,10 @@ const ProfileInfo = (props) => {
                     {props.myProfileData.fullName}
                 </h2>
             </div>
+            <div>
+                    <ProfileStatusContainer/>
+            </div>
+
             <div>
                 <h3>
                     About me: {props.myProfileData.aboutMe}

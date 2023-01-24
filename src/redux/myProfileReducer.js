@@ -1,3 +1,6 @@
+import { userProfileApi } from "../api/api"
+
+
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 export const updateNewPostText = (newTextPost) => {
     return {
@@ -12,7 +15,16 @@ export const addPost = () => {
     }
 }
 
+const SET_MY_ROFILE = 'SET_MY_ROFILE'
+export const setMyProfile = (data) => {
+    return {
+        type: SET_MY_ROFILE,
+        data:data
+    }
+}
+
 const standartStateMyProfileData = {
+    status:'hello',
     // my idUser 27556
     myProfileData: {
         aboutMe: "я крута багата людина",
@@ -57,13 +69,24 @@ const myProfileReducer = (state = standartStateMyProfileData, action) => {
                 myPostsData: [newPost, ...state.myPostsData],
                 newPostTextData: ''
             }
-        
+        case SET_MY_ROFILE:
+            return{
+                ...state,
+                myProfileData:{...action.data}
+            }
         default:
             return state
     }
 
 }
 
-
+export const getMyProfile=(userId)=>{
+    return(dispatch)=>{
+        userProfileApi.getProfile(userId)
+            .then(data => {
+                dispatch(setMyProfile(data))
+            })
+    }
+}
 
 export default myProfileReducer

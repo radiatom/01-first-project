@@ -31,7 +31,7 @@ const authReducer = (state = standartStateAuthData, action) => {
 
 }
 
-export const getMyProfile=()=>{
+export const getAuth=()=>{
     return(dispatch)=>{
         authApi.getMeProfile()
             .then(data => {

@@ -24,7 +24,6 @@ export const usersApi = {
     postFollow: (id) => {
         return instance.post(`follow/` + id)
     },
-
 }
 export const userProfileApi = {
     getProfile: (userId) => {

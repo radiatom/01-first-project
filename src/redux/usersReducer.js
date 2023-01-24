@@ -175,6 +175,7 @@ export const openNumberPage=(number,countUsersOnPage)=>{
             dispatch(setPage(number))
     }
 }
+
 export const addUsersOnPage=(pageNumber,countUsersOnPage)=>{
     return (dispatch)=>{
         dispatch(toggleIsFetching(true))
