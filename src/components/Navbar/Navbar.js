@@ -28,7 +28,7 @@ const Navbar = (props) => {
                   </div>
 
                   <div className={s.navLink}>
-                        <NavLink className={linkActive => linkActive.isActive ? s.active : s.navLink} to='/friends'>Friends</NavLink>
+                        <NavLink className={linkActive => linkActive.isActive ? s.active : s.navLink} to='/myFriends'>My friends</NavLink>
                   </div>
                   <div className={s.navLink}>
                         <NavLink className={linkActive => linkActive.isActive ? s.active : s.navLink} to='/users'>Find users</NavLink>

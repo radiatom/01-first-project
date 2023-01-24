@@ -2,4 +2,13 @@
     float: right;
    color: aliceblue;
    padding: 10px;
+   flex-direction: row
+}
+.singIn{
+    padding-right:5px ;
+    display: inline-block;
+}
+.singUp{
+    padding-left: 5px;
+    display: inline-block;
 }

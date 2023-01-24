@@ -4,7 +4,9 @@ import Dialog from './Dialog/Dialog';
 import Massage from './Massage/Massage';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
+import { withAuthNavigate } from '../hoc/withAuthNavigate';
 
+const AuthNavigateComponent=withAuthNavigate(Dialogs)
 
 const mapStateToProps = (state) => {
     return {
@@ -15,7 +17,7 @@ const mapStateToProps = (state) => {
         massage: state.dialogsPage.massagesData.map(el => {
             return (<Massage massage={el.massage} avatar={el.avatar} idUser={el.idUser} key={el.id} />)
         }),
-        resultCode: state.auth.authData.resultCode
+        // resultCode: state.auth.authData.resultCode
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -29,6 +31,10 @@ const mapDispatchToProps = (dispatch) => {
         },
     }
 }
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+const withUrlDataContainerComponent = connect(mapStateToProps, mapDispatchToProps)(AuthNavigateComponent)
+export default withUrlDataContainerComponent
 
-export default DialogsContainer;
+
+// const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+// export default DialogsContainer;
+

@@ -5,15 +5,12 @@ import UserPost from './UserPosts/UserPost/UserPost';
 import {  getProfile } from '../../redux/userProfileReducer';
 import UserProfileInfo from './UserProfileInfo/UserProfileInfo';
 import { useLocation, useNavigate, useParams, } from "react-router-dom";
-// import { userProfileApi } from '../../api/api';
+
 
 class UserProfileContainer extends Component {
+
     componentDidMount() {
         this.props.getProfile(this.props.router)
-        // const userId = this.props.router.params.userId
-        // userProfileApi.getProfile(userId).then(data => {
-        //     this.props.setProfile(data)
-        // })
     }
     render() {
         return (
@@ -52,7 +49,4 @@ function withRouter(Component) {
 //№60 withRouter це заглушка, цієї фукції не треба коли ми в фукціональному компоненті, в функціональній використовують хуки, але 
 // оскільки ми в класовій тому треба написати цю заглушку.
 
-export default connect(mapStateToProps, {
-    // setProfile,
-    getProfile
-})(withRouter(UserProfileContainer));
+export default connect(mapStateToProps, {getProfile})(withRouter(UserProfileContainer));

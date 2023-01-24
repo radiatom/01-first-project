@@ -1,0 +1,15 @@
+.pageSingIn{
+    text-align: center;
+}
+.request{
+    text-align: center;
+}
+.singInForm{
+    opacity: 0.3;
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+    background-color: aquamarine;
+    text-align: center;
+
+}

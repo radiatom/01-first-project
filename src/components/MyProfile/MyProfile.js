@@ -3,7 +3,7 @@ import s from './MyProfile.module.css';
 import ProfileInfoContainer from './ProfileInfo/ProfileInfoContainer';
 import PostsContainer from './MyPosts/PostsContainer';
 
-const Profile = (props) => {
+const MyProfile = (props) => {
       return (
             <div className={s.content}>
 
@@ -15,4 +15,4 @@ const Profile = (props) => {
       );
 }
 
-export default Profile;
+export default MyProfile;
