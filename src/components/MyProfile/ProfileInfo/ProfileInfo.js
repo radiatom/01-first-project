@@ -38,6 +38,7 @@ import ProfileStatusContainer from './ProfileStatus/ProfileStatusContainer'
 
 class ProfileInfo extends Component {
     componentDidMount() {
+        // this.props.getMyUserId()
         this.props.getMyProfile(this.props.myUserId)
     }
     render() {

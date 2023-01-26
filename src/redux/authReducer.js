@@ -15,6 +15,7 @@ const standartStateAuthData = {
         data:{
             // id тимчасове бо теба розібратись чому данні з сервера приходять не своєчасно
             id:27556,
+            // id:null,
             login:'No logins'
         }
     }

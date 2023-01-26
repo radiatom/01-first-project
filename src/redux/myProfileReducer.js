@@ -1,4 +1,4 @@
-import { userProfileApi, myProfileApi } from "../api/api"
+import { userProfileApi, myProfileApi,authApi } from "../api/api"
 
 
 const SET_STATUS = 'SET_STATUS'
@@ -38,7 +38,16 @@ export const setMyProfile = (data) => {
     }
 }
 
+const SET_MY_iD = 'SET_MY_iD'
+export const setMyId = (id) => {
+    return {
+        type: SET_MY_iD,
+        id
+    }
+}
+
 const standartStateMyProfileData = {
+    myId:null,
     status: '',
     // my idUser 27556
     myProfileData: {
@@ -94,12 +103,24 @@ const myProfileReducer = (state = standartStateMyProfileData, action) => {
                 ...state,
                 status: action.status
             }
-
+        case SET_MY_iD:
+            return {...state,
+                myId: action.id
+            }
         default:
             return state
     }
 
 }
+export const getMyUserId = () => {
+    return (dispatch) => {
+        authApi.getMeProfile()
+            .then(data => {
+                dispatch(setMyId(data.data.id))
+            })
+    }
+}
+
 
 export const getMyProfile = (userId) => {
     return (dispatch) => {
