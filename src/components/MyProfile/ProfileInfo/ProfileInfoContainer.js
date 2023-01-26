@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProfileInfo from './ProfileInfo';
-import { getMyProfile } from '../../../redux/myProfileReducer';
+import { getMyProfile, } from '../../../redux/myProfileReducer';
 
-export const ProfileInfoContainer = (props) => {
-    return (
-        <div>
-            <ProfileInfo/>
-        </div>
-    );
-}
 
-const mapStateToProps=(state)=>{
-    return{
-        myProfileData:state.myProfilePage.myProfileData,
-        myUserId:state.auth.authData.data.id,
+class ProfileInfoContainer extends Component {
+    // componentDidMount() {
+    //     this.props.getMyProfile(this.props.myUserId)
+    // }
+    render() {
+        return (
+            <div>
+                <ProfileInfo {...this.props} />
+            </div>
+        );
     }
 }
 
-export default connect(mapStateToProps,{getMyProfile}) (ProfileInfo);
+const mapStateToProps = (state) => {
+    return {
+        myProfileData: state.myProfilePage.myProfileData,
+        myUserId: state.auth.authData.data.id,
+    }
+}
+export default connect(mapStateToProps, { getMyProfile,  })(ProfileInfoContainer);
+
+

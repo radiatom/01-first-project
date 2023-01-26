@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Posts.module.css'
 
 const Posts = (props) => {
-      
+
       return (
             <div className={s.posts}>
                   <h3>Post</h3>

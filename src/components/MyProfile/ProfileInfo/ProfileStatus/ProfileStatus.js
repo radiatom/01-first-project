@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import s from './ProfileStatus.module.css'
 
 class ProfileStatus extends Component {
+    
     state = {
-        editMode: false
+        editMode: false,
+        textStatus:this.props.status
+    }
+    componentDidMount() {
+        // this.props.updateStatus(this.state.textStatus)
+        this.props.getMyStatus(this.props.myUserId)
+    }
+    updateTextStatus=(text)=>{
+        this.setState({
+            textStatus: text
+        })
+        // this.props.updateStatus(text)
     }
     activeteEditMode = () => {
         this.setState({
@@ -14,18 +26,20 @@ class ProfileStatus extends Component {
         this.setState({
             editMode: false
         })
+        this.props.updateStatus(this.state.textStatus)
+
     }
     render() {
+        // this.props.getMyStatus(this.props.myUserId)
         return (
             <div>
                 {this.state.editMode ?
-                    (<textarea onBlur={this.deActiveteEditMode} autoFocus={true} cols="30" rows="1">
-                        {this.props.status}
-                    </textarea>) :
+                (<input onChange={ e=>this.updateTextStatus(e.target.value)} onBlur={this.deActiveteEditMode} autoFocus={true} value={this.state.textStatus} />)
+                    :
                     (<div className={s.status}>
                         <span onClick={this.activeteEditMode} >
                             <h3>
-                                {this.props.status}
+                            {this.state.textStatus}
                             </h3>
                         </span>
                     </div>)}
