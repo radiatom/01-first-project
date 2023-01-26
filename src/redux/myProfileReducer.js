@@ -39,7 +39,7 @@ export const setMyProfile = (data) => {
 }
 
 const standartStateMyProfileData = {
-    status: 'hello',
+    status: '',
     // my idUser 27556
     myProfileData: {
         aboutMe: "я крута багата людина",
@@ -124,7 +124,7 @@ export const updateStatus = (status) => {
     return (dispatch) => {
         myProfileApi.updateStatus(status)
             .then(data => {
-                if (data.resultCode === 1) {
+                if (data.resultCode === 0) {
                     dispatch(setStatus(status))
                 }
             })

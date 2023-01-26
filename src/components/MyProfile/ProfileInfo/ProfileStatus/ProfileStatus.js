@@ -7,6 +7,14 @@ class ProfileStatus extends Component {
         editMode: false,
         textStatus:this.props.status
     }
+    componentDidUpdate(prevProps,prevState){
+
+        if(prevProps.status!== this.props.status){
+            this.setState({
+                textStatus: this.props.status
+            })
+        }
+    }
     componentDidMount() {
         // this.props.updateStatus(this.state.textStatus)
         this.props.getMyStatus(this.props.myUserId)
@@ -39,7 +47,7 @@ class ProfileStatus extends Component {
                     (<div className={s.status}>
                         <span onClick={this.activeteEditMode} >
                             <h3>
-                            {this.state.textStatus}
+                            {this.props.status}
                             </h3>
                         </span>
                     </div>)}

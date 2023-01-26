@@ -8,10 +8,13 @@ export const setAuth = (data) => {
         data:data
     }
 }
-
+    // my idUser 27556
+    // state.auth.authData.data.id,
 const standartStateAuthData = {
     authData: {
         data:{
+            // id тимчасове бо теба розібратись чому данні з сервера приходять не своєчасно
+            id:27556,
             login:'No logins'
         }
     }
