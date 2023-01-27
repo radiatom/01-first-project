@@ -1,4 +1,5 @@
 import React from 'react';
+import { Field } from 'redux-form';
 import s from './SingInForm.module.css'
 
 const SingInForm = (props) => {
@@ -10,20 +11,29 @@ const SingInForm = (props) => {
                 </h3>
             </div>
             <div className={s.singInForm} >
-                <div>
-                    <textarea  placeholder='Email'  cols="30" rows="1"></textarea>
-                </div>
+                <form onSubmit={ props.handleSubmit } >
+                    <div>
+                        <h2>Login</h2>
+                    </div>
+                    
+                    <div>
+                        <Field placeholder={'email'} name={'email'} component={'input'} />
+                    </div>
 
-                <div>
-                    <textarea placeholder='Paswood' cols="30" rows="1"></textarea>
-                </div>
+                    <div>
+                        <Field placeholder={'0'} name={'password'} component={'input'} />
+                    </div>
+                    <div>
+                        <Field type={"checkbox"} name={'rememberMe'} component={'input'} /> remember me
+                    </div>
+                    <div>
+                        <button>SingIn</button>
+                    </div>
+                </form>
 
-                <div>
-                    <button>SingIn</button>
-                </div>
             </div>
 
-        </div>
+        </div >
 
     );
 }

@@ -35,6 +35,12 @@ export const userProfileApi = {
 }
 
 export const authApi = {
+    login:({email,password,rememberMe=false,captcha=true})=>{
+        return instance.post('auth/login',{email,password,rememberMe,captcha})
+        .then(response => {
+            return response.data
+        })
+    },
     getMeProfile: () => {
         return instance.get('auth/me')
             .then(response => {
