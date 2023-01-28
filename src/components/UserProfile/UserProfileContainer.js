@@ -4,7 +4,6 @@ import UserPosts from './UserPosts/UserPosts';
 import UserPost from './UserPosts/UserPost/UserPost';
 import { getProfile } from '../../redux/userProfileReducer';
 import UserProfileInfo from './UserProfileInfo/UserProfileInfo';
-// import { useLocation, useNavigate, useParams, } from "react-router-dom";
 import { withRouter } from '../hoc/withRouter';
 import { compose } from 'redux';
 
@@ -32,10 +31,6 @@ const mapStateToProps = (state) => {
         userProfile: state.userProfile
     }
 }
-
-// const routerComponent=withRouter(UserProfileContainer)
-
-// export default connect(mapStateToProps, { getProfile })(routerComponent);
 
 export default compose(
     connect(mapStateToProps, { getProfile }),

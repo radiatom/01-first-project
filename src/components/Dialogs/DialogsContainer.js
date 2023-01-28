@@ -1,12 +1,28 @@
 import React from 'react';
-import { sendMassage, updateNewMassageText } from '../../redux/dialogReducer';
+import { sendMassage, setMassageText } from '../../redux/dialogReducer';
 import Dialog from './Dialog/Dialog';
 import Massage from './Massage/Massage';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
 import { withAuthNavigate } from '../hoc/withAuthNavigate';
-import { compose } from 'redux';
+import { reduxForm } from 'redux-form';
 
+
+const PostsReduxForm = reduxForm({ form: 'massageText' })(Dialogs)
+
+withAuthNavigate(PostsReduxForm)
+
+const DialogsContainer = (props) => {
+    const onSubmit = (formData) => {
+        props.setMassageText(formData.massageText)
+        props.sendMassage()
+    }
+    return (
+        <div>
+            <PostsReduxForm onSubmit={onSubmit} {...props} />
+        </div>
+    );
+}
 
 const mapStateToProps = (state) => {
     return {
@@ -19,9 +35,6 @@ const mapStateToProps = (state) => {
         }),
     }
 }
+export default connect(mapStateToProps, { setMassageText, sendMassage })(DialogsContainer)
 
 
-export default compose(
-    connect(mapStateToProps, {updateNewMassageText,sendMassage}),
-    withAuthNavigate
-    )(Dialogs)

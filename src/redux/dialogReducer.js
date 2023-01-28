@@ -1,8 +1,8 @@
 
-const UPDATE_NEW_MASSAGE_TEXT = 'UPDATE-NEW-MASSAGE-TEXT'
-export const updateNewMassageText = (newText) => {
+const SET_MASAGE_TEXT = 'SET_MASAGE_TEXT'
+export const setMassageText = (massageText) => {
     return {
-        type: UPDATE_NEW_MASSAGE_TEXT, newText: newText
+        type: SET_MASAGE_TEXT, massageText: massageText
     }
 }
 
@@ -95,11 +95,10 @@ const standartStateDialogsData = {
 
 const dialogReducer = (state = standartStateDialogsData, action) => {
     switch (action.type) {
-        case UPDATE_NEW_MASSAGE_TEXT:
-
+        case SET_MASAGE_TEXT:
             return {
                 ...state,
-                newMassageTextData: action.newText
+                newMassageTextData: action.massageText
             }
 
         case SEND_MASSAGE:

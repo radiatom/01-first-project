@@ -1,8 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addPost, updateNewPostText } from '../../../redux/myProfileReducer';
+import { addPost, setTextPost } from '../../../redux/myProfileReducer';
 import Posts from './Posts';
 import Post from './Post/Post';
+import { reduxForm } from 'redux-form';
+
+
+
+const PostsReduxForm = reduxForm({ form: 'postText' })(Posts)
+
+
+const PostsContainer = (props) => {
+        const onSubmit = (formData) => {
+            props.setTextPost(formData.postText)
+            props.addPost()
+        }
+    return (
+        <div>
+            <PostsReduxForm onSubmit={onSubmit} {...props}/>
+        </div>
+    );
+}
+
 
 
 const mapStateToProps = (state) => {
@@ -14,7 +33,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-const PostsContainer = connect(mapStateToProps, {updateNewPostText,addPost})(Posts)
+export default connect(mapStateToProps, {setTextPost,addPost})(PostsContainer)
 
-
-export default PostsContainer;

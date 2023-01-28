@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Dialogs.module.css';
+import { Field } from 'redux-form';
 
 
 const Dialogs = (props) => {
@@ -14,15 +15,19 @@ const Dialogs = (props) => {
             <div className={s.massages}>
 
                 {props.massage}
+                <form onSubmit={props.handleSubmit}>
+                <Field placeholder='Text' value={props.value} cols="112" rows="3" name={'massageText'} component={'textarea'}/>
 
-                <textarea
-                    placeholder='Text'
-                    onChange={e=>props.updateNewMassageText(e.target.value)}
-                    value={props.value}
-                    cols="112" rows="3"
-                ></textarea>
+                    {/* <textarea
+                        placeholder='Text'
+                        onChange={e => props.updateNewMassageText(e.target.value)}
+                        value={props.value}
+                        cols="112" rows="3"
+                    ></textarea> */}
 
-                <button onClick={props.sendMassage}>Send</button>
+                    <button>Send</button>
+                </form>
+
             </div>
         </div >
     );

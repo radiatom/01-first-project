@@ -1,20 +1,17 @@
 import React from 'react';
 import s from './Posts.module.css'
+import { Field } from 'redux-form';
+
 
 const Posts = (props) => {
 
       return (
             <div className={s.posts}>
                   <h3>Post</h3>
-
-                  <textarea
-                        placeholder='Text'
-                        onChange={e=>props.updateNewPostText(e.target.value)}
-                        value={props.value}
-                        cols="139" rows="3"
-                  />
-
-                  <button onClick={props.addPost}>Add post</button>
+                  <form onSubmit={props.handleSubmit}>
+                        <Field placeholder='Text' cols="139" rows="3" name={'postText'} component={'textarea'}/>
+                        <button>Add post</button>
+                  </form>
 
                   <div >
                         {props.posts}

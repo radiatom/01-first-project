@@ -16,10 +16,10 @@ export const update_status = (status) => {
         status
     }
 }
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-export const updateNewPostText = (newTextPost) => {
+const SET_TEXT_POST = 'SET_TEXT_POST'
+export const setTextPost = (postText) => {
     return {
-        type: UPDATE_NEW_POST_TEXT, newTextPost: newTextPost
+        type: SET_TEXT_POST, postText: postText
     }
 }
 
@@ -78,10 +78,10 @@ const standartStateMyProfileData = {
 }
 const myProfileReducer = (state = standartStateMyProfileData, action) => {
     switch (action.type) {
-        case UPDATE_NEW_POST_TEXT:
+        case SET_TEXT_POST:
             return {
                 ...state,
-                newPostTextData: action.newTextPost
+                newPostTextData: action.postText
             }
 
         case ADD_POST:
