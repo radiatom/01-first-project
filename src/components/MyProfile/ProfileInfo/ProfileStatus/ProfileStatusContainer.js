@@ -4,19 +4,15 @@ import ProfileStatus from './ProfileStatus';
 import { getMyStatus, updateStatus } from '../../../../redux/myProfileReducer';
 
 
-class ProfileStatusContainer extends Component {
-    // componentDidMount() {
-    //     this.props.updateStatus('44444')
-    //     this.props.getMyStatus(this.props.myUserId)
-    // }
-    render() {
-        return (
-            <div>
-                <ProfileStatus {...this.props}/>
-            </div>
-        );
-    }
+
+const ProfileStatusContainer = (props) => {
+    return (
+        <div>
+            <ProfileStatus {...props}/>
+        </div>
+    );
 }
+
 const mapStateToProps=(state)=>{
     return{
         status:state.myProfilePage.status,
