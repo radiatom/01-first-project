@@ -132,7 +132,6 @@ export const getMyProfile = (userId) => {
 }
 
 export const getMyStatus = (myUserId) => {
-
     return (dispatch) => {
         myProfileApi.getStatus(myUserId)
             .then(data => {
@@ -141,12 +140,12 @@ export const getMyStatus = (myUserId) => {
     }
 }
 
-export const updateStatus = (status) => {
+export const putStatusText = (statusText) => {
     return (dispatch) => {
-        myProfileApi.updateStatus(status)
+        myProfileApi.updateStatus(statusText)
             .then(data => {
                 if (data.resultCode === 0) {
-                    dispatch(setStatus(status))
+                    dispatch(setStatus(statusText))
                 }
             })
     }

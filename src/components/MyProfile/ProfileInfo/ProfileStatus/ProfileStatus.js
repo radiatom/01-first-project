@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import s from './ProfileStatus.module.css'
+import { Field } from 'redux-form';
+
+
 
 class ProfileStatus extends Component {
 
-    
+
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.status !== this.props.status) {
             this.setState({
@@ -18,12 +21,6 @@ class ProfileStatus extends Component {
 
     state = {
         editMode: false,
-        textStatus: this.props.status
-    }
-    updateTextStatus = (text) => {
-        this.setState({
-            textStatus: text
-        })
     }
     activeteEditMode = () => {
         this.setState({
@@ -34,14 +31,16 @@ class ProfileStatus extends Component {
         this.setState({
             editMode: false
         })
-        this.props.updateStatus(this.state.textStatus)
+        this.props.handleSubmit()
 
     }
     render() {
         return (
             <div>
                 {this.state.editMode ?
-                    (<input onChange={e => this.updateTextStatus(e.target.value)} onBlur={this.deActiveteEditMode} autoFocus={true} value={this.state.textStatus} />)
+                    (<form onSubmit={this.props.handleSubmit}>
+                        <Field onBlur={this.deActiveteEditMode} autoFocus={true} value={this.state.textStatus} placeholder='Text' name={'statusText'} component={'input'} />
+                    </form>)
                     :
                     (<div className={s.status}>
                         <span onClick={this.activeteEditMode} >

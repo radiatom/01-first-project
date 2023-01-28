@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProfileStatus from './ProfileStatus';
-import { getMyStatus, updateStatus } from '../../../../redux/myProfileReducer';
+import { getMyStatus, putStatusText } from '../../../../redux/myProfileReducer';
+import { reduxForm } from 'redux-form';
 
 
+const StatusReduxForm = reduxForm({ form: 'statusText' })(ProfileStatus)
 
 const ProfileStatusContainer = (props) => {
+    const onSubmit = (formData) => {
+        formData.statusText===undefined?props.putStatusText('Status'):
+        props.putStatusText(formData.statusText)
+    }
     return (
         <div>
-            <ProfileStatus {...props}/>
+            <StatusReduxForm onSubmit={onSubmit} {...props}/>
         </div>
     );
 }
@@ -20,5 +26,5 @@ const mapStateToProps=(state)=>{
     }
 }
 
-export default connect (mapStateToProps,{getMyStatus ,updateStatus})(ProfileStatusContainer);
+export default connect (mapStateToProps,{getMyStatus ,putStatusText})(ProfileStatusContainer);
 
