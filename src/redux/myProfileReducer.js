@@ -49,25 +49,24 @@ export const setMyId = (id) => {
 const standartStateMyProfileData = {
     myId:null,
     status: '',
-    // my idUser 27556
     myProfileData: {
-        aboutMe: "я крута багата людина",
+        aboutMe: "",
         contacts: {
-            facebook: "facebook.com",
+            facebook: "",
             website: null,
-            twitter: "https://twitter.com/@sdf",
-            instagram: "instagra.com/sds",
+            twitter: "",
+            instagram: "",
             youtube: null,
-            github: "github.com",
+            github: "",
             mainLink: null
         },
         lookingForAJob: true,
-        lookingForAJobDescription: "грошей стільки , що нема куди подіти",
-        fullName: "Arsen Mozol",
+        lookingForAJobDescription: "",
+        fullName: "",
         userId: 1,
         photos: {
-            small: "http://viper-tuning.com.ua/pic/image/2012/11/tyuning-Audi-Q7.jpg",
-            large: "http://viper-tuning.com.ua/pic/image/2012/11/tyuning-Audi-Q7.jpg"
+            small: "#",
+            large: "#"
         }
     },
     myPostsData: [

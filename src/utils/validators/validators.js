@@ -3,6 +3,6 @@ export const required = (value) => {
     return 'There is no symbols, please put text.'
 }
 export const maxLength=(number)  => (value=1) => {
-    if (value.length > number) return 'Its very long text this post. Max'+ number +'symbols.' 
+    if (value.length > number) return 'Its very long text this post. Max '+ number +' symbols.' 
     return undefined
 }

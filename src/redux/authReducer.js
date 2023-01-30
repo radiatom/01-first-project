@@ -1,4 +1,5 @@
 import { authApi } from "../api/api"
+import { getMyProfile } from "./myProfileReducer"
 
 
 const SET_AUTH = 'SET_AUTH'
@@ -12,9 +13,9 @@ export const setAuth = (data) => {
 const standartStateAuthData = {
     authData: {
         data:{
-            // id тимчасове бо теба розібратись чому данні з сервера приходять не своєчасно
-            id:27556,
-            // id:null,
+            // id тимчасове бо  данні з сервера приходять не своєчасно
+            // id:27556,
+            id:null,
             login:'No logins'
         },
         resultCode:''
@@ -60,9 +61,10 @@ export const deleteLogin=()=>{
 
 export const getAuth=()=>{
     return(dispatch)=>{
-        authApi.getMeProfile()
+        authApi.getAuthProfile()
             .then(data => {
                 dispatch(setAuth(data))
+                dispatch(getMyProfile(data.data.id))
             })
     }
 }

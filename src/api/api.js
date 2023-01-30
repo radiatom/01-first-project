@@ -47,7 +47,7 @@ export const authApi = {
             return response.data
         })
     },
-    getMeProfile: () => {
+    getAuthProfile: () => {
         return instance.get('auth/me')
             .then(response => {
                 return response.data

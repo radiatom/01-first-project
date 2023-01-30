@@ -1,6 +1,9 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import { Input } from '../common/FromControls/FromControls';
 import s from './SingInForm.module.css'
+import { required } from '../../utils/validators/validators';
+
 
 const SingInForm = (props) => {
     return (
@@ -23,7 +26,8 @@ const SingInForm = (props) => {
                         <Field
                             placeholder={'Email'}
                             name={'email'}
-                            component={'input'}
+                            component={ Input }
+                            validate={[required]}
                         />
                     </div>
 
@@ -31,15 +35,16 @@ const SingInForm = (props) => {
                         <Field
                             placeholder={'Password'}
                             name={'password'}
-                            component={'input'}
-                            type='password'
+                            component={ Input }
+                            type={'password'}
+                            validate={[required]}
                         />
                     </div>
                     <div>
                         <Field
-                            type={"checkbox"}
                             name={'rememberMe'}
-                            component={'input'}
+                            component={ Input }
+                            type={"checkbox"}
                         /> remember me
                     </div>
                     <div>
