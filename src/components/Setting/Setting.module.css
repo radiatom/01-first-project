@@ -1,5 +1,9 @@
 .setting {
+
+    
+    text-align: center;
+
     grid-area: c;
-    background-color: brown;
+    /* background-color: brown; */
     color: aliceblue;
 }

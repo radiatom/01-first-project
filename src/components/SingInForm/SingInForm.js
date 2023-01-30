@@ -7,24 +7,40 @@ const SingInForm = (props) => {
         <div className={s.pageSingIn} >
             <div className={s.request} >
                 <h3>
-                    Please, logined in this site: <a href="https://social-network.samuraijs.com/" target='_blank'>social-network.samuraijs.com</a>
+                    1# Please, registred in this site: <a href="https://social-network.samuraijs.com/" target='_blank'>social-network.samuraijs.com</a>
+                </h3>
+                <h3>
+                    2# After login in this site:
                 </h3>
             </div>
             <div className={s.singInForm} >
-                <form onSubmit={ props.handleSubmit } >
+                <form onSubmit={props.handleSubmit} >
                     <div>
                         <h2>Login</h2>
                     </div>
-                    
+
                     <div>
-                        <Field placeholder={'email'} name={'email'} component={'input'} />
+                        <Field
+                            placeholder={'Email'}
+                            name={'email'}
+                            component={'input'}
+                        />
                     </div>
 
                     <div>
-                        <Field placeholder={'0'} name={'password'} component={'input'} />
+                        <Field
+                            placeholder={'Password'}
+                            name={'password'}
+                            component={'input'}
+                            type='password'
+                        />
                     </div>
                     <div>
-                        <Field type={"checkbox"} name={'rememberMe'} component={'input'} /> remember me
+                        <Field
+                            type={"checkbox"}
+                            name={'rememberMe'}
+                            component={'input'}
+                        /> remember me
                     </div>
                     <div>
                         <button>SingIn</button>

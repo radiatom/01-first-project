@@ -9,15 +9,6 @@ export const setAuth = (data) => {
     }
 }
 
-// const SET_CODE = 'SET_CODE'
-// export const setCode = () => {
-//     return {
-//         type: SET_CODE,
-//     }
-// }
-
-    // my idUser 27556
-    // state.auth.authData.data.id,
 const standartStateAuthData = {
     authData: {
         data:{
@@ -38,14 +29,7 @@ const authReducer = (state = standartStateAuthData, action) => {
                 authData:{...action.data}
             }
         }
-        // case SET_CODE:
-        //     return{
-        //         ...state,
-        //         authData:{...state.authData,
-        //             resultCode:0
-        //         }
-
-        //     }
+        
         default:
             return state
     }
@@ -57,6 +41,17 @@ export const postLogin=(formData)=>{
         authApi.login(formData)
             .then(data => {
                 if(data.resultCode===0){
+                    dispatch(getAuth())
+                }
+            })
+    }
+}
+export const deleteLogin=()=>{
+    return(dispatch)=>{
+        authApi.logaut()
+            .then(data => {
+                if(data.resultCode===0){
+                    alert('You logaut')
                     dispatch(getAuth())
                 }
             })

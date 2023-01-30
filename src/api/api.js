@@ -35,6 +35,12 @@ export const userProfileApi = {
 }
 
 export const authApi = {
+    logaut:()=>{
+        return instance.delete('auth/login')
+        .then(response => {
+            return response.data
+        })
+    },
     login:({email,password,rememberMe=false,captcha=true})=>{
         return instance.post('auth/login',{email,password,rememberMe,captcha})
         .then(response => {

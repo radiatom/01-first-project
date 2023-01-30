@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import MyProfileContainer from "./components/MyProfile/MyProfileContainer";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
-import Setting from "./components/Setting/Setting";
+import SettingContainer from "./components/Setting/SettingContainer";
 import MyFriendsContainer from "./components/MyFriends/MyFriendsContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -24,7 +24,7 @@ const App = (props) => {
                         <Route path="/myFriends/*" element={<MyFriendsContainer />} />
                         <Route path="/music/*" element={<Music />} />
                         <Route path="/*" element={<News />} />
-                        <Route path="/setting/*" element={<Setting />} />
+                        <Route path="/setting/*" element={<SettingContainer />} />
                         <Route path="/dialogs/*" element={<DialogsContainer />} />
                         <Route path="/myProfile/*" element={<MyProfileContainer />} />
                         <Route path="/users/*" element={<UsersContainer />} />
