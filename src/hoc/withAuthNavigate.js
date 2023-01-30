@@ -11,7 +11,6 @@ const mapStateToProps = (state) => {
 }
 
 export const withAuthNavigate = (Component) => {
-
     const NavigateComponent = (props) => {
         if (props.resultCode === 1) { return (<Navigate to='/singIn/' />) }
         return (<Component {...props} />);
@@ -19,5 +18,15 @@ export const withAuthNavigate = (Component) => {
     const connectedWithAuthNavigateComponent = connect(mapStateToProps, {})(NavigateComponent)
     return connectedWithAuthNavigateComponent
 }
+
+export const withSingInNavigate = (Component) => {
+    const NavigateComponent = (props) => {
+        if (props.resultCode === 0) { return (<Navigate to='/myProfile/' />) }
+        return (<Component {...props} />);
+    }
+    const connectedwithSingInNavigateComponent = connect(mapStateToProps, {})(NavigateComponent)
+    return connectedwithSingInNavigateComponent
+}
+
 
 

@@ -1,5 +1,4 @@
 import axios from "axios"
-import { setCode } from "../redux/authReducer"
 
 const instance = axios.create({
     withCredentials: true,
@@ -39,9 +38,7 @@ export const authApi = {
     login:({email,password,rememberMe=false,captcha=true})=>{
         return instance.post('auth/login',{email,password,rememberMe,captcha})
         .then(response => {
-            debugger
-            if(response.data.resultCode===0){setCode()}
-            // return response.data
+            return response.data
         })
     },
     getMeProfile: () => {
@@ -66,17 +63,3 @@ export const myProfileApi = {
             })
     }
 }
-// export const usersApi={
-//     getUsers:(pageNumber,countUsersOnPage)=>{
-//         return axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${countUsersOnPage}`,{withCredentials:true})
-//         .then(response => {
-//             return response.data
-//         })
-//     },
-//     getUsers2:(el,countUsersOnPage)=>{
-//         return axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${el}&count=${countUsersOnPage}`,{withCredentials:true})
-//         .then(response => {
-//             return response.data
-//         })
-//     }
-// }

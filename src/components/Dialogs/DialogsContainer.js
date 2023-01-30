@@ -10,7 +10,7 @@ import { reduxForm } from 'redux-form';
 
 const PostsReduxForm = reduxForm({ form: 'massageText' })(Dialogs)
 
-withAuthNavigate(PostsReduxForm)
+const NavigateToSingInOrDialogs=withAuthNavigate(PostsReduxForm)
 
 const DialogsContainer = (props) => {
     const onSubmit = (formData) => {
@@ -19,14 +19,13 @@ const DialogsContainer = (props) => {
     }
     return (
         <div>
-            <PostsReduxForm onSubmit={onSubmit} {...props} />
+            <NavigateToSingInOrDialogs onSubmit={onSubmit} {...props} />
         </div>
     );
 }
 
 const mapStateToProps = (state) => {
     return {
-        // value: state.dialogsPage.newMassageTextData,
         dialog: state.dialogsPage.dialogData.map(el => {
             return (<Dialog name={el.name} id={el.id} key={el.id} avatar={el.avatar} />)
         }),
