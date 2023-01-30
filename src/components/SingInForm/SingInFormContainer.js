@@ -19,13 +19,13 @@ const SingInFormContainer = (props) => {
     }
     return (
         <div>
-            <NavigateToMyProfileOrSingIn onSubmit={onSubmit} />
+            <NavigateToMyProfileOrSingIn onSubmit={onSubmit} {...props}/>
         </div>
     );
 }
 const mapStateToProps=(state)=>{
     return{
-
+        errorLogin:state.auth.errorLogin
     }
 }
 export default connect (mapStateToProps,{postLogin})(SingInFormContainer)

@@ -26,7 +26,7 @@ const SingInForm = (props) => {
                         <Field
                             placeholder={'Email'}
                             name={'email'}
-                            component={ Input }
+                            component={Input}
                             validate={[required]}
                         />
                     </div>
@@ -35,15 +35,16 @@ const SingInForm = (props) => {
                         <Field
                             placeholder={'Password'}
                             name={'password'}
-                            component={ Input }
+                            component={Input}
                             type={'password'}
                             validate={[required]}
                         />
                     </div>
+                    <div className={s.error} >{props.errorLogin ? <span>Incorrect password or email! </span> : ''}</div>
                     <div>
                         <Field
                             name={'rememberMe'}
-                            component={ Input }
+                            component={Input}
                             type={"checkbox"}
                         /> remember me
                     </div>
@@ -51,7 +52,6 @@ const SingInForm = (props) => {
                         <button>SingIn</button>
                     </div>
                 </form>
-
             </div>
 
         </div >
