@@ -1,4 +1,5 @@
 import axios from "axios"
+import { setCode } from "../redux/authReducer"
 
 const instance = axios.create({
     withCredentials: true,
@@ -38,7 +39,9 @@ export const authApi = {
     login:({email,password,rememberMe=false,captcha=true})=>{
         return instance.post('auth/login',{email,password,rememberMe,captcha})
         .then(response => {
-            return response.data
+            debugger
+            if(response.data.resultCode===0){setCode()}
+            // return response.data
         })
     },
     getMeProfile: () => {

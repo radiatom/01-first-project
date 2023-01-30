@@ -8,6 +8,14 @@ export const setAuth = (data) => {
         data:data
     }
 }
+
+const SET_CODE = 'SET_CODE'
+export const setCode = () => {
+    return {
+        type: SET_CODE,
+    }
+}
+
     // my idUser 27556
     // state.auth.authData.data.id,
 const standartStateAuthData = {
@@ -17,7 +25,8 @@ const standartStateAuthData = {
             id:27556,
             // id:null,
             login:'No logins'
-        }
+        },
+        resultCode:''
     }
 }
 
@@ -29,11 +38,20 @@ const authReducer = (state = standartStateAuthData, action) => {
                 authData:{...action.data}
             }
         }
+        case SET_CODE:
+            return{
+                ...state,
+                authData:{...state.authData,
+                    resultCode:0
+                }
+
+            }
         default:
             return state
     }
 
 }
+
 
 export const getAuth=()=>{
     return(dispatch)=>{

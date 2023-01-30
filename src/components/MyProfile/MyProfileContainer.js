@@ -1,6 +1,6 @@
 import React from 'react';
 import MyProfile from './MyProfile';
-import { withAuthNavigate } from '../hoc/withAuthNavigate';
+import { withAuthNavigate } from '../../hoc/withAuthNavigate';
 
 const AuthNavigateComponent=withAuthNavigate(MyProfile)
 

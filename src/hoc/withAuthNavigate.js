@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 
+
 const mapStateToProps = (state) => {
     return {
         resultCode: state.auth.authData.resultCode

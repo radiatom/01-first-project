@@ -4,7 +4,7 @@ import Dialog from './Dialog/Dialog';
 import Massage from './Massage/Massage';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
-import { withAuthNavigate } from '../hoc/withAuthNavigate';
+import { withAuthNavigate } from '../../hoc/withAuthNavigate';
 import { reduxForm } from 'redux-form';
 
 
@@ -26,7 +26,7 @@ const DialogsContainer = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        value: state.dialogsPage.newMassageTextData,
+        // value: state.dialogsPage.newMassageTextData,
         dialog: state.dialogsPage.dialogData.map(el => {
             return (<Dialog name={el.name} id={el.id} key={el.id} avatar={el.avatar} />)
         }),

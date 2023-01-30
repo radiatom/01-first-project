@@ -4,7 +4,7 @@ import UserPosts from './UserPosts/UserPosts';
 import UserPost from './UserPosts/UserPost/UserPost';
 import { getProfile } from '../../redux/userProfileReducer';
 import UserProfileInfo from './UserProfileInfo/UserProfileInfo';
-import { withRouter } from '../hoc/withRouter';
+import { withRouter } from '../../hoc/withRouter';
 import { compose } from 'redux';
 
 

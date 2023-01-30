@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import s from './ProfileStatus.module.css'
 import { Field } from 'redux-form';
+import { Input } from '../../../common/FromControls/FromControls';
+import { maxLength, } from '../../../../utils/validators/validators';
 
+const maxLength20 = maxLength(20)
 
 
 class ProfileStatus extends Component {
@@ -39,7 +42,13 @@ class ProfileStatus extends Component {
             <div>
                 {this.state.editMode ?
                     (<form onSubmit={this.props.handleSubmit}>
-                        <Field onBlur={this.deActiveteEditMode} autoFocus={true} value={this.state.textStatus} placeholder='Text' name={'statusText'} component={'input'} />
+                        <Field
+                            validate={[maxLength20]}
+                            onBlur={this.deActiveteEditMode}
+                            autoFocus={true}
+                            placeholder='Text'
+                            name={'statusText'}
+                            component={Input} />
                     </form>)
                     :
                     (<div className={s.status}>

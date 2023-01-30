@@ -1,6 +1,6 @@
 import React from 'react';
 import MyFriends from './MyFriends';
-import { withAuthNavigate } from '../hoc/withAuthNavigate';
+import { withAuthNavigate } from '../../hoc/withAuthNavigate';
 
 const AuthNavigate=withAuthNavigate(MyFriends)
 

@@ -1,5 +1,5 @@
 import s from './Users.module.css'
-import Preloader from '../Preloader/Preloader';
+import Preloader from '../common/Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
 
 
