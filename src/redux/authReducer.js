@@ -1,5 +1,5 @@
 import { authApi } from "../api/api"
-import { getMyProfile } from "./myProfileReducer"
+import { getMyProfile,getMyStatus } from "./myProfileReducer"
 
 
 const SET_AUTH = 'SET_AUTH'
@@ -76,6 +76,7 @@ export const getAuth = () => {
             .then(data => {
                 dispatch(setAuth(data))
                 dispatch(getMyProfile(data.data.id))
+                dispatch(getMyStatus(data.data.id))
             })
     }
 }

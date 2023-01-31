@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProfileStatus from './ProfileStatus';
-import { getMyStatus, putStatusText } from '../../../../redux/myProfileReducer';
+import {  putStatusText } from '../../../../redux/myProfileReducer';
 import { reduxForm } from 'redux-form';
 
 
@@ -26,5 +26,5 @@ const mapStateToProps=(state)=>{
     }
 }
 
-export default connect (mapStateToProps,{getMyStatus ,putStatusText})(ProfileStatusContainer);
+export default connect (mapStateToProps,{putStatusText})(ProfileStatusContainer);
 

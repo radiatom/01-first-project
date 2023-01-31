@@ -17,9 +17,7 @@ class ProfileStatus extends Component {
             })
         }
     }
-    componentDidMount() {
-        this.props.getMyStatus(this.props.myUserId)
-    }
+    
 
 
     state = {
