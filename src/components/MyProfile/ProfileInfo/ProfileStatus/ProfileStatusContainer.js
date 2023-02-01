@@ -14,7 +14,9 @@ const ProfileStatusContainer = (props) => {
     }
     return (
         <div>
-            <StatusReduxForm onSubmit={onSubmit} {...props}/>
+            <StatusReduxForm 
+            onSubmit={onSubmit} 
+            {...props}/>
         </div>
     );
 }

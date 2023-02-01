@@ -1,5 +1,5 @@
 import { authApi } from "../api/api"
-import { getMyProfile,getMyStatus } from "./myProfileReducer"
+import { getMyProfile, getMyStatus } from "./myProfileReducer"
 
 
 const SET_AUTH = 'SET_AUTH'
@@ -13,7 +13,7 @@ const SET_ERORR_LOGIN = 'SET_ERORR_LOGIN'
 export const setErorrLogin = (error) => {
     return {
         type: SET_ERORR_LOGIN,
-        error:error
+        error: error
     }
 }
 const standartStateAuthData = {
@@ -51,7 +51,7 @@ export const postLogin = (formData) => {
             .then(data => {
                 data.resultCode === 0 ? dispatch(getAuth()) :
                     dispatch(setErorrLogin())
-                    setTimeout(()=>dispatch(setErorrLogin()),10000)
+                setTimeout(() => dispatch(setErorrLogin()), 10000)
             }
             )
     }
@@ -72,9 +72,11 @@ export const getAuth = () => {
     return (dispatch) => {
         authApi.getAuthProfile()
             .then(data => {
-                setTimeout(()=>dispatch(setAuth(data)),1000)
-                dispatch(getMyProfile(data.data.id))
-                dispatch(getMyStatus(data.data.id))
+                setTimeout(() => dispatch(setAuth(data)), 1000)
+                if (data.resultCode === 0) {
+                    dispatch(getMyProfile(data.data.id))
+                    dispatch(getMyStatus(data.data.id))
+                }
             })
     }
 }

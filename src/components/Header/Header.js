@@ -1,6 +1,8 @@
 import React from "react";
 import s from './Header.module.css'
 import Login from "./Login/Login";
+import logo from './../../Img/logo.gif'
+
 
 const Header = (props) => {
       return (
@@ -9,7 +11,7 @@ const Header = (props) => {
                         {props.resultCode===0?(<div className={s.login} >{props.login}</div>):(<Login/>) }
                   </div>
                   <img
-                        src="https://png.pngitem.com/pimgs/s/215-2152812_clip-art-letter-v-fonts-letter-v-transparent.png"
+                        src={logo}
                         alt="logo"
                   />
             </header>

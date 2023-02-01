@@ -17,6 +17,7 @@ const ProfileStatusRFC = (props) => {
         setEditeMode(false)
         props.handleSubmit()
     }
+    
     return (
         <div>
             {editMode ?
