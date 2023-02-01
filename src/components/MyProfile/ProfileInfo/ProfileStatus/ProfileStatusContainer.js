@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusRFC from './ProfileStatusRFC';
 import {  putStatusText } from '../../../../redux/myProfileReducer';
 import { reduxForm } from 'redux-form';
 
 
-const StatusReduxForm = reduxForm({ form: 'statusText' })(ProfileStatus)
+const StatusReduxForm = reduxForm({ form: 'statusText' })(ProfileStatusRFC)
 
 const ProfileStatusContainer = (props) => {
     const onSubmit = (formData) => {

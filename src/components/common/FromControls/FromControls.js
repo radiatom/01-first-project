@@ -30,6 +30,7 @@ export const Input = ({ input, meta, ...props }) => {
         <div className={s.formControl}>
             <div>
                 <input
+                    value={props.value}
                     type={props.type}
                     className={(meta.touched && meta.error ? s.erorrForm : '')}
                     placeholder={props.placeholder}

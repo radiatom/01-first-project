@@ -13,8 +13,6 @@ const NavigateToMyProfileOrSingIn=withSingInNavigate(SingInReduxForm)
 
 const SingInFormContainer = (props) => {
     const onSubmit = (formData) => {
-        console.log(formData)
-        // authApi.login(formData)
         props.postLogin(formData)
     }
     return (
