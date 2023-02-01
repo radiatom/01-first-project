@@ -19,8 +19,6 @@ export const setErorrLogin = (error) => {
 const standartStateAuthData = {
     authData: {
         data: {
-            // id тимчасове бо  данні з сервера приходять не своєчасно
-            // id:27556,
             id: null,
             login: 'No logins'
         },
@@ -74,7 +72,7 @@ export const getAuth = () => {
     return (dispatch) => {
         authApi.getAuthProfile()
             .then(data => {
-                setTimeout(()=>dispatch(setAuth(data)),2000)
+                setTimeout(()=>dispatch(setAuth(data)),1000)
                 dispatch(getMyProfile(data.data.id))
                 dispatch(getMyStatus(data.data.id))
             })

@@ -1,7 +1,7 @@
 import s from './Users.module.css'
 import Preloader from '../common/Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
-
+import avatar from './../../Img/avatar.jpg'
 
 const Users = (props) => {
     const pages = Math.ceil(props.countUsers / props.countUsersOnPage)
@@ -29,7 +29,7 @@ const Users = (props) => {
                         <div key={el.id} className={s.user}>
                             <div>
                                 <NavLink to={'/userProfile/' + el.id}>
-                                    <img src={el.photos.small === null ? 'https://avatars.mds.yandex.net/i?id=64b9cebcb670fa8e85d37fcd6a16b87a19b5d346-6932444-images-thumbs&n=13' : el.photos.small} alt="avatar" />
+                                    <img src={el.photos.small === null ? avatar : el.photos.small} alt="avatar" />
                                 </NavLink>
                             </div>
 
