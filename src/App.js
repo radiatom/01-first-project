@@ -14,13 +14,19 @@ import UserProfileContainer from "./components/UserProfile/UserProfileContainer"
 import SingInFormContainer from "./components/SingInForm/SingInFormContainer";
 import { getAuth } from "./redux/authReducer";
 import { connect } from "react-redux";
+import PreloaderEntrance from "./components/common/Preloader/PreloaderEntrance";
 
 class App extends Component {
       componentDidMount() {
             this.props.getAuth()
-        }
+      }
+
       render() {
-            return (
+            return this.props.resultCode === null ?
+            <div className='preloader'>
+                  <PreloaderEntrance />
+            </div>
+                  :
                   <div className="app-wrapper">
                         <HeaderContainer />
                         <Navbar />
@@ -36,8 +42,14 @@ class App extends Component {
                               <Route path="/userProfile/:userId" element={<UserProfileContainer />} />
                         </Routes>
                   </div>
-            );
+
       }
 }
 
-export default connect (null,{getAuth})(App);
+const mapStateToProps = (state) => {
+      return {
+            resultCode: state.auth.authData.resultCode
+      }
+}
+
+export default connect(mapStateToProps, { getAuth })(App);

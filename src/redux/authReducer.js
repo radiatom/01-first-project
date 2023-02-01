@@ -24,7 +24,7 @@ const standartStateAuthData = {
             id: null,
             login: 'No logins'
         },
-        resultCode: ''
+        resultCode: null
     },
     errorLogin: false
 }
@@ -74,7 +74,7 @@ export const getAuth = () => {
     return (dispatch) => {
         authApi.getAuthProfile()
             .then(data => {
-                dispatch(setAuth(data))
+                setTimeout(()=>dispatch(setAuth(data)),2000)
                 dispatch(getMyProfile(data.data.id))
                 dispatch(getMyStatus(data.data.id))
             })

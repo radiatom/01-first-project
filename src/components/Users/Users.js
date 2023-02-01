@@ -19,7 +19,11 @@ const Users = (props) => {
                 </span>
             </div>
 
-            {props.isFetching === true ? <Preloader /> :
+            {props.isFetching === true ?
+                <div className={s.preloader}>
+                    <Preloader />
+                </div>
+                :
                 <div className={s.users}>{
                     props.users.map(el =>
                         <div key={el.id} className={s.user}>
