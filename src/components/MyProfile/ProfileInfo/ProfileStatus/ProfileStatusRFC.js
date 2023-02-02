@@ -1,36 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import s from './ProfileStatus.module.css'
-import { Field } from 'redux-form';
-import { Input } from '../../../common/FromControls/FromControls';
-import { maxLength, } from '../../../../utils/validators/validators';
-
-const maxLength20 = maxLength(20)
-
 
 
 const ProfileStatusRFC = (props) => {
     const [editMode, setEditeMode] = useState(false);
-    const activeteEditMode=()=>{
+    const activeteEditMode = () => {
         setEditeMode(true)
     }
-    const deActiveteEditMode=()=>{
+    const deActiveteEditMode = () => {
         setEditeMode(false)
-        props.handleSubmit()
+        props.putStatusText(status)
     }
+
+
+    const [status, setstatus] = useState(props.status);
+    const onStatusChange = (e) => {
+        setstatus(e.currentTarget.value)
+    }
+
+
+    useEffect(() => {
+        setstatus(props.status)
+    }, [props.status])
+
     
     return (
         <div>
             {editMode ?
-                (<form onSubmit={props.handleSubmit}>
-                    <Field
-                        validate={[maxLength20]}
-                        onBlur={deActiveteEditMode}
-                        autoFocus={true}
-                        // placeholder={props.status}
-                        name={'statusText'}
-                        component={Input} 
-                        value={props.status}/>
-                </form>)
+                <input
+                    type="text"
+                    onChange={onStatusChange}
+                    onBlur={deActiveteEditMode}
+                    autoFocus={true}
+                    value={status}
+
+                />
                 :
                 (<div className={s.status}>
                     <span onClick={activeteEditMode} >

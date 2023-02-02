@@ -1,30 +1,63 @@
-// const sumString = (a, b, c) => {
-//     return 'привіт ' + c + 'я ' + a + ' і маю ' + b
-// }
+// import React from 'react';
+// import { Formik } from 'formik';
 
-// const myProfileData = {
-//     aboutMe: "я крута багата людина",
-//     contacts: {
-//         facebook: "facebook.com",
-//         website: null,
-//         twitter: "https://twitter.com/@sdf",
-//         instagram: "instagra.com/sds",
-//         youtube: null,
-//         github: "github.com",
-//         mainLink: null
-//     },
-//     lookingForAJob: true,
-//     lookingForAJobDescription: "грошей стільки , що нема куди подіти",
-//     fullName: "Arsen Mozol",
-//     userId: 1,
-//     photos: {
-//         small: "http://viper-tuning.com.ua/pic/image/2012/11/tyuning-Audi-Q7.jpg",
-//         large: "http://viper-tuning.com.ua/pic/image/2012/11/tyuning-Audi-Q7.jpg"
-//     }
-// }
-// let { aboutMe, lookingForAJobDescription, fullName } = myProfileData
-// console.log(sumString(aboutMe, lookingForAJobDescription, fullName))
+// const Basic = () => (
+//     <div>
+//         <h1>Anywhere in your app!</h1>
+//         <Formik
+//             initialValues={{ email: '', password: '' }}
+//             // validate={values => {
+//             //     const errors = {};
+//             //     if (!values.email) {
+//             //         errors.email = 'Required';
+//             //     } else if (
+//             //         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+//             //     ) {
+//             //         errors.email = 'Invalid email address';
+//             //     }
+//             //     return errors;
+//             // }}
+//             onSubmit={(values, { setSubmitting }) => {
+//                 setTimeout(() => {
+//                     alert(JSON.stringify(values, null, 2));
+//                     setSubmitting(false);
+//                 }, 400);
+//             }}
+//         >
+//             {({
+//                 values,
+//                 errors,
+//                 touched,
+//                 handleChange,
+//                 handleBlur,
+//                 handleSubmit,
+//                 isSubmitting,
+//                 /* and other goodies */
+//             }) => (
+//                 <form onSubmit={handleSubmit}>
+//                     <input
+//                         type="email"
+//                         name="email"
+//                         onChange={handleChange}
+//                         onBlur={handleBlur}
+//                         value={values.email}
+//                     />
+//                     {errors.email && touched.email && errors.email}
+//                     <input
+//                         type="password"
+//                         name="password"
+//                         onChange={handleChange}
+//                         onBlur={handleBlur}
+//                         value={values.password}
+//                     />
+//                     {errors.password && touched.password && errors.password}
+//                     <button type="submit" disabled={isSubmitting}>
+//                         Submit
+//                     </button>
+//                 </form>
+//             )}
+//         </Formik>
+//     </div>
+// );
 
-let a=12
-console.log(a+10)
-setTimeout(()=> console.log(a),2000)
+// export default Basic;
