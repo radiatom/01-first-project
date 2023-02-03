@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Routes, Route, } from "react-router-dom";
 import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -16,7 +16,8 @@ import { getAuth } from "./redux/authReducer";
 import { connect } from "react-redux";
 import PreloaderEntrance from "./components/common/Preloader/PreloaderEntrance";
 
-class App extends Component {
+class App extends PureComponent {
+
       componentDidMount() {
             this.props.getAuth()
       }

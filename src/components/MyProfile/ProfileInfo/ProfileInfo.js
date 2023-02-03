@@ -1,27 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import s from './ProfileInfo.module.css'
 import img from './../../../Img/profileInfo.jpg'
 import ProfileStatusContainer from './ProfileStatus/ProfileStatusContainer'
 
 
-class ProfileInfo extends Component {
-    render() {
-        return (
-            <div className={s.profileInfo}>
+const ProfileInfo = React.memo((props) => {
+    return (
+        <div className={s.profileInfo}>
                 <div className={s.wallpaper}>
                     <img src={img} alt="img" />
                 </div>
                 <div className={s.avatar}>
                     <div>
-                        <img src={this.props.myProfileData.photos.large === null ?
+                        <img src={props.myProfileData.photos.large === null ?
                             "https://sputnik.kg/img/101808/12/1018081237_1488:0:4629:3455_1920x0_80_0_0_36b9c41458690f8543f8ce86421ba380.jpg"
-                            : this.props.myProfileData.photos.large} alt="avatar"
+                            : props.myProfileData.photos.large} alt="avatar"
                         />
                     </div>
                 </div>
                 <div>
                     <h2>
-                        {this.props.myProfileData.fullName}
+                        {props.myProfileData.fullName}
                     </h2>
                 </div>
                 <div>
@@ -30,12 +29,13 @@ class ProfileInfo extends Component {
 
                 <div>
                     <h3>
-                        About me: {this.props.myProfileData.aboutMe}
+                        About me: {props.myProfileData.aboutMe}
                     </h3>
                 </div>
             </div>
-        );
-    }
-}
+    );
+})
 
 export default ProfileInfo;
+
+

@@ -7,6 +7,7 @@ import { maxLength, required } from '../../utils/validators/validators';
 const maxLength50=maxLength(50)
 
 const Dialogs = (props) => {
+    
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>

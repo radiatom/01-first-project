@@ -1,16 +1,16 @@
-import React, { Component,useState,useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import ProfileStatusRFC from './ProfileStatusRFC';
 import {  putStatusText } from '../../../../redux/myProfileReducer';
 
 
-const ProfileStatusContainer = (props) => {
+const ProfileStatusContainer = React.memo((props) => {
     return (
         <div>
             <ProfileStatusRFC {...props}/>
         </div>
     );
-}
+})
 
 const mapStateToProps=(state)=>{
     return{

@@ -12,7 +12,9 @@ const PostsReduxForm = reduxForm({ form: 'massageText' })(Dialogs)
 
 const NavigateToSingInOrDialogs=withAuthNavigate(PostsReduxForm)
 
-const DialogsContainer = (props) => {
+const DialogsContainer = React.memo((props) => {
+    console.log(props)
+    console.log('render')
     const onSubmit = (formData) => {
         props.setMassageText(formData.massageText)
         props.sendMassage()
@@ -22,7 +24,7 @@ const DialogsContainer = (props) => {
             <NavigateToSingInOrDialogs onSubmit={onSubmit} {...props} />
         </div>
     );
-}
+})
 
 const mapStateToProps = (state) => {
     return {

@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import ProfileInfo from './ProfileInfo';
 
 
-class ProfileInfoContainer extends Component {
 
-    render() {
-        return (
-            <div>
-                <ProfileInfo {...this.props} />
-            </div>
-        );
-    }
-}
+const ProfileInfoContainer = React.memo((props) => {
+    return (
+        <div>
+            <ProfileInfo {...props} />
+        </div>
+    );
+})
+
 
 const mapStateToProps = (state) => {
     return {
