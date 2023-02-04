@@ -16,14 +16,11 @@ import { getAuth } from "./redux/authReducer";
 import { connect } from "react-redux";
 import PreloaderEntrance from "./components/common/Preloader/PreloaderEntrance";
 
-class App extends PureComponent {
+// import React from 'react';
 
-      componentDidMount() {
-            this.props.getAuth()
-      }
-
-      render() {
-            return this.props.resultCode === null ?
+const App = (props) => {
+      props.getAuth()
+      return props.resultCode === null ?
             <div className='preloader'>
                   <PreloaderEntrance />
             </div>
@@ -43,9 +40,41 @@ class App extends PureComponent {
                               <Route path="/userProfile/:userId" element={<UserProfileContainer />} />
                         </Routes>
                   </div>
-
-      }
 }
+
+// export default App;
+
+
+// class App extends PureComponent {
+
+//       componentDidMount() {
+//             this.props.getAuth()
+//       }
+
+//       render() {
+//             return this.props.resultCode === null ?
+//             <div className='preloader'>
+//                   <PreloaderEntrance />
+//             </div>
+//                   :
+//                   <div className="app-wrapper">
+//                         <HeaderContainer />
+//                         <Navbar />
+//                         <Routes>
+//                               <Route path="/singIn/*" element={<SingInFormContainer />} />
+//                               <Route path="/myFriends/*" element={<MyFriendsContainer />} />
+//                               <Route path="/music/*" element={<Music />} />
+//                               <Route path="/*" element={<News />} />
+//                               <Route path="/setting/*" element={<SettingContainer />} />
+//                               <Route path="/dialogs/*" element={<DialogsContainer />} />
+//                               <Route path="/myProfile/*" element={<MyProfileContainer />} />
+//                               <Route path="/users/*" element={<UsersListContainer />} />
+//                               <Route path="/userProfile/:userId" element={<UserProfileContainer />} />
+//                         </Routes>
+//                   </div>
+
+//       }
+// }
 
 const mapStateToProps = (state) => {
       return {

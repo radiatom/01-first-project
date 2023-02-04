@@ -8,7 +8,10 @@ const Header = (props) => {
       return (
             <header className={s.header}>
                   <div>
-                        {props.resultCode===0?(<div className={s.login} >{props.login}</div>):(<Login/>) }
+                        {props.resultCode===0?
+                        <div className={s.login} >{props.login}</div>
+                        :
+                        <Login/> }
                   </div>
                   <img
                         src={logo}

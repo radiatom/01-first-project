@@ -14,7 +14,8 @@ const ProfileInfo = React.memo((props) => {
                     <div>
                         <img src={props.myProfileData.photos.large === null ?
                             "https://sputnik.kg/img/101808/12/1018081237_1488:0:4629:3455_1920x0_80_0_0_36b9c41458690f8543f8ce86421ba380.jpg"
-                            : props.myProfileData.photos.large} alt="avatar"
+                            : 
+                            props.myProfileData.photos.large} alt="avatar"
                         />
                     </div>
                 </div>
