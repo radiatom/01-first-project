@@ -11,9 +11,7 @@ const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-
                 {props.dialog}
-
             </div>
 
             <div className={s.massages}>

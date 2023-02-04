@@ -56,6 +56,14 @@ export const postLogin = (formData) => {
             )
     }
 }
+// export const postLogin = (formData) => {
+//     async (dispatch) => {
+//         const data = await authApi.login(formData)
+//         data.resultCode === 0 ? dispatch(getAuth()) :
+//             dispatch(setErorrLogin())
+//         setTimeout(() => dispatch(setErorrLogin()), 10000)
+//     }
+// }
 export const deleteLogin = () => {
     return (dispatch) => {
         authApi.logaut()
