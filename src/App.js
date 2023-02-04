@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { Routes, Route, } from "react-router-dom";
 import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -16,7 +16,6 @@ import { getAuth } from "./redux/authReducer";
 import { connect } from "react-redux";
 import PreloaderEntrance from "./components/common/Preloader/PreloaderEntrance";
 
-// import React from 'react';
 
 const App = (props) => {
       props.getAuth()
@@ -42,39 +41,6 @@ const App = (props) => {
                   </div>
 }
 
-// export default App;
-
-
-// class App extends PureComponent {
-
-//       componentDidMount() {
-//             this.props.getAuth()
-//       }
-
-//       render() {
-//             return this.props.resultCode === null ?
-//             <div className='preloader'>
-//                   <PreloaderEntrance />
-//             </div>
-//                   :
-//                   <div className="app-wrapper">
-//                         <HeaderContainer />
-//                         <Navbar />
-//                         <Routes>
-//                               <Route path="/singIn/*" element={<SingInFormContainer />} />
-//                               <Route path="/myFriends/*" element={<MyFriendsContainer />} />
-//                               <Route path="/music/*" element={<Music />} />
-//                               <Route path="/*" element={<News />} />
-//                               <Route path="/setting/*" element={<SettingContainer />} />
-//                               <Route path="/dialogs/*" element={<DialogsContainer />} />
-//                               <Route path="/myProfile/*" element={<MyProfileContainer />} />
-//                               <Route path="/users/*" element={<UsersListContainer />} />
-//                               <Route path="/userProfile/:userId" element={<UserProfileContainer />} />
-//                         </Routes>
-//                   </div>
-
-//       }
-// }
 
 const mapStateToProps = (state) => {
       return {

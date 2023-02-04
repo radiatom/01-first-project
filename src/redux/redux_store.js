@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
+import { applyMiddleware, combineReducers, compose, legacy_createStore } from "redux";
 import dialogReducer from "./dialogReducer";
 import navbarReducer from "./navbarReducer";
 import myProfileReducer from "./myProfileReducer";
@@ -18,7 +18,11 @@ const redusers = combineReducers({
     form: formReducer,
 })
 
-const store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware))
+ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+ const store = legacy_createStore(redusers,composeEnhancers(applyMiddleware(thunkMiddleware)));
+
+// const store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware),) це оригінальний творець, а веще перероблений, щоб можна 
+// було користуватись розширенням хрома redux DevTols
 
 window.store = store
 
