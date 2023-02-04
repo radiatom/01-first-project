@@ -1,8 +1,8 @@
-import{ usersApi }from './../api/api'
+import { usersApi } from './../api/api'
 
 
 
-const SET_PAGE = 'SET_PAGE'
+const SET_PAGE = 'usersReducer/SET_PAGE'
 export const setPage = (number) => {
     return {
         type: SET_PAGE,
@@ -10,7 +10,7 @@ export const setPage = (number) => {
     }
 }
 
-const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT'
+const SET_TOTAL_COUNT = 'usersReducer/SET_TOTAL_COUNT'
 export const setTotalCount = (num) => {
     return {
         type: SET_TOTAL_COUNT,
@@ -18,7 +18,7 @@ export const setTotalCount = (num) => {
     }
 }
 
-const ADD_USERS = 'ADD_USERS'
+const ADD_USERS = 'usersReducer/ADD_USERS'
 export const addUsers = (users) => {
     return {
         type: ADD_USERS,
@@ -26,7 +26,7 @@ export const addUsers = (users) => {
     }
 }
 
-const FOLLOW = 'FOLLOW'
+const FOLLOW = 'usersReducer/FOLLOW'
 export const follow = (userId) => {
     return {
         type: FOLLOW,
@@ -34,16 +34,15 @@ export const follow = (userId) => {
     }
 }
 
-const UNFOLLOW = 'UNFOLLOW'
+const UNFOLLOW = 'usersReducer/UNFOLLOW'
 export const unfollow = (userId) => {
-
     return {
         type: UNFOLLOW,
         userId: userId
     }
 }
 
-const IS_FETCHING = 'IS_FETCHING'
+const IS_FETCHING = 'usersReducer/IS_FETCHING'
 export const toggleIsFetching = (isFetching) => {
     return {
         type: IS_FETCHING,
@@ -51,7 +50,7 @@ export const toggleIsFetching = (isFetching) => {
     }
 }
 
-const PROGRESS_FOLLOWING = 'PROGRESS_FOLLOWING'
+const PROGRESS_FOLLOWING = 'usersReducer/PROGRESS_FOLLOWING'
 export const progressFollowing = (progress, userId) => {
     return {
         type: PROGRESS_FOLLOWING,
@@ -59,6 +58,7 @@ export const progressFollowing = (progress, userId) => {
         userId: userId
     }
 }
+
 
 const standartStateUsersData = {
     users: [
@@ -74,6 +74,7 @@ const standartStateUsersData = {
     inProgressFollowing: [],
 
 }
+
 
 const usersReducer = (state = standartStateUsersData, action) => {
     switch (action.type) {
@@ -135,61 +136,40 @@ const usersReducer = (state = standartStateUsersData, action) => {
     }
 }
 
-export const deleteUnfollowThunkCreator = (userId) => {
-    return (dispatch) => {
-        dispatch(progressFollowing(true, userId))
-        usersApi.deleteUnfollow(userId)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(unfollow(userId))
-                }
-                dispatch(progressFollowing(false, userId))
-            }
-            )
+export const deleteUnfollowThunkCreator = (userId) => async (dispatch) => {
+    dispatch(progressFollowing(true, userId))
+    const response = await usersApi.deleteUnfollow(userId)
+    if (response.data.resultCode === 0) {
+        dispatch(unfollow(userId))
     }
+    dispatch(progressFollowing(false, userId))
 }
 
-export const deleteАollowThunkCreator = (userId) => {
-    return (dispatch) => {
-        dispatch(progressFollowing(true,userId))
-        usersApi.postFollow(userId)
-        .then(response => {
-            if(response.data.resultCode===0){
-                dispatch(follow(userId))
-            }
-            dispatch(progressFollowing(false,userId))
-        }
-        )
+export const deleteАollowThunkCreator = (userId) => async (dispatch) => {
+    dispatch(progressFollowing(true, userId))
+    const response = await usersApi.postFollow(userId)
+    if (response.data.resultCode === 0) {
+        dispatch(follow(userId))
     }
+    dispatch(progressFollowing(false, userId))
 }
 
-export const openNumberPage=(number,countUsersOnPage)=>{
-    return (dispatch)=>{
-        dispatch(toggleIsFetching(true))
-        usersApi.getAddUsers2(number, countUsersOnPage)
-            .then(data => {
-                let users = [...data.items]
-                dispatch(addUsers(users))
-                dispatch(toggleIsFetching(false))
-            })
-            dispatch(setPage(number))
-    }
+export const openNumberPage = (number, countUsersOnPage) => async (dispatch) => {
+    dispatch(toggleIsFetching(true))
+    const data = await usersApi.getAddUsers2(number, countUsersOnPage)
+    let users = [...data.items]
+    dispatch(addUsers(users))
+    dispatch(toggleIsFetching(false))
+    dispatch(setPage(number))
 }
 
-export const addUsersOnPage=(pageNumber,countUsersOnPage)=>{
-    return (dispatch)=>{
-        dispatch(toggleIsFetching(true))
-        usersApi.getAddUsers(pageNumber, countUsersOnPage)
-            .then(data => {
-                dispatch(addUsers([...data.items]))
-                dispatch(setTotalCount(data.totalCount))
-                dispatch(toggleIsFetching(false))
-            })
-    }
+export const addUsersOnPage = (pageNumber, countUsersOnPage) => async (dispatch) => {
+    dispatch(toggleIsFetching(true))
+    const data = await usersApi.getAddUsers(pageNumber, countUsersOnPage)
+    dispatch(addUsers([...data.items]))
+    dispatch(setTotalCount(data.totalCount))
+    dispatch(toggleIsFetching(false))
 }
-
-
-
 
 
 export default usersReducer

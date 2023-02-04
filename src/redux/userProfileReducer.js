@@ -1,7 +1,7 @@
 import { userProfileApi } from "../api/api"
 
 
-const SET_PROFILE = 'SET_PROFILET'
+const SET_PROFILE = 'userProfileReducer/SET_PROFILE'
 export const setProfile = (profile) => {
     return {
         type: SET_PROFILE,
@@ -22,22 +22,18 @@ const userProfileReducer = (state = standartStateProfileData, action) => {
         case SET_PROFILE: {
             return {
                 ...state,
-                profileData:action.profile
+                profileData: action.profile
             }
         }
         default:
             return state
     }
-
 }
 
-export const getProfile=(router)=>{
-    return(dispatch)=>{
-        const userId = router.params.userId
-        userProfileApi.getProfile(userId).then(data => {
-                    dispatch(setProfile(data))
-                })
-    }
+export const getProfile = (router) => async (dispatch) => {
+    const userId = router.params.userId
+    const data = await userProfileApi.getProfile(userId)
+    dispatch(setProfile(data))
 }
 
 export default userProfileReducer

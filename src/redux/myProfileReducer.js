@@ -1,7 +1,7 @@
-import { userProfileApi, myProfileApi,authApi } from "../api/api"
+import { userProfileApi, myProfileApi, authApi } from "../api/api"
 
 
-const SET_STATUS = 'SET_STATUS'
+const SET_STATUS = 'myProfileReducer/SET_STATUS'
 export const setStatus = (status) => {
     return {
         type: SET_STATUS,
@@ -9,28 +9,28 @@ export const setStatus = (status) => {
     }
 }
 
-const UPDATE_STATUS = 'UPDATE_STATUS'
+const UPDATE_STATUS = 'myProfileReducer/UPDATE_STATUS'
 export const update_status = (status) => {
     return {
         type: UPDATE_STATUS,
         status
     }
 }
-const SET_TEXT_POST = 'SET_TEXT_POST'
+const SET_TEXT_POST = 'myProfileReducer/SET_TEXT_POST'
 export const setTextPost = (postText) => {
     return {
         type: SET_TEXT_POST, postText: postText
     }
 }
 
-const ADD_POST = 'ADD-POST'
+const ADD_POST = 'myProfileReducer/ADD-POST'
 export const addPost = () => {
     return {
         type: ADD_POST
     }
 }
 
-const SET_MY_ROFILE = 'SET_MY_ROFILE'
+const SET_MY_ROFILE = 'myProfileReducer/SET_MY_ROFILE'
 export const setMyProfile = (data) => {
     return {
         type: SET_MY_ROFILE,
@@ -38,7 +38,7 @@ export const setMyProfile = (data) => {
     }
 }
 
-const SET_MY_iD = 'SET_MY_iD'
+const SET_MY_iD = 'myProfileReducer/SET_MY_iD'
 export const setMyId = (id) => {
     return {
         type: SET_MY_iD,
@@ -46,8 +46,9 @@ export const setMyId = (id) => {
     }
 }
 
+
 const standartStateMyProfileData = {
-    myId:null,
+    myId: null,
     status: '',
     myProfileData: {
         aboutMe: "",
@@ -75,6 +76,8 @@ const standartStateMyProfileData = {
     ],
     newPostTextData: ''
 }
+
+
 const myProfileReducer = (state = standartStateMyProfileData, action) => {
     switch (action.type) {
         case SET_TEXT_POST:
@@ -82,7 +85,6 @@ const myProfileReducer = (state = standartStateMyProfileData, action) => {
                 ...state,
                 newPostTextData: action.postText
             }
-
         case ADD_POST:
             const newPost = {
                 id: state.myPostsData.length + 1, massage: state.newPostTextData, likeColum: 0
@@ -103,50 +105,35 @@ const myProfileReducer = (state = standartStateMyProfileData, action) => {
                 status: action.status
             }
         case SET_MY_iD:
-            return {...state,
+            return {
+                ...state,
                 myId: action.id
             }
         default:
             return state
     }
-
-}
-export const getMyUserId = () => {
-    return (dispatch) => {
-        authApi.getMeProfile()
-            .then(data => {
-                dispatch(setMyId(data.data.id))
-            })
-    }
 }
 
 
-export const getMyProfile = (userId) => {
-    return (dispatch) => {
-        userProfileApi.getProfile(userId)
-            .then(data => {
-                dispatch(setMyProfile(data))
-            })
-    }
+export const getMyUserId = () => async (dispatch) => {
+    const data = await authApi.getMeProfile()
+    dispatch(setMyId(data.data.id))
 }
 
-export const getMyStatus = (myUserId) => {
-    return (dispatch) => {
-        myProfileApi.getStatus(myUserId)
-            .then(data => {
-                dispatch(setStatus(data))
-            })
-    }
+export const getMyProfile = (userId) => async (dispatch) => {
+    const data = await userProfileApi.getProfile(userId)
+    dispatch(setMyProfile(data))
 }
 
-export const putStatusText = (statusText) => {
-    return (dispatch) => {
-        myProfileApi.updateStatus(statusText)
-            .then(data => {
-                if (data.resultCode === 0) {
-                    dispatch(setStatus(statusText))
-                }
-            })
+export const getMyStatus = (myUserId) => async (dispatch) => {
+    const data = await myProfileApi.getStatus(myUserId)
+    dispatch(setStatus(data))
+}
+
+export const putStatusText = (statusText) => async (dispatch) => {
+    const data = await myProfileApi.updateStatus(statusText)
+    if (data.resultCode === 0) {
+        dispatch(setStatus(statusText))
     }
 }
 

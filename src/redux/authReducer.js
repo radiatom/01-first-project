@@ -2,20 +2,22 @@ import { authApi } from "../api/api"
 import { getMyProfile, getMyStatus } from "./myProfileReducer"
 
 
-const SET_AUTH = 'SET_AUTH'
+const SET_AUTH = 'authReducer/SET_AUTH'
 export const setAuth = (data) => {
     return {
         type: SET_AUTH,
         data: data
     }
 }
-const SET_ERORR_LOGIN = 'SET_ERORR_LOGIN'
+const SET_ERORR_LOGIN = 'authReducer/SET_ERORR_LOGIN'
 export const setErorrLogin = (error) => {
     return {
         type: SET_ERORR_LOGIN,
         error: error
     }
 }
+
+
 const standartStateAuthData = {
     authData: {
         data: {
@@ -26,6 +28,7 @@ const standartStateAuthData = {
     },
     errorLogin: false
 }
+
 
 const authReducer = (state = standartStateAuthData, action) => {
     switch (action.type) {
@@ -45,48 +48,29 @@ const authReducer = (state = standartStateAuthData, action) => {
     }
 }
 
-export const postLogin = (formData) => {
-    return (dispatch) => {
-        authApi.login(formData)
-            .then(data => {
-                data.resultCode === 0 ? dispatch(getAuth()) :
-                    dispatch(setErorrLogin())
-                setTimeout(() => dispatch(setErorrLogin()), 10000)
-            }
-            )
-    }
+export const postLogin = (formData) => async (dispatch) => {
+    const data = await authApi.login(formData)
+    data.resultCode === 0 ? dispatch(getAuth()) : dispatch(setErorrLogin())
+    setTimeout(() => dispatch(setErorrLogin()), 10000)
 }
-// export const postLogin = (formData) => {
-//     async (dispatch) => {
-//         const data = await authApi.login(formData)
-//         data.resultCode === 0 ? dispatch(getAuth()) :
-//             dispatch(setErorrLogin())
-//         setTimeout(() => dispatch(setErorrLogin()), 10000)
-//     }
-// }
-export const deleteLogin = () => {
-    return (dispatch) => {
-        authApi.logaut()
-            .then(data => {
-                if (data.resultCode === 0) {
-                    alert('You logaut')
-                    dispatch(getAuth())
-                }
-            })
+
+export const deleteLogin = () => async (dispatch) => {
+    const data = await authApi.logaut()
+    if (data.resultCode === 0) {
+        alert('You logaut')
+        dispatch(getAuth())
     }
 }
 
-export const getAuth = () => {
-    return (dispatch) => {
-        authApi.getAuthProfile()
-            .then(data => {
-                setTimeout(() => dispatch(setAuth(data)), 1000)
-                if (data.resultCode === 0) {
-                    dispatch(getMyProfile(data.data.id))
-                    dispatch(getMyStatus(data.data.id))
-                }
-            })
+export const getAuth = () => async (dispatch) => {
+    const data = await authApi.getAuthProfile()
+    setTimeout(() => dispatch(setAuth(data)), 1000)
+    if (data.resultCode === 0) {
+        dispatch(getMyProfile(data.data.id))
+        dispatch(getMyStatus(data.data.id))
     }
+
+
 }
 
 export default authReducer

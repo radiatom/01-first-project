@@ -1,17 +1,18 @@
 
-const SET_MASAGE_TEXT = 'SET_MASAGE_TEXT'
+const SET_MASAGE_TEXT = 'dialogReducer/SET_MASAGE_TEXT'
 export const setMassageText = (massageText) => {
     return {
         type: SET_MASAGE_TEXT, massageText: massageText
     }
 }
 
-const SEND_MASSAGE = 'SEND-MASSAGE'
+const SEND_MASSAGE = 'dialogReducer/SEND-MASSAGE'
 export const sendMassage = () => {
     return {
         type: SEND_MASSAGE
     }
 }
+
 
 const standartStateDialogsData = {
     dialogData: [
@@ -93,6 +94,7 @@ const standartStateDialogsData = {
     newMassageTextData: ''
 }
 
+
 const dialogReducer = (state = standartStateDialogsData, action) => {
     switch (action.type) {
         case SET_MASAGE_TEXT:
@@ -113,7 +115,6 @@ const dialogReducer = (state = standartStateDialogsData, action) => {
                 massagesData: [...state.massagesData, newMassage],
                 newMassageTextData: ''
             }
-
         default:
             return state
     }
