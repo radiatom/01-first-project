@@ -145,7 +145,7 @@ export const deleteUnfollowThunkCreator = (userId) => async (dispatch) => {
     dispatch(progressFollowing(false, userId))
 }
 
-export const deleteАollowThunkCreator = (userId) => async (dispatch) => {
+export const postFollowThunkCreator = (userId) => async (dispatch) => {
     dispatch(progressFollowing(true, userId))
     const response = await usersApi.postFollow(userId)
     if (response.data.resultCode === 0) {

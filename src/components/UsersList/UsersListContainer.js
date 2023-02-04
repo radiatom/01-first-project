@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Users from './Users';
+import UsersList from './UsersList';
 import {
     addUsers, setPage, setTotalCount,
     toggleIsFetching, progressFollowing, deleteUnfollowThunkCreator,
-    deleteАollowThunkCreator, openNumberPage, addUsersOnPage
+    postFollowThunkCreator, openNumberPage, addUsersOnPage
 } from '../../redux/usersReducer';
 
 
@@ -18,10 +18,10 @@ class UsersApiContainer extends Component {
     render() {
         return (
             <div>
-                <Users
+                <UsersList
                     countPages={this.countPages}
                     openNumberPage={this.props.openNumberPage}
-                    deleteАollowThunkCreator={this.props.deleteАollowThunkCreator}
+                    postFollowThunkCreator={this.props.postFollowThunkCreator}
                     deleteUnfollowThunkCreator={this.props.deleteUnfollowThunkCreator}
                     inProgressFollowing={this.props.inProgressFollowing}
                     isFetching={this.props.isFetching}
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     addUsersOnPage,
     openNumberPage,
-    deleteАollowThunkCreator,
+    postFollowThunkCreator,
     deleteUnfollowThunkCreator,
     progressFollowing,
     setPage,

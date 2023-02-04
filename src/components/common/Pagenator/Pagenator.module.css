@@ -1,0 +1,15 @@
+.page {
+    margin: 5px;
+    background-color: antiquewhite;
+}
+
+.pages {
+    display: inline-flex;
+    width: 1000px;
+
+}
+
+.active {
+    color: rgb(224, 11, 25);
+    text-decoration: none;
+}

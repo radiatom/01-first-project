@@ -3,3 +3,14 @@
     background-color: brown;
     color: aliceblue;
 }
+.div{
+    color: rgb(0, 0, 0);
+    background-color: aliceblue;
+    margin: 5px;
+}
+
+.span{
+    color: rgb(0, 0, 0);
+    background-color: aliceblue;
+    margin: 5px;
+}
