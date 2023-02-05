@@ -4,7 +4,7 @@
 }
 
 .pages {
-    display: inline-flex;
+    text-align: center;
     width: 1000px;
 
 }
