@@ -33,12 +33,13 @@ const UserProfileContainer=React.lazy(()=> import('./components/UserProfile/User
 
 const App = (props) => {
       props.getAuth()
-      return props.resultCode === null ?
-            <div className='preloader'>
-                  <PreloaderEntrance />
-            </div>
-            :
-            <div className="app-wrapper">
+      
+      // return props.resultCode === null ?
+      //       <div className='preloader'>
+      //             <PreloaderEntrance />
+      //       </div>
+      //       :
+           return  <div className="app-wrapper">
                   <HeaderContainer />
                   <Navbar />
                   <Suspense fallback={<Preloader />}>
@@ -46,7 +47,7 @@ const App = (props) => {
                               <Route path="/singIn/*" element={<SingInFormContainer />} />
                               <Route path="/myFriends/*" element={<MyFriendsContainer />} />
                               <Route path="/music/*" element={<Music />} />
-                              <Route path="/*" element={<News />} />
+                              {/* <Route path="/*" element={<News />} /> */}
                               <Route path="/setting/*" element={<SettingContainer />} />
                               <Route path="/dialogs/*" element={<DialogsContainer />} />
                               <Route path="/myProfile/*" element={<MyProfileContainer />} />
