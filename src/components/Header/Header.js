@@ -3,7 +3,6 @@ import s from './Header.module.css'
 import Login from "./Login/Login";
 import logo from './../../Img/logo.gif'
 
-
 const Header = (props) => {
       return (
             <header className={s.header}>
@@ -20,5 +19,6 @@ const Header = (props) => {
             </header>
       );
 };
+
 
 export default Header;

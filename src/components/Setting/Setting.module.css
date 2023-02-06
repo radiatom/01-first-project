@@ -1,9 +1,16 @@
 .setting {
-
-    
     text-align: center;
-
     grid-area: c;
-    /* background-color: brown; */
+    background-color: brown;
     color: aliceblue;
+    margin: 10px;
+    padding-bottom: 5px;
+}
+.updateAvatar{
+    text-align: center;
+    grid-area: c;
+    background-color: brown;
+    color: aliceblue;
+    margin: 10px;
+    padding-bottom: 5px;
 }

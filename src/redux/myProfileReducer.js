@@ -46,6 +46,13 @@ export const setMyId = (id) => {
     }
 }
 
+const SET_MY_FOTO = 'SET_MY_FOTO'
+export const setMyFoto = (link) => {
+    return {
+        type: SET_MY_FOTO,
+        link
+    }
+}
 
 const standartStateMyProfileData = {
     myId: null,
@@ -109,6 +116,13 @@ const myProfileReducer = (state = standartStateMyProfileData, action) => {
                 ...state,
                 myId: action.id
             }
+        case SET_MY_FOTO:
+            return {
+                ...state, myProfileData: {
+                    ...state.myProfileData,
+                    photos: action.link
+                }
+            }
         default:
             return state
     }
@@ -134,6 +148,13 @@ export const putStatusText = (statusText) => async (dispatch) => {
     const data = await myProfileApi.updateStatus(statusText)
     if (data.resultCode === 0) {
         dispatch(setStatus(statusText))
+    }
+}
+
+export const putAvatarFile = (file) => async (dispatch) => {
+    const data = await myProfileApi.putAvatar(file)
+    if (data.resultCode === 0) {
+        dispatch(setMyFoto(data.data.photos))
     }
 }
 

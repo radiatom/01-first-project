@@ -10,22 +10,22 @@ import store from './redux/redux_store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <HashRouter>
-        <Provider store={store}>
-            <React.StrictMode>
-                <App />
-            </React.StrictMode>
-        </Provider>
-    </HashRouter>
-    //<HashRouter> треба щоб гітхаб коректно ссилкі обробляв
-    // <BrowserRouter>
+    // <HashRouter>
     //     <Provider store={store}>
     //         <React.StrictMode>
     //             <App />
     //         </React.StrictMode>
     //     </Provider>
-    // </BrowserRouter>
-    // <BrowserRouter> це правильна дорога для побудови додатку
+    // </HashRouter>
+    // <HashRouter> треба щоб гітхаб коректно ссилкі обробляв
+    <BrowserRouter>
+        <Provider store={store}>
+            <React.StrictMode>
+                <App />
+            </React.StrictMode>
+        </Provider>
+    </BrowserRouter>
+    // {/* <BrowserRouter> це правильна дорога для побудови додатку */}
 );
 
 reportWebVitals();
