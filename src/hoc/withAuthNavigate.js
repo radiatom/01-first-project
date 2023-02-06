@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 
 export const withAuthNavigate = (Component) => {
     const NavigateComponent = (props) => {
-        if (props.resultCode === 1) { return (<Navigate to='/singIn/' />) }
+        if (props.resultCode === 1||props.resultCode === null) { return (<Navigate to='/singIn/' />) }
         return (<Component {...props} />);
     }
     const connectedWithAuthNavigateComponent = connect(mapStateToProps, {})(NavigateComponent)

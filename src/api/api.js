@@ -2,7 +2,10 @@ import axios from "axios"
 
 const instance = axios.create({
     withCredentials: true,
-    baseURL: `https://social-network.samuraijs.com/api/1.0/`
+    baseURL: `https://social-network.samuraijs.com/api/1.0/`,
+    headers: {
+        "API-KEY": "84c765f5-9aa4-4ed5-8edd-fa5b35cd4f49"
+    }
 })
 
 export const usersApi = {
@@ -35,17 +38,17 @@ export const userProfileApi = {
 }
 
 export const authApi = {
-    logaut:()=>{
+    logaut: () => {
         return instance.delete('auth/login')
-        .then(response => {
-            return response.data
-        })
+            .then(response => {
+                return response.data
+            })
     },
-    login:({email,password,rememberMe=false,captcha=true})=>{
-        return instance.post('auth/login',{email,password,rememberMe,captcha})
-        .then(response => {
-            return response.data
-        })
+    login: ({ email, password, rememberMe = false, captcha = true }) => {
+        return instance.post('auth/login', { email, password, rememberMe, captcha })
+            .then(response => {
+                return response.data
+            })
     },
     getAuthProfile: () => {
         return instance.get('auth/me')
@@ -62,10 +65,10 @@ export const myProfileApi = {
                 return response.data
             })
     },
-    updateStatus:(status)=>{
-        return instance.put(`profile/status`,{status:status})
+    updateStatus: (status) => {
+        return instance.put(`profile/status`, { status: status })
             .then(response => {
-                 return response.data
+                return response.data
             })
     }
 }

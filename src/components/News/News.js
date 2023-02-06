@@ -10,6 +10,7 @@ const News = () => {
             <span className={s.span}>one span string News </span>
             <span className={s.span}>two span string News </span>
             <span className={s.span}>three span string News </span>
+            <span>npm run deploy</span>
             
         </div>
     );
