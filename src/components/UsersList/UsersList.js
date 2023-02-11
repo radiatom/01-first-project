@@ -2,12 +2,21 @@ import s from './UsersList.module.css'
 import Preloader from '../common/Preloader/Preloader';
 import User from './User/User';
 import Pagenator from '../common/Pagenator/Pagenator';
+import React, { useState } from 'react';
+
 
 const Users = (props) => {
-    
+    const [portionNumber, setPortionNumber] = useState(1)
+    const leftPortion = () => {
+        setPortionNumber(portionNumber - 1)
+    }
+    const rightPortion = () => {
+        setPortionNumber(portionNumber + 1)
+    }
     return (
         <div className={s.users}>
             <Pagenator
+            portionNumber={portionNumber} leftPortion={leftPortion} rightPortion={rightPortion} {...props}
                 countUsers={props.countUsers}
                 countUsersOnPage={props.countUsersOnPage}
                 openNumberPage={props.openNumberPage}
@@ -33,6 +42,7 @@ const Users = (props) => {
                 </div>
             }
             <Pagenator
+            portionNumber={portionNumber} leftPortion={leftPortion} rightPortion={rightPortion} {...props}
                 countUsers={props.countUsers}
                 countUsersOnPage={props.countUsersOnPage}
                 openNumberPage={props.openNumberPage}
