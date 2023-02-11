@@ -8,6 +8,9 @@ const User = ({el,...props}) => {
     return (
         <div key={el.id} className={s.user}>
             <div>
+                {el.name} {el.last_name}
+            </div>
+            <div>
                 <NavLink to={'/userProfile/' + el.id}>
                     <img src={el.photos.small === null ? avatar : el.photos.small} alt="avatar" />
                 </NavLink>
@@ -25,9 +28,6 @@ const User = ({el,...props}) => {
                 }
             </div>
 
-            <div>
-                {el.name} {el.last_name}
-            </div>
         </div>
     );
 }

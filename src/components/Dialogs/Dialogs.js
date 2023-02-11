@@ -21,8 +21,10 @@ const Dialogs = (props) => {
                     <Field
                         validate={[required, maxLength50]}
                         placeholder='Text'
-                        cols="112"
-                        rows="3"
+                        // cols="112"
+                        // rows="3"
+                        cols={20}
+                        rows={1}
                         name={'massageText'}
                         component={TextArea}
                     />

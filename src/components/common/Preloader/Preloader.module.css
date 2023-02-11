@@ -1,5 +1,13 @@
 .preloader{
-    /* margin-top: 20%; */
     display: inline-block;
     text-align: center;
+
+}
+@media(max-width:800px){
+    .preloader img{
+        width: 5rem;
+    }
+}
+@media(max-width:300px){
+    
 }

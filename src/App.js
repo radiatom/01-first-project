@@ -5,7 +5,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import { getAuth } from "./redux/authReducer";
 import { connect } from "react-redux";
-// import PreloaderEntrance from "./components/common/Preloader/PreloaderEntrance";
+import PreloaderEntrance from "./components/common/Preloader/PreloaderEntrance";
 import Preloader from "./components/common/Preloader/Preloader";
 
 import News from "./components/News/News";
@@ -34,12 +34,12 @@ const UserProfileContainer=React.lazy(()=> import('./components/UserProfile/User
 const App = (props) => {
       props.getAuth()
 
-      // return props.resultCode === null ?
-      //       <div className='preloader'>
-      //             <PreloaderEntrance />
-      //       </div>
-      //       :
-            return <div className="app-wrapper">
+      return props.resultCode === null ?
+            <div className='preloader'>
+                  <PreloaderEntrance />
+            </div>
+            :
+             <div className="app-wrapper">
                   <HeaderContainer />
                   <Navbar />
                   <Suspense fallback={<Preloader />}>

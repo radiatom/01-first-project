@@ -11,7 +11,7 @@ const Pagenator = (props) => {
         setPortionNumber(portionNumber + 1)
     }
 
-    const portionSize = 12
+    const portionSize = 5
     const pages = Math.ceil(props.countUsers / props.countUsersOnPage)
     const columPortion = Math.ceil(pages / portionSize)
 

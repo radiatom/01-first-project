@@ -1,15 +1,28 @@
+* {
+  margin: 0;
+}
+
 .app-wrapper {
-  margin: 0 auto;
-  width: 1200px;
+  /* margin: 0 auto; */
   display: grid;
   grid-template-areas:
     'h h'
     'n c';
-  grid-template-rows: 40px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
+  grid-template-rows: 10fr;
+  grid-template-columns: 2.5fr 20fr;
+  /* grid-gap: 0px; */
 }
-.preloader{
+
+.preloader {
   text-align: center;
   margin-top: 20%;
 }
+
+@media(max-width:800px) {
+  .app-wrapper {
+    font-size: 0.7rem;
+    
+  }
+}
+
+@media(max-width:300px) {}

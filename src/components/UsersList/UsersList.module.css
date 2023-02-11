@@ -1,9 +1,31 @@
 .users {
-    background-color: aquamarine;
+    
+    margin-right: 0.3rem;
+    border-radius: 0.5rem;
+    background-color: rgb(184, 189, 187);
 }
 .users img {
+    border-radius: 0.5rem;
     width: 70px;
 }
 .preloader {
     text-align: center;
+}
+.usersContainer{
+    color: rgb(11, 188, 224);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+@media(max-width:800px){
+    .users img {
+        width: 45px;
+    }
+    .usersContainer{
+        grid-template-columns: 1fr 1fr ;
+    }
+}
+@media(max-width:300px){
+    .usersContainer{
+        grid-template-columns: 1fr ;
+    }
 }

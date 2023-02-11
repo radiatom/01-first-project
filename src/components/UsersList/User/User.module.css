@@ -1,4 +1,6 @@
 .user {
-    background-color: rgb(129, 129, 212);
-    margin: 10px;
+    border-radius: 0.5rem;
+    text-align: center;
+    background-color: rgb(83, 83, 107);
+    margin: 0.3rem;
 }

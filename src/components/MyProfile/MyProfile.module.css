@@ -1,9 +1,10 @@
 .content {
+  padding: 0.3rem;
   grid-area: c;
   background-color: blueviolet;
   
 }
 .content img{
-  width: 1000px;
-  height: 200px;
+  /* width: 1000px;
+  height: 200px; */
 }

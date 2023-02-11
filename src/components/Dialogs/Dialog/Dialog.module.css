@@ -1,8 +1,9 @@
 .dialog {
     display: flex; 
     justify-content:flex-start;
-    background-color: darkgray;
-    margin: 5px;
+    background-color: rgb(83, 81, 81);
+    margin: 0.3rem;
+    border-radius: 0.5rem;
    
     
 }
@@ -11,7 +12,7 @@
     border-radius: 50%;
 }
 .active {
-    color: gold;
+    color: rgb(11, 188, 224);
     text-decoration: none;
 
 }

@@ -1,15 +1,20 @@
 .page {
-    margin: 5px;
-    background-color: antiquewhite;
+    /* text-align: center; */
+   
+    /* background-color: antiquewhite; */
+    font-weight: bold;
+    color: aliceblue;
 }
 
 .pages {
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.3rem;
     text-align: center;
-    width: 1000px;
-
+    background-color: rgb(63, 65, 67);
 }
 
 .active {
-    color: rgb(224, 11, 25);
+    color: rgb(11, 188, 224);
     text-decoration: none;
 }

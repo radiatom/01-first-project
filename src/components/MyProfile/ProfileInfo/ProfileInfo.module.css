@@ -1,7 +1,19 @@
-.wallpaper {
-    width: 1020px;  
-
-} 
-.avatar img{
- width: 200px;
+.wallpaper img{
+    width: 1000px;
 }
+
+.avatar img {
+    border-radius: 0.5rem;
+    width: 200px;
+}
+
+@media(max-width:800px) {
+    .avatar img {
+        width: 7rem;
+    }
+    .wallpaper img{
+        max-width: 0;
+    }
+}
+
+@media(max-width:300px) {}

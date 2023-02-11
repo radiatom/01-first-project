@@ -6,7 +6,7 @@ import Pagenator from '../common/Pagenator/Pagenator';
 const Users = (props) => {
     
     return (
-        <div className={s.pageUsers}>
+        <div className={s.users}>
             <Pagenator
                 countUsers={props.countUsers}
                 countUsersOnPage={props.countUsersOnPage}
@@ -19,7 +19,7 @@ const Users = (props) => {
                     <Preloader />
                 </div>
                 :
-                <div className={s.users}>{
+                <div className={s.usersContainer}>{
                     props.users.map(el =>
                         <User
                             key={el.id}

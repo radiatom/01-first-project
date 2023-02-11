@@ -1,16 +1,33 @@
 .news {
-    grid-area: c;
+    border-radius: 0.5rem;
+    margin-top: 0.3rem;
+    margin-right: 0.3rem;
+    grid-area: c; 
     background-color: brown;
     color: aliceblue;
 }
 .div{
+    font-style:italic;
     color: rgb(0, 0, 0);
     background-color: aliceblue;
-    margin: 5px;
+    /* margin: 5px; */
 }
 
 .span{
     color: rgb(0, 0, 0);
     background-color: aliceblue;
-    margin: 5px;
+    /* margin: 5px; */
+}
+.data{
+    color:rgb(220, 95, 95)
+}
+.p1{
+    font-weight: 500;
+}
+.post{
+    border-radius: 0.5rem;
+    font-weight: 500;
+    margin:1%;
+    padding: 1%;
+    background-color: rgb(95, 92, 92);
 }
