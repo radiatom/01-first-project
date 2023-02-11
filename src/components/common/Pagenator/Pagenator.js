@@ -21,8 +21,14 @@ const Pagenator = (props) => {
     }
     return (
         <div className={s.pages}>
-            <span>
-                {portionNumber > 1 ? <button onClick={leftPortion}>PREW</button> : ''}
+            <span>{portionNumber > 1 ?
+                <span>
+                    <span><button onClick={leftPortion}>PREW</button></span>
+                    <span className={1 === props.pageNumber ? s.active : s.page} onClick={() => { props.openNumberPage(1, props.countUsersOnPage) }}> 1</span>
+                    <span className={s.page}>... </span>
+                </span>
+                :
+                ''}
             </span>
 
             <span className={s.page} >
@@ -33,13 +39,20 @@ const Pagenator = (props) => {
                             onClick={() => { props.openNumberPage(el, props.countUsersOnPage) }}
                             className={el === props.pageNumber ? s.active : s.page}
                         >
-                            {el}
+                            {el+' '}
                         </span>)
                 })}
             </span>
 
             <span>
-                {portionNumber !== columPortion ? <button onClick={rightPortion}>NEXT</button> : ''}
+                {portionNumber !== columPortion ?
+                    <span>
+                        <span className={s.page}>... </span>
+                        <span className={pages === props.pageNumber ? s.active : s.page} onClick={() => { props.openNumberPage(pages, props.countUsersOnPage) }}>{pages} </span>
+                        <span><button onClick={rightPortion}>NEXT</button></span>
+                    </span>
+                    :
+                    ''}
             </span>
         </div>
     );

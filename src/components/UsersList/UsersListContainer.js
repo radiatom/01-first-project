@@ -10,7 +10,6 @@ import {
 
 class UsersApiContainer extends Component {
 
-
     componentDidMount() {
         this.props.addUsersOnPage(this.props.pageNumber, this.props.countUsersOnPage)
     }

@@ -32,6 +32,12 @@ const Users = (props) => {
                 }
                 </div>
             }
+            <Pagenator
+                countUsers={props.countUsers}
+                countUsersOnPage={props.countUsersOnPage}
+                openNumberPage={props.openNumberPage}
+                pageNumber={props.pageNumber}
+            />
         </div>
     );
 }
