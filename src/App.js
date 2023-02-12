@@ -16,19 +16,20 @@ import SettingContainer from "./components/Setting/SettingContainer";
 // import MyProfileContainer from "./components/MyProfile/MyProfileContainer";
 import MyFriendsContainer from "./components/MyFriends/MyFriendsContainer";
 import SingInFormContainer from "./components/SingInForm/SingInFormContainer";
+import MyTelegram from "./components/MyTelegram/MyTelegram";
 // import UserProfileContainer from "./components/UserProfile/UserProfileContainer";
 
 // React.lazy лінива підгрузка, лише тоді коли цю компоненту трогають тоді вона буде підгружатись. 
 // Стандартно реакт підгружає все підряд що не обернене в lazy.
 // const News=React.lazy(()=> import("./components/News/News"))
 // const Music=React.lazy(()=> import("./components/Music/Music"))
-const DialogsContainer=React.lazy(()=> import("./components/Dialogs/DialogsContainer"))
+const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
 // const SettingContainer=React.lazy(()=> import("./components/Setting/SettingContainer"))
-const UsersListContainer=React.lazy(()=> import("./components/UsersList/UsersListContainer"))
-const MyProfileContainer=React.lazy(()=> import("./components/MyProfile/MyProfileContainer"))
+const UsersListContainer = React.lazy(() => import("./components/UsersList/UsersListContainer"))
+const MyProfileContainer = React.lazy(() => import("./components/MyProfile/MyProfileContainer"))
 // const MyFriendsContainer=React.lazy(()=> import("./components/MyFriends/MyFriendsContainer"))
 // const SingInFormContainer=React.lazy(()=> import("./components/SingInForm/SingInFormContainer"))
-const UserProfileContainer=React.lazy(()=> import('./components/UserProfile/UserProfileContainer'))
+const UserProfileContainer = React.lazy(() => import('./components/UserProfile/UserProfileContainer'))
 
 
 const App = (props) => {
@@ -39,22 +40,27 @@ const App = (props) => {
                   <PreloaderEntrance />
             </div>
             :
-             <div className="app-wrapper">
-                  <HeaderContainer />
-                  <Navbar />
-                  <Suspense fallback={<Preloader />}>
-                        <Routes>
-                              <Route path="/singIn/*" element={<SingInFormContainer />} />
-                              <Route path="/myFriends/*" element={<MyFriendsContainer />} />
-                              <Route path="/music/*" element={<Music />} />
-                              <Route path="/*" element={<News />} />
-                              <Route path="/setting/*" element={<SettingContainer />} />
-                              <Route path="/dialogs/*" element={<DialogsContainer />} />
-                              <Route path="/myProfile/*" element={<MyProfileContainer />} />
-                              <Route path="/users/*" element={<UsersListContainer />} />
-                              <Route path="/userProfile/:userId" element={<UserProfileContainer />} />
-                        </Routes>
-                  </Suspense>
+            <div >
+                  <div className="main-container">
+                        <div className="header"><HeaderContainer /></div>
+                        <div className="navbar"><Navbar /></div>
+                        <div className="content">
+                              <Suspense fallback={<Preloader />}>
+                                    <Routes>
+                                          <Route path="/singIn/*" element={<SingInFormContainer />} />
+                                          <Route path="/myFriends/*" element={<MyFriendsContainer />} />
+                                          <Route path="/music/*" element={<Music />} />
+                                          <Route path="/*" element={<News />} />
+                                          <Route path="/setting/*" element={<SettingContainer />} />
+                                          <Route path="/dialogs/*" element={<DialogsContainer />} />
+                                          <Route path="/myProfile/*" element={<MyProfileContainer />} />
+                                          <Route path="/users/*" element={<UsersListContainer />} />
+                                          <Route path="/userProfile/:userId" element={<UserProfileContainer />} />
+                                    </Routes>
+                              </Suspense>
+                        </div>
+                        <div className="myTelegram"><MyTelegram /></div>
+                  </div>
             </div>
 }
 

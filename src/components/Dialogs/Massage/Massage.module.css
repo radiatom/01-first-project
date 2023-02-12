@@ -4,8 +4,8 @@
     display: flex;
     justify-content: flex-end;
     background-color: rgb(48, 93, 93);
-    margin: 5px;
-    padding: 5px;
+    /* margin: 5px;
+    padding: 5px; */
 }
 .styleHis img{
     border-radius: 50%;
@@ -15,8 +15,8 @@
     display: flex;
     justify-content: flex-start;
     background-color: rgb(48, 93, 93);
-    margin: 5px;
-    padding: 5px;
+    /* margin: 5px;
+    padding: 5px; */
 }
 .styleMy img{
     border-radius: 50%;

@@ -2,15 +2,27 @@
   margin: 0;
 }
 
-.app-wrapper {
-  /* margin: 0 auto; */
+.main-container {
   display: grid;
-  grid-template-areas:
-    'h h'
-    'n c';
-  grid-template-rows: 10fr;
-  grid-template-columns: 2.5fr 20fr;
-  /* grid-gap: 0px; */
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: 40px 10fr 40px;;
+  
+}
+.header{
+  grid-column: 1/25;
+  grid-row: 1;
+}
+.navbar{
+  grid-column: 4/7;
+  
+}
+.content{
+  grid-column: 7/22;
+  grid-row: 2/3;
+}
+.myTelegram{
+  grid-column: 1/25;
+  grid-row: 3;
 }
 
 .preloader {
@@ -18,11 +30,39 @@
   margin-top: 20%;
 }
 
-@media(max-width:800px) {
-  .app-wrapper {
-    font-size: 0.7rem;
+@media(max-width:800px) { 
+  .navbar{
+    grid-column: 1/5;
     
+  }
+  .content{
+    grid-column: 5/25;
+    grid-row: 2/3;
   }
 }
 
-@media(max-width:300px) {}
+@media(max-width:600px) {
+  .navbar{
+    grid-column: 1;
+    grid-row: 1;
+    
+  }
+  .content{
+    grid-column: 1/25;
+    grid-row: 2/3;
+  }
+} 
+/* .app-wrapper { */
+  /* display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(2, 1fr); */
+  /* margin: 0 auto; */
+  /* display: grid; */
+  /* grid-template-areas:
+    'h h'
+    'n c'; */
+
+  /* grid-template-columns: 2.5fr 20fr;
+  grid-template-rows: 40px 10fr 40px;
+  grid-gap: 0px; */
+/* } */

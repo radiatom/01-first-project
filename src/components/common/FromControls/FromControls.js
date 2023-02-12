@@ -7,7 +7,7 @@ export const TextArea = ({ input, meta, ...props }) => {
         <div className={s.formControl}>
             <div>
                 <textarea
-                    className={(meta.touched && meta.error ? s.erorrForm : '')}
+                    className={(meta.touched && meta.error ? s.erorrForm : s.textarea)}
                     placeholder={props.placeholder}
                     cols={props.cols}
                     rows={props.rows}
@@ -32,7 +32,7 @@ export const Input = ({ input, meta, ...props }) => {
                 <input
                     value={props.value}
                     type={props.type}
-                    className={(meta.touched && meta.error ? s.erorrForm : '')}
+                    className={(meta.touched && meta.error ? s.erorrForm : s.input)}
                     placeholder={props.placeholder}
                     {...input}
                     {...props}

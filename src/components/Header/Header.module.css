@@ -1,6 +1,6 @@
 .header {
   height: 2.5rem;
-  grid-area: h;
+  /* grid-area: h; */
   background-color: rgb(27, 28, 27);
 }
 

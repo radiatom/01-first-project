@@ -12,7 +12,7 @@ const Posts = (props) => {
             <div className={s.posts}>
                   <h3>Post</h3>
                   <form onSubmit={props.handleSubmit}>
-                        <Field placeholder='Text' cols="15" rows="3"
+                        <Field placeholder='Text'  rows="2"
                               name={'postText'}
                               component={TextArea}
                               validate={[required ,maxLength1000]} />
