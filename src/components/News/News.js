@@ -8,6 +8,8 @@ const News = (props) => {
                 <h3>Cайти для допомоги:</h3>
                 <ul>
                     <li> Css, HTML :<a href="https://css.in.ua/">https://css.in.ua/</a></li>
+                    <li>Install git pages from react: <a href="https://github.com/gitname/react-gh-pages">https://github.com/gitname/react-gh-pages</a> </li>
+                    <li> Install react bootstrap :<a href="https://www.geeksforgeeks.org/how-to-install-bootstrap-in-react-js/">https://www.geeksforgeeks.org/how-to-install-bootstrap-in-react-js/</a></li>
 
                 </ul>
 

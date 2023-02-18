@@ -3,6 +3,7 @@ import s from './Navbar.module.css'
 import { NavLink } from "react-router-dom";
 import TopFriendsContainer from "./TopFriends/TopFriendsContainer";
 import burger from './../../Img/android-chrome-512x512.png'
+import MyTelegram from "../MyTelegram/MyTelegram";
 
 const Navbar = (props) => {
       return (
@@ -42,7 +43,9 @@ const Navbar = (props) => {
                               </div>
 
                         </nav>
+                        <MyTelegram />
                   </div>
+
             </div>
       );
 };

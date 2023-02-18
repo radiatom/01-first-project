@@ -40,7 +40,7 @@ const App = (props) => {
                   <PreloaderEntrance />
             </div>
             :
-            <div >
+            <div className="wraper">
                   <div className="main-container">
                         <div className="header"><HeaderContainer /></div>
                         <div className="navbar"><Navbar /></div>
@@ -59,8 +59,8 @@ const App = (props) => {
                                     </Routes>
                               </Suspense>
                         </div>
-                        <div className="myTelegram"><MyTelegram /></div>
                   </div>
+                  {/* <div className="myTelegram"><MyTelegram /></div> */}
             </div>
 }
 
