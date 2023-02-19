@@ -10,7 +10,7 @@ const News = (props) => {
                     <li> Css, HTML :<a href="https://css.in.ua/">https://css.in.ua/</a></li>
                     <li>Install git pages from react: <a href="https://github.com/gitname/react-gh-pages">https://github.com/gitname/react-gh-pages</a> </li>
                     <li> Install react bootstrap :<a href="https://www.geeksforgeeks.org/how-to-install-bootstrap-in-react-js/">https://www.geeksforgeeks.org/how-to-install-bootstrap-in-react-js/</a></li>
-
+                    <li> link in indexjs <a href="https://react-bootstrap.github.io/getting-started/introduction">https://react-bootstrap.github.io/getting-started/introduction</a></li>
                 </ul>
 
                 <div><button>Like</button></div>
