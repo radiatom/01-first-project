@@ -22,7 +22,7 @@ const ProfileInfo = React.memo((props) => {
             <div><ProfileStatusContainer /></div>
             <div><h3>My first site: <a href="https://radiatom.github.io/demoSite/" target='_blank'>https://radiatom.github.io/demoSite/  </a></h3></div>
             <div><h3>My first react site:<a href="https://radiatom.github.io/01-first-project/">https://radiatom.github.io/01-first-project/</a> </h3></div>
-            <div><h3>My first react site on usual bootstrap :<a href="https://radiatom.github.io/demo-site-react-usual-bootstrap/">https://radiatom.github.io/demo-site-react-usual-bootstrap/</a> </h3></div>
+            <div><h3>My first react site on usual bootstrap :<a href="https://radiatom.github.io/demosite-react-usual-bootstrap/">https://radiatom.github.io/demosite-react-usual-bootstrap/</a> </h3></div>
             <div><h3>About me: {props.myProfileData.aboutMe}</h3></div>
         </div>
     );
