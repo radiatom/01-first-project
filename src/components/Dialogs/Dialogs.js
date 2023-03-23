@@ -25,8 +25,7 @@ const Dialogs = (props) => {
                         name={'massageText'}
                         component={TextArea}
                     />
-                    <span>Send</span>
-                    {/* <button>Send</button> */}
+                    <button>Send</button>
                 </form>
 
             </div>
