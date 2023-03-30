@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './News.module.css';
 import useParamsImg from "./../../Img/useParamsImg.png"
+import TS from './../../Img/TS.png'
 
 const News = (props) => {
     return (
@@ -103,7 +104,7 @@ const News = (props) => {
                 {/* <div className={s.textarea}> <textarea cols="100" rows="2"></textarea></div> */}
                 <div><button>Post</button></div>
             </div>
-            <div>
+            <div className={s.post}>
                 <h3>useParams() - це хук (hook) React, який надає доступ до параметрів маршруту в рамках компонента</h3>
                 <p>При створенні маршруту в React Router, ми можемо включити динамічні сегменти шляху, які представлені змінними, які можуть бути передані в компонент в якості параметрів. Наприклад, в маршруті /users/:id, :id є динамічним параметром, який може бути замінений на різні значення.</p>
                 <p>Коли ми використовуємо useParams(), React Router дозволяє нам отримати доступ до значення параметра, що знаходиться у шляху, і повернути його в якості об'єкта, який містить пари ключ-значення. Наприклад, якщо шлях був /users/123, тоді useParams() поверне об'єкт ${"{ id: 123 }"}, де id - це ім'я параметра, вказаного в маршруті.</p>
@@ -111,6 +112,13 @@ const News = (props) => {
                 <img src={useParamsImg} alt="useParamsImg" />
 
             </div>
+            <div className={s.post}>
+                <h3>Error TypeScript no module in .png:</h3>
+                <p>add one file in folder project: name: "tsconfig.json" with code :</p>
+                <img src={TS} alt="" />
+                <p>But add in "include":"src/**/*.ts"</p>
+            </div>
+
             <div className={s.post}>
                 <h3>Принципи позицонування:</h3>
                 <div className={s.div}>One div, display:block, News </div>
