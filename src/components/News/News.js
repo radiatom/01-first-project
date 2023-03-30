@@ -2,6 +2,7 @@ import React from 'react';
 import s from './News.module.css';
 import useParamsImg from "./../../Img/useParamsImg.png"
 import TS from './../../Img/TS.png'
+import TS2 from './../../Img/TS2.png'
 
 const News = (props) => {
     return (
@@ -113,10 +114,16 @@ const News = (props) => {
 
             </div>
             <div className={s.post}>
-                <h3>Error TypeScript no module in .png:</h3>
+                <h3>Not fix problem!!! Error TypeScript no module in .png:</h3>
                 <p>add one file in folder project: name: "tsconfig.json" with code :</p>
                 <img src={TS} alt="" />
                 <p>But add in "include":"src/**/*.ts"</p>
+            </div>
+            <div className={s.post}>
+                <h3>Fix problem!!! Error TypeScript no module in .png:</h3>
+                <p>Add img in public folder and add code: </p>
+                <img src={TS2} alt="" />
+                
             </div>
 
             <div className={s.post}>
