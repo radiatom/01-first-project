@@ -18,7 +18,9 @@ const News = (props) => {
                     <li> Font styles install<a href="https://developers.google.com/fonts/docs/getting_started">https://developers.google.com/fonts/docs/getting_started</a></li>
                     <li> Css tools <a href="https://webcode.tools/generators/css/background-image">https://webcode.tools/generators/css/background-image</a></li>
                     <li> Resume creator pdf <a href="https://www.canva.com/design/DAFd79nAlCs/3D4mM04aOoBNWz6_A6FP8A/edit">https://www.canva.com/design/DAFd79nAlCs/3D4mM04aOoBNWz6_A6FP8A/edit</a></li>
-                <li>How add GoogleMaps in site: Delete "style" in html <a href="https://support.google.com/maps/answer/144361?hl=ru&co=GENIE.Platform%3DDesktop">https://support.google.com/maps/answer/144361?hl=ru&co=GENIE.Platform%3DDesktop</a></li>
+                    <li>How add GoogleMaps in site: Delete "style" in html <a href="https://support.google.com/maps/answer/144361?hl=ru&co=GENIE.Platform%3DDesktop">https://support.google.com/maps/answer/144361?hl=ru&co=GENIE.Platform%3DDesktop</a></li>
+                    <li>Foto redactor/ compress foto<a href="https://www.iloveimg.com/uk">https://www.iloveimg.com/uk</a></li>
+                
                 </ul>
                 <h3>Git rect site:</h3>
                 <ul>
@@ -124,7 +126,7 @@ const News = (props) => {
                 <h3>Fix problem!!! Error TypeScript no module in .png:</h3>
                 <p>Add img in public folder and add code: </p>
                 <img src={TS2} alt="" />
-                
+
             </div>
 
             <div className={s.post}>
