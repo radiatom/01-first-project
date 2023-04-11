@@ -5,6 +5,27 @@ import TS from './../../Img/TS.png'
 import TS2 from './../../Img/TS2.png'
 
 const News = (props) => {
+    function CodeBlock(props) {
+        return (
+            <pre>
+                <code>
+                    {props.code}
+                </code>
+            </pre>
+        );
+    }
+    const code = `<IfModule mod_rewrite.c>
+
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.html [L]
+
+</IfModule>`
+
     return (
         <div className={s.news}>
             <div className={s.post}>
@@ -20,7 +41,7 @@ const News = (props) => {
                     <li> Resume creator pdf <a href="https://www.canva.com/design/DAFd79nAlCs/3D4mM04aOoBNWz6_A6FP8A/edit">https://www.canva.com/design/DAFd79nAlCs/3D4mM04aOoBNWz6_A6FP8A/edit</a></li>
                     <li>How add GoogleMaps in site: Delete "style" in html <a href="https://support.google.com/maps/answer/144361?hl=ru&co=GENIE.Platform%3DDesktop">https://support.google.com/maps/answer/144361?hl=ru&co=GENIE.Platform%3DDesktop</a></li>
                     <li>Foto redactor/ compress foto<a href="https://www.iloveimg.com/uk">https://www.iloveimg.com/uk</a></li>
-                
+
                 </ul>
                 <h3>Git rect site:</h3>
                 <ul>
@@ -40,6 +61,16 @@ const News = (props) => {
             </div>
 
             <div className={s.post}>
+                <h3>Erorr (404) reboot page in hosting</h3>
+                <p>In file  .htaccess add next code:</p>
+                <div>
+                    <CodeBlock code={code} />
+                </div>
+            </div>
+
+            <div className={s.post}>
+                
+
                 <p>Величини визначються:
                     <li><span >px (пікселі)</span></li>
                     <li><span >%(відносно батьківського тега)</span></li>
@@ -142,7 +173,7 @@ const News = (props) => {
                 {/* <div className={s.textarea}> <textarea cols="100" rows="2"></textarea></div> */}
                 <div><button>Post</button></div>
             </div>
-        </div>
+        </div >
     );
 }
 
