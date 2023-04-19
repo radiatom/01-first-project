@@ -20,10 +20,13 @@ const ProfileInfo = React.memo((props) => {
 
             <div><h2>{props.myProfileData.fullName}</h2></div>
             <div><ProfileStatusContainer /></div>
-            <div><h3>My first site: <a href="https://radiatom.github.io/demoSite/" target='_blank'>https://radiatom.github.io/demoSite/  </a></h3></div>
-            <div><h3>My first react site:<a href="https://radiatom.github.io/01-first-project/">https://radiatom.github.io/01-first-project/</a> </h3></div>
-            <div><h3>My first react site on usual bootstrap :<a href="https://radiatom.github.io/demosite-react-usual-bootstrap/">https://radiatom.github.io/demosite-react-usual-bootstrap/</a> </h3></div>
-            <div><h3>Diagnoctic project: <a href="https://radiatom.github.io/diagnostics/" target='_blank'>https://radiatom.github.io/diagnostics/</a></h3></div>
+            <div><h3>My first site: <a href="https://radiatom.github.io/demoSite/" target="_blank" rel="noopener noreferrer">https://radiatom.github.io/demoSite/  </a></h3></div>
+            <div><h3>My first react site:<a href="https://radiatom.github.io/01-first-project/" target="_blank" rel="noopener noreferrer">https://radiatom.github.io/01-first-project/</a> </h3></div>
+            <div><h3>My first react site on usual bootstrap :<a href="https://radiatom.github.io/demosite-react-usual-bootstrap/" target="_blank" rel="noopener noreferrer">https://radiatom.github.io/demosite-react-usual-bootstrap/</a> </h3></div>
+            <div><h3>Diagnoctic project: <a href="https://radiatom.github.io/diagnostics/" target="_blank" rel="noopener noreferrer">https://radiatom.github.io/diagnostics/</a></h3></div>
+            <div><h3>Diagnoctic site: <a href="https://viniko.in.ua/" target="_blank" rel="noopener noreferrer">https://viniko.in.ua/</a></h3></div>
+            <div><h3>Kanban repo issues: <a href="https://radiatom.github.io/github-test-task/" target="_blank" rel="noopener noreferrer">https://radiatom.github.io/github-test-task/</a></h3></div>
+
             {/* <div><h3>About me: {props.myProfileData.aboutMe}</h3></div> */}
         </div>
     );
