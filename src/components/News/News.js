@@ -166,8 +166,27 @@ const News = (props) => {
               href="https://github.com/laksor/react-car-service-site"
               target="_blank"
               rel="noopener noreferrer"
-            ></a>
-            https://github.com/laksor/react-car-service-site
+            >
+              https://github.com/laksor/react-car-service-site
+            </a>
+          </li>
+          <li>
+            methodology bacground position, color, img, gradient:
+            <a href="https://fls.guru/cssbackground.html">
+              https://fls.guru/cssbackground.html
+            </a>
+          </li>
+          <li>
+            bacground gradient :
+            <a href="https://www.colorzilla.com/gradient-editor/">
+              https://www.colorzilla.com/gradient-editor/
+            </a>
+          </li>
+          <li>
+            RGBA code color calculator:
+            <a href="http://hex2rgba.devoth.com/">
+              http://hex2rgba.devoth.com/
+            </a>
           </li>
         </ul>
         <div>
