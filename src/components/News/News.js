@@ -172,20 +172,42 @@ const News = (props) => {
           </li>
           <li>
             methodology bacground position, color, img, gradient:
-            <a href="https://fls.guru/cssbackground.html">
+            <a
+              href="https://fls.guru/cssbackground.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               https://fls.guru/cssbackground.html
             </a>
           </li>
           <li>
             bacground gradient :
-            <a href="https://www.colorzilla.com/gradient-editor/">
+            <a
+              href="https://www.colorzilla.com/gradient-editor/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               https://www.colorzilla.com/gradient-editor/
             </a>
           </li>
           <li>
             RGBA code color calculator:
-            <a href="http://hex2rgba.devoth.com/">
+            <a
+              href="http://hex2rgba.devoth.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               http://hex2rgba.devoth.com/
+            </a>
+          </li>
+          <li>
+          methodology position: absolute, fixed, static, relatiwe:
+            <a
+              href="https://fls.guru/cssposition.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://fls.guru/cssposition.html
             </a>
           </li>
         </ul>
