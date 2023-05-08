@@ -210,6 +210,16 @@ const News = (props) => {
               https://fls.guru/cssposition.html
             </a>
           </li>
+          <li>
+          methodology flex:
+            <a
+              href="https://fls.guru/flexbox.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://fls.guru/flexbox.html
+            </a>
+          </li>
         </ul>
         <div>
           <button>Like</button>
